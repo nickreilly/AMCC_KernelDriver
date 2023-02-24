@@ -1,0 +1,6 @@
+# to build driver, simply type 'make' 
+#
+# the ociw_physbufsize parameter kmallocs a chunk of memory to use
+# in the driver. This chunk is pretty large here.
+sudo /sbin/rmmod amcc
+sudo /sbin/insmod ./amcc.ko ociw_physbufsize=0x2000000 
