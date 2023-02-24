@@ -1,0 +1,13 @@
+detname hawaii-2RG
+clockpgm hawaii2RG-4a-rr.s
+datapgm ociw.o
+outputformat block
+badpixfile NULL
+maxrow 2048
+maxcol 2048
+nout 4
+boxname OCIW4chan
+adrange 5.000
+ampgain 10.980
+prepix 0
+postpix 0

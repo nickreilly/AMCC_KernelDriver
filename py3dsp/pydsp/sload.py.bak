@@ -1,0 +1,151 @@
+"""
+sload.py
+
+handles sending S-records to the DSP bootloader.
+"""
+
+# import ociw
+import ociw_cpy as ociw
+import time
+
+class sloader:
+    "load s-records down to the DSP"
+
+    X = 1
+    Y = 2
+    P = 4
+    GO = 8
+    ignore_checksums = 0
+
+    def __init__(self) :
+        # if not dev:
+        #     dev = 
+        self.read = ociw.read()
+        self.write = ociw.write()
+        self.mem_space = 0
+
+    def syncup(self) :
+        "write a zero to the dsp, return non-zero if nothing comes back"
+        self.write(0)
+        try : 
+            return self.read() # must return 0
+        except : 
+            return 1
+
+    def waitsync(self) :
+        "wait for sync, >256 tries max"
+        for i in range(500) :
+            if self.syncup() == 0  :
+                return 0
+        else :
+            raise SystemError
+
+    def srec2ints(self, srec) :
+        "convert a single s-record to an array of 16 bit ints."
+        result = [0,0] # nwords, mem_space. will patch later
+        assert srec[0] == 'S', "non - sreco" # first char must be S!!
+        cmd,nbytes,scheck = srec[0:2], int(srec[2:4],16), int(srec[-2:],16)
+
+        srec = srec[4:-2] # we are done with first 4 chars and last 2 chars
+        assert len(srec) == (nbytes - 1)*2 , "s-record length error"
+
+        if cmd in ('S0','S1','S9') : # 16 bit address
+            result.append(int(srec[0:4],16))
+            result.append(0)
+            srec = srec[4:] # trim off address too.
+        elif cmd in ('S2','S8'): # 24 bit address
+            result.append(int(srec[2:6],16))
+            result.append(int(srec[0:2],16))
+            if 0xed0 < int(srec[0:6],16) < 0xf50 : # bootloader at 0xf00
+                raise SystemError, "downloaded program clobbering bootloader!"
+            srec = srec[6:] # trim off address
+        else :
+            print cmd, "is unknown"
+            return []
+
+        if cmd == 'S0' : # S0 changes memspace
+            self.mem_space = result[2] # booter ignores address on S0 records
+            assert self.mem_space in (sloader.X, sloader.Y, sloader.P)
+        elif cmd in ('S8','S9') : # END command isn't really mem space. 
+            self.mem_space = sloader.GO
+                
+        result[1] = self.mem_space
+
+        # we now have nothing but the data left
+        for i in range(0,len(srec),6) : # its 24 bit data, 6 characters per.
+            result.append(int(srec[i+2:i+6],16))
+            result.append(int(srec[i:i+2],16))
+            result[0] += 1
+
+        return result
+
+    def sendvals(self, values) :
+        "send a single srecord (as a list of values) to the DSP.\n"
+        "returns sent checksum and received checksum"
+        checksum = 0
+        endrec = (values[1] == 8)
+        for val in values :
+            self.write(val)
+            checksum += val
+
+        checksum = checksum & 0xffff
+        if endrec : 
+            print "starting dsp"
+            return checksum, checksum # end records don't send a checksum.
+        else : 
+            return checksum, self.read()&0xffff   
+
+    def sendsrec(self, srec) :
+        "send a single srecord (character string)"
+        values = self.srec2ints(srec)
+        return self.sendvals(values)
+    
+    def sendsrecs(self, srecs) :
+        "send a list of srecords to the DSP"
+        for srec in srecs :
+            for tries in range(5) :
+                try:
+                    sent, rcvd = self.sendsrec(srec)
+                    if self.ignore_checksums :
+                        break   #
+                    if sent == rcvd :
+                        break # next srec
+                    print hex(sent), hex(rcvd)
+                    self.waitsync()
+                except SystemError:
+                    if tries == 4 :
+                        import traceback
+                        traceback.print_exc()
+                        print srec
+                        raise
+                    print "syncing.."
+                    try :
+                        self.waitsync()
+                    except :
+                        print "waitsync failure"
+                    continue
+            else :
+                print srec
+                raise SystemError, "failed after 5 tries"
+
+    def file2srecs(self, filename) :
+        "open the srecord file, read all the lines, and make a list"
+        srecs = [] 
+        for line in open(filename) :
+            line = line.strip()
+            if line : 
+                srecs.append(line)
+        return srecs
+
+    def sendfile(self,filename) :
+        "Open a srecord file and download srecords to dsp."
+        srecs = self.file2srecs(filename)
+        self.sendsrecs(srecs)
+
+    def load_srec(self, filename) :
+        "Reset the target, download an srecord file, and execute it."
+        ociw.reset()
+        time.sleep(1.0) # wait really IS necessary!
+        self.waitsync()
+        self.sendfile(filename)
+        return 0

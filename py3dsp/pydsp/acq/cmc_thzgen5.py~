@@ -1,0 +1,110 @@
+"""
+This is a script to run in pydsp.
+    
+    For THz Gen 5 IR pathfinder chips
+
+to use, type: execuser filename (no .py)
+"""
+
+from run import rd
+import xdir
+import numpy
+import pyfits
+import time
+import os
+import dv
+
+# Calculate the conversion for ADU to mV for the A/D converters and amplifiers 
+ADCrange = dd.adrange * 1000.0 # in mV
+preampgain = dd.ampgain
+ADUtoVolt = ADCrange / ( 2**16 * preampgain)
+
+def gettemp():
+    # What is our current temperature?
+    tmps()
+    CurrTemp = int(round(readTemp())) # round and return as integer -- no decimal
+    return CurrTemp
+
+
+def checkoffset(step, whichbox, LowerLimit=-10000, UpperLimit=10000):
+    """ Give step in units of mV and whichbox is given like those at 
+     the beginning of this program, e.g. box1 = (slice(3,5),slice(3,5))
+     The Upper and LowerLimit are the pixel values in ADU within which 
+     this routine will aim to get the pedestal level. 
+     The limits are set to default if user does not give them.
+     Set range higher for this chip.  Output goes down when THz illuminates
+    """    
+    value = 123000 # just set initial value out of range.
+    while value > UpperLimit or value < LowerLimit : 
+        pedscan() # Take a single read after reset (no integration yet)
+        # need a delay so that the shutter stays closed for minimum time
+        #time.sleep(0.1) # 50ms should be long enough.
+        pedfilename = xdir.get_objpath() + "/ped.fits" # file name of above
+        pedfile = pyfits.open(pedfilename) # Open the FITS file
+        peddata = pedfile[0].data # get the actual data
+        value = peddata[whichbox].mean() # take mean in the given "whichbox"
+        # adjust voffset as needed
+        if value > UpperLimit : 
+            dd.voffset = dd.voffset - step
+        if value < LowerLimit :
+            dd.voffset = dd.voffset + step
+        pedfile.close()
+
+def mywriteFITS(data, header, outputfilename):
+    # This is a lot easier and simpler in newer versions of pyfits!
+    fitsobj = pyfits.HDUList() # new fitsfile object
+    hdu = pyfits.PrimaryHDU()
+    fitsobj.append(hdu) # and
+    hdu.data = data
+    fitsobj[0].header = header
+    print 'Writing image to \n %s'%outputfilename
+    fitsobj.writeto(outputfilename)
+
+def varyVgs(VgsStart,VgsEnd,VgsStep,NumSamp):
+    # User supplies 3 voltages (start,end,step) for Vgs, and number of images.
+    OrigOffset= dd.voffset
+    OrigVgs = dd.vgs
+    OrigVreset = dd.vreset
+    # Open a file to store data, using "a" = append mode
+    wfile = open(xdir.get_objpath() + "/" + rd.object +".txt", "a")
+    for voltage in range(VgsStart,VgsEnd+1,VgsStep):
+        dd.vgs = voltage # Set the new Vgs value.
+        # Changed Vgs, so check the voltage into preamp and adjust offset
+        # but we need to do that for EACH PIXEL INDIVIDUALLY.
+        AveValImg = numpy.zeros([9,10])  # create a blank array of zeros
+        PixelVoffset = numpy.zeros([9,10])
+        # Create tuple for the index of just this pixel.  We could
+        # actually pass imgbox = row,col  but then you can't do
+        # an array.mean() on that one pixel because it returns a 
+        # single value (Error: int object has no attribute mean).
+        # However we can do a mean on an array that only has one value.
+        imgbox = (slice(0,rd.nrow),slice(0,rd.ncol))
+        # adjust the voffset to get output in range of A/D converters.
+        rd.nsamp = 1
+        checkoffset(10,imgbox, -20000, 15000)
+        rd.nsamp = NumSamp
+        filename = xdir.get_nextobjfilename() + ".fits"
+        srun
+        imgfile = pyfits.open(filename) # open that last image file
+        imgdata = imgfile[0].data
+        value1 = imgdata[imgbox].mean()
+        imgfile.close()
+
+        # Convert from ADUs to milliVolts
+        volts1 = value1*ADUtoVolt - (dd.voffset)
+        print "# vgs Output-ADU  Output-Voltage    voffset"
+        print dd.vgs, value1, volts1, dd.voffset
+        # Write some statistics.        
+        wfile.write("%s " % dd.vgs)
+        wfile.write("%s " % volts1)
+        wfile.write("%s " % value1)
+        wfile.write("%s " % dd.voffset)
+        wfile.write("\n")
+    
+    wfile.close()
+    # Return these voltages to the original settings.
+    dd.voffset = OrigOffset
+    dd.vgs = OrigVgs
+    dd.vreset = OrigVreset
+
+#

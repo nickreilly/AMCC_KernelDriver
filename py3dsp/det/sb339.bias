@@ -1,0 +1,49 @@
+#
+# Version:                                                              
+#      $Id:$
+#                                                                           
+# Revisions:                                         
+#      $Log$
+#
+# this file sets up the dacs to the number of millivolts specified here.
+# it does it in the order that the voltages are found in the file.
+# upon reset, all of the voltages are zero.
+vnuc1 -500
+vpuc1 +5500
+vnuc2 -500
+vpuc2 +5500
+vnuc3 -500 
+vpuc3 +5500
+vnuc4 -500
+vpuc4 +5500
+vnuc5 -500
+vpuc5 +5500
+vload +0
+voffset +0 
+_vreset +3700
+dsub    +3700
+vintest +0
+
+pmc_lo +0
+pmc_hi +5000
+pdata_lo +0
+pdata_hi +5000
+vpa1_lo +5000
+vpa1_hi +5000
+vpa2_lo +5000
+vpa2_hi +5000
+vna1_lo -100
+vna1_hi -100
+vna2_lo -100
+vna2_hi -100
+vpd_lo  +5000
+vpd_hi  +5000
+vnd_lo  +0
+vnd_hi  +0
+vpout_lo +5000
+vpout_hi +5000
+vnout_lo +0
+vnout_hi +0
+
+heater 0
+

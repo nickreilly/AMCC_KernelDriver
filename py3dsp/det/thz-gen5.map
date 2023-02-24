@@ -1,0 +1,75 @@
+#
+# Version:                                                              
+#      $Id: hawaii.map,v 1.3 2003/12/01 22:49:06 drew Exp $
+#                                                                           
+# Revisions:                                         
+#      $Log: hawaii.map,v $
+#      Revision 1.3  2003/12/01 22:49:06  drew
+#      updated names
+#
+#      Revision 1.2  2003/07/16 00:14:04  dsp
+#      straightened out all the names to all the dacs.
+#
+# 
+# this file sets up the dacs to the detector bias/clock names specified here.
+# mapping file for the hawaii-1RG
+
+BIAS vgs_on   0 # pin 1
+BIAS bias2    1
+BIAS bias3    2
+BIAS bias4    3 # pin 4
+BIAS vgs      4
+BIAS d_NMOS   5
+BIAS bias7    6
+BIAS bias8    7 # pin 8
+BIAS bias9    8
+BIAS vload    9 # pin 10
+# voffset is a little funky.. (done to reduce noise input to preamp)
+# the dac output is +/- 8.192 volts (like the others)
+# but on the header board it is attenuated to +/- 4.096 volts
+BIAS voffset  10
+BIAS _vreset  11
+BIAS dsub     12
+BIAS bias14   13
+BIAS heater   14
+
+# There are no clocks on the Gen 5 chip.
+
+# Detector Clocks
+CLOCK clock1lo 0 # pin 1
+CLOCK clock1hi 1 
+CLOCK clock2lo 4 # pin 2
+CLOCK clock2hi 5  
+CLOCK clock3lo 8 # pin 3
+CLOCK clock3hi 9
+CLOCK clock4lo 12 # pin 4
+CLOCK clock4hi 13
+
+# Column Clocks 
+CLOCK rstCSBlo 2 # pin 9
+CLOCK rstCSBhi 3
+CLOCK d1_CSlo  6 # pin 10
+CLOCK d1_CShi  7
+CLOCK clk_CSlo 28 # pin 11
+CLOCK clk_CShi 29
+CLOCK clock12l 30 # pin 12
+CLOCK clock12h 31
+
+# Row Clocks
+CLOCK rstRSBlo 18 # pin 17
+CLOCK rstRSBhi 19
+CLOCK d1_RSlo  10 # pin 18
+CLOCK d1_RShi  11
+CLOCK clk_RSlo 20 # pin 19
+CLOCK clk_RShi 21
+CLOCK RstArrlo 22 # pin 20
+CLOCK RstArrhi 23
+CLOCK SelfRstl 14 # pin 21
+CLOCK SelfRsth 15
+CLOCK VgsOnlo  24 # pin 22
+CLOCK VgsOnhi  25 
+CLOCK clck23lo 26 # pin 23
+CLOCK clck23hi 27 
+CLOCK clck24lo 16 # pin 24
+CLOCK clck24hi 17 
+

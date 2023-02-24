@@ -1,0 +1,13 @@
+#wine g563c.exe -- $1.c -W -crt F:\\winbin\\crt0563y.cln -alo -g -BF:\\winbin -o $1.cld 
+# why do we need to fire up wineserver??
+wine c:\\winbin\\g563c.exe -c dspboard.c -BC:\\winbin -o dspboard.cld -IC:\\winbin\\include
+wine c:\\winbin\\g563c.exe $1.c dspboard.cld -W -alo -g -BC:\\winbin -IC:\\winbin\\include -o $1.cld 
+wine c:\\winbin\\srec.exe -a3 -s -r $1.cld 
+wine c:\\winbin\\cldlod.exe $1.cld > $1.lod
+
+# you'll need to install wine for this to work, of course.
+# we used wine-20041019-1fc2winehq.i686.rpm
+# the .exe tools should be put into the user's
+# .wine/drive_c/winbin directory ..
+# winbin may need to be created.
+#

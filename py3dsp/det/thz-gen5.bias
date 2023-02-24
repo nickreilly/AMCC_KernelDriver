@@ -1,0 +1,70 @@
+#
+# Version:                                                              
+#      $Id: hawaii.bias,v 1.3 2003/12/01 22:48:52 drew Exp $
+#                                                                           
+# Revisions:                                         
+#      $Log: hawaii.bias,v $
+#      Revision 1.3  2003/12/01 22:48:52  drew
+#      updated voltages
+#
+#      Revision 1.2  2003/07/16 00:14:24  dsp
+#      got all the names, and the voltages too.
+#
+# 
+# this file sets up the dacs to the number of millivolts specified here.
+# it does it in the order that the voltages are found in the file.
+# upon reset, all of the voltages are zero.
+ 
+vgs_on   1100
+bias2    0
+bias3    0
+bias4    0
+vgs      400
+d_NMOS   0
+bias7    0
+bias8    0 
+bias9    0
+vload    1100
+voffset  0 
+_vreset  0
+dsub     0
+bias14   0
+heater   0
+
+# clock rails..
+clock1lo 0 
+clock1hi 0
+clock2lo 0
+clock2hi 0
+clock3lo 0
+clock3hi 0
+clock4lo 0
+clock4hi 0
+
+rstCSBlo 0
+rstCSBhi 0
+d1_CSlo  0
+d1_CShi  0
+clk_CSlo 0
+clk_CShi 0
+clock12l 0
+clock12h 0
+
+rstRSBlo 0
+rstRSBhi 0
+d1_RSlo  0
+d1_RShi  0
+clk_RSlo 0
+clk_RShi 0
+RstArrlo 0
+RstArrhi 0
+
+SelfRstl 0
+SelfRsth 0
+VgsOnlo  0
+VgsOnhi  0
+clck23lo 0
+clck23hi 0
+clck24lo 0
+clck24hi 0
+

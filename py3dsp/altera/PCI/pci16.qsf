@@ -1,0 +1,150 @@
+# Copyright (C) 1991-2006 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+
+
+# The default values for assignments are stored in the file
+#		pci16_assignment_defaults.qdf
+# If this file doesn't exist, and for assignments not listed, see file
+#		assignment_defaults.qdf
+
+# Altera recommends that you do not modify this file. This
+# file is updated automatically by the Quartus II software
+# and any changes you make may be lost or overwritten.
+
+
+set_global_assignment -name FAMILY MAX7000AE
+set_global_assignment -name DEVICE "EPM7256AETC144-5"
+set_global_assignment -name TOP_LEVEL_ENTITY pci16
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 6.0
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "11:10:34  NOVEMBER 04, 2006"
+set_global_assignment -name LAST_QUARTUS_VERSION 6.0
+set_location_assignment PIN_8 -to A1
+set_location_assignment PIN_8 -to A[1]
+set_location_assignment PIN_100 -to /HF
+set_location_assignment PIN_99 -to unassigned0
+set_location_assignment PIN_99 -to unassigned[0]
+set_location_assignment PIN_9 -to A0
+set_location_assignment PIN_9 -to A[0]
+set_location_assignment PIN_81 -to /EF
+set_location_assignment PIN_82 -to /FF
+set_location_assignment PIN_10 -to DQ23
+set_location_assignment PIN_10 -to DQ[23]
+set_location_assignment PIN_11 -to DQ22
+set_location_assignment PIN_11 -to DQ[22]
+set_location_assignment PIN_12 -to DQ21
+set_location_assignment PIN_12 -to DQ[21]
+set_location_assignment PIN_14 -to DQ20
+set_location_assignment PIN_14 -to DQ[20]
+set_location_assignment PIN_15 -to DQ19
+set_location_assignment PIN_15 -to DQ[19]
+set_location_assignment PIN_16 -to DQ18
+set_location_assignment PIN_16 -to DQ[18]
+set_location_assignment PIN_19 -to DQ16
+set_location_assignment PIN_19 -to DQ[16]
+set_location_assignment PIN_18 -to DQ17
+set_location_assignment PIN_18 -to DQ[17]
+set_location_assignment PIN_42 -to PTNUM1
+set_location_assignment PIN_42 -to PTNUM[1]
+set_location_assignment PIN_43 -to PTNUM0
+set_location_assignment PIN_43 -to PTNUM[0]
+set_location_assignment PIN_48 -to /ADDINT
+set_location_assignment PIN_96 -to TXCLK
+set_location_assignment PIN_79 -to /LD
+set_location_assignment PIN_80 -to /OE
+set_location_assignment PIN_78 -to /REN
+set_location_assignment PIN_98 -to RXD
+set_location_assignment PIN_94 -to TXD
+set_location_assignment PIN_44 -to /DXFR
+set_location_assignment PIN_46 -to PTWR
+set_location_assignment PIN_77 -to RCLK
+set_location_assignment PIN_51 -to /WEN
+set_location_assignment PIN_52 -to WCLK
+set_location_assignment PIN_47 -to /PTADR
+set_location_assignment PIN_70 -to D13
+set_location_assignment PIN_70 -to D[13]
+set_location_assignment PIN_72 -to D15
+set_location_assignment PIN_72 -to D[15]
+set_location_assignment PIN_71 -to D14
+set_location_assignment PIN_71 -to D[14]
+set_location_assignment PIN_69 -to D12
+set_location_assignment PIN_69 -to D[12]
+set_location_assignment PIN_67 -to D11
+set_location_assignment PIN_67 -to D[11]
+set_location_assignment PIN_66 -to D10
+set_location_assignment PIN_66 -to D[10]
+set_location_assignment PIN_65 -to D9
+set_location_assignment PIN_65 -to D[9]
+set_location_assignment PIN_63 -to D8
+set_location_assignment PIN_63 -to D[8]
+set_location_assignment PIN_62 -to D7
+set_location_assignment PIN_62 -to D[7]
+set_location_assignment PIN_60 -to D6
+set_location_assignment PIN_60 -to D[6]
+set_location_assignment PIN_59 -to D5
+set_location_assignment PIN_59 -to D[5]
+set_location_assignment PIN_58 -to D4
+set_location_assignment PIN_58 -to D[4]
+set_location_assignment PIN_57 -to D3
+set_location_assignment PIN_57 -to D[3]
+set_location_assignment PIN_56 -to D2
+set_location_assignment PIN_56 -to D[2]
+set_location_assignment PIN_55 -to D1
+set_location_assignment PIN_55 -to D[1]
+set_location_assignment PIN_54 -to D0
+set_location_assignment PIN_54 -to D[0]
+set_location_assignment PIN_21 -to DQ15
+set_location_assignment PIN_21 -to DQ[15]
+set_location_assignment PIN_22 -to DQ14
+set_location_assignment PIN_22 -to DQ[14]
+set_location_assignment PIN_23 -to DQ13
+set_location_assignment PIN_23 -to DQ[13]
+set_location_assignment PIN_24 -to DQ12
+set_location_assignment PIN_24 -to DQ[12]
+set_location_assignment PIN_25 -to DQ11
+set_location_assignment PIN_25 -to DQ[11]
+set_location_assignment PIN_26 -to DQ10
+set_location_assignment PIN_26 -to DQ[10]
+set_location_assignment PIN_27 -to DQ9
+set_location_assignment PIN_27 -to DQ[9]
+set_location_assignment PIN_29 -to DQ8
+set_location_assignment PIN_29 -to DQ[8]
+set_location_assignment PIN_30 -to DQ7
+set_location_assignment PIN_30 -to DQ[7]
+set_location_assignment PIN_31 -to DQ6
+set_location_assignment PIN_31 -to DQ[6]
+set_location_assignment PIN_32 -to DQ5
+set_location_assignment PIN_32 -to DQ[5]
+set_location_assignment PIN_33 -to DQ4
+set_location_assignment PIN_33 -to DQ[4]
+set_location_assignment PIN_34 -to DQ3
+set_location_assignment PIN_34 -to DQ[3]
+set_location_assignment PIN_35 -to DQ2
+set_location_assignment PIN_35 -to DQ[2]
+set_location_assignment PIN_37 -to DQ1
+set_location_assignment PIN_37 -to DQ[1]
+set_location_assignment PIN_38 -to DQ0
+set_location_assignment PIN_38 -to DQ[0]
+set_location_assignment PIN_92 -to RXCLK
+set_location_assignment PIN_91 -to /RESET
+set_location_assignment PIN_89 -to CLK
+set_global_assignment -name MAX7000B_VCCIO_IOBANK2 3.3V
+set_global_assignment -name MAX7000B_VCCIO_IOBANK1 3.3V
+set_global_assignment -name AUTO_RESTART_CONFIGURATION OFF
+set_global_assignment -name END_TIME "2 us"
+set_global_assignment -name GLITCH_INTERVAL "0 ns"
+set_global_assignment -name CUT_OFF_READ_DURING_WRITE_PATHS OFF
+set_global_assignment -name EXCLUDE_TPD_PATHS_LESS_THAN "0 ns"
+set_global_assignment -name AHDL_FILE Pci16.tdf
+set_global_assignment -name OPTIMIZE_HOLD_TIMING OFF
+set_global_assignment -name FITTER_EFFORT "STANDARD FIT"

@@ -1,0 +1,101 @@
+"""
+nsr_QE-Spectra-MW.py - a script to run in pydsp.
+takes 2 images at each wavelength spanning a wavelength range/cvf 
+To use, type: execuser filename
+where filename is this file's name, but WITHOUT the .py
+"""
+
+
+from run import rd
+import numpy
+import xdir
+import pyfits
+import filterBase
+
+
+def askinput():
+  global rowstart, rowend, colstart, colend, skip, subarrayitime, fullarrayitime, num_imgs, cvf_used, wave_long, wave_short
+  print 'What is the conditions used? (ex: blackbody_filter)' #"Spectra_bias_(felt or blackbody)_temp_(filter)'
+  conditions_used = str(raw_input())
+  #temp_bias = dd.dsub - dd.vreset
+
+  #object_name_full = "Spectra_"+str(temp_bias)+"mV_"+CurrTemp+"K_"+conditions_used
+  object_name_full = "Spectra_250mV_"+str(CurrTemp)+"K_"+conditions_used
+
+  print 'What would you like the comment to be?'
+  print 'Use: "Looking at the (felt or blackbody) at (temp) through (filter)'
+  user_comment = str(raw_input())
+
+  print 'What integration time would you like?'
+  #rd.itime = int(raw_input()) 
+  fullarrayitime = int(raw_input())
+
+  print 'How many images would you like at each wavelength?'
+  num_imgs = int(raw_input())
+  #num_imgs = 4
+
+  print 'What cvf?'
+  cvf_used = (raw_input())
+
+  print 'What is the longest wavelength you want measured?'
+  wave_long = int(raw_input())
+
+  print 'What is the shortest wavelength you want measured?'
+  wave_short = int(raw_input())
+
+  
+
+  rd.lc = user_comment#str(raw_input())
+  #rd.nrowskip = 0
+  #rowstart = 0
+  #rowend = 2048
+  rowend = rd.nrow
+  colstart = 0
+  colend = rd.ncol 
+  rd.nsamp = 1
+  rd.object = object_name_full #str(raw_input())
+  rd.nrow = 512
+  rd.nrowskip = 768
+  crun2()
+
+tmps()
+CurrTemp = int(round(readTemp())) # round and return as integer -- no decimal
+#def getQE():
+time.sleep(5)
+burst()
+time.sleep(5)
+burst()
+time.sleep(5)
+burst()
+
+import filterBase
+askinput()
+rd.nrow = rowend
+    
+# Take some dark images
+#filterBase.set("cds")
+rd.itime = fullarrayitime
+#rd.nrow = rowend
+#rd.nrowskip = 0
+crun2()
+time.sleep(600)
+burst()
+time.sleep(5)
+burst()
+time.sleep(5)
+burst()
+
+
+#Time to take some light images!  Use the two CVF's that span around 3 microns that will be used to replace the cvfL and cvfK in filter wheel 4.  Use small step size (~10nm!)
+#cvfL goes from 2318 to 4572
+#cvfK goes from 1848 to 2790
+
+
+#for wavelen in range(3700, 3100-1, -10): #For getting the spectra of Polystyrene
+for wavelen in range(wave_long, wave_short, -10): #For QE Measurements
+    filterBase.set((cvf_used, wavelen))
+    for blah in range(num_imgs):
+        srun()
+
+crun2()
+

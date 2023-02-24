@@ -1,0 +1,12 @@
+detname sb339
+clockpgm sb339.s
+datapgm ociw.o
+outputformat block
+badpixfile NULL
+maxrow 1024
+maxcol 1280
+nout 4
+boxname OCIW4chan
+adrange 5.0
+ampgain 10.980000
+

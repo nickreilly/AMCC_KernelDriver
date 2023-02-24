@@ -1,0 +1,327 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.5.4	//
+A2P_BUFFER_SIZE	amcc.c	88;"	d	file:
+ACCPED	ociw.c	198;"	d	file:
+ACCSIG	ociw.c	197;"	d	file:
+AMCC_A2P_LOCK_BIT	amcc.c	72;"	d	file:
+AMCC_CLR_FIFO	amcc.h	112;"	d
+AMCC_CLR_MBIRQ	amcc.h	107;"	d
+AMCC_FIFO_DEPTH_BYTES	amcc.h	33;"	d
+AMCC_FIFO_DEPTH_BYTES	ociw.h	48;"	d
+AMCC_FIFO_DEPTH_DWORD	amcc.h	32;"	d
+AMCC_FIFO_DEPTH_DWORD	ociw.h	47;"	d
+AMCC_FIFO_SIZE	amcc.c	86;"	d	file:
+AMCC_GET_FIFO	amcc.h	113;"	d
+AMCC_GET_ICSR	amcc.h	93;"	d
+AMCC_GET_IRQTIME	amcc.h	110;"	d
+AMCC_GET_MBEF	amcc.h	95;"	d
+AMCC_GET_PTCR	amcc.h	96;"	d
+AMCC_GET_RCR	amcc.h	94;"	d
+AMCC_IRQ_IMB_FULL	amcc.c	81;"	d	file:
+AMCC_IRQ_MASTER_ABORT	amcc.c	78;"	d	file:
+AMCC_IRQ_OMB_EMPTY	amcc.c	80;"	d	file:
+AMCC_IRQ_READ_OK	amcc.c	76;"	d	file:
+AMCC_IRQ_TARGET_ABORT	amcc.c	79;"	d	file:
+AMCC_IRQ_WRITE_OK	amcc.c	77;"	d	file:
+AMCC_MAGIC	amcc.c	66;"	d	file:
+AMCC_MAJOR	amcc.c	85;"	d	file:
+AMCC_MAX_RETRYS	amcc.c	68;"	d	file:
+AMCC_NAME	amcc.c	65;"	d	file:
+AMCC_OP_REG_APTA	amcc.h	25;"	d
+AMCC_OP_REG_APTA	ociw.h	40;"	d
+AMCC_OP_REG_APTD	amcc.h	26;"	d
+AMCC_OP_REG_APTD	ociw.h	41;"	d
+AMCC_OP_REG_ICSR	amcc.h	28;"	d
+AMCC_OP_REG_ICSR	ociw.h	43;"	d
+AMCC_OP_REG_IMB	amcc.h	24;"	d
+AMCC_OP_REG_IMB	ociw.h	39;"	d
+AMCC_OP_REG_MBEF	amcc.h	27;"	d
+AMCC_OP_REG_MBEF	ociw.h	42;"	d
+AMCC_OP_REG_OMB	amcc.h	23;"	d
+AMCC_OP_REG_OMB	ociw.h	38;"	d
+AMCC_OP_REG_PTCR	amcc.h	30;"	d
+AMCC_OP_REG_PTCR	ociw.h	45;"	d
+AMCC_OP_REG_RCR	amcc.h	29;"	d
+AMCC_OP_REG_RCR	ociw.h	44;"	d
+AMCC_OP_REG_SIZE	amcc.h	39;"	d
+AMCC_OP_REG_SIZE	ociw.h	54;"	d
+AMCC_P2A_LOCK_BIT	amcc.c	71;"	d	file:
+AMCC_READ_MB	amcc.h	103;"	d
+AMCC_RESET	amcc.h	87;"	d
+AMCC_RESET_ADDON	amcc.h	88;"	d
+AMCC_RESET_FIFO	amcc.h	91;"	d
+AMCC_RESET_MBFLAGS	amcc.h	89;"	d
+AMCC_ROUTINE	amcc.c	432;"	d	file:
+AMCC_SET_A2PBUF	amcc.h	100;"	d
+AMCC_SET_IMBIRQ	amcc.h	106;"	d
+AMCC_SET_OMBIRQ	amcc.h	105;"	d
+AMCC_SET_P2ABUF	amcc.h	99;"	d
+AMCC_SET_PTCR	amcc.h	98;"	d
+AMCC_TEST	amcc.h	111;"	d
+AMCC_TEST_IRQ_BIT	amcc.c	73;"	d	file:
+AMCC_TIMEOUT	amcc.c	67;"	d	file:
+AMCC_WRITE_MB	amcc.h	104;"	d
+CopyFowler	ociw.c	/^void CopyFowler()$/;"	f
+ICSR_ADDON_ENABLE	amcc.h	60;"	d
+ICSR_ADDON_ENABLE	ociw.h	75;"	d
+ICSR_ADDON_INT	amcc.h	57;"	d
+ICSR_ADDON_INT	ociw.h	72;"	d
+ICSR_IMB_BYTE	amcc.h	62;"	d
+ICSR_IMB_BYTE	ociw.h	77;"	d
+ICSR_IMB_ENABLE	amcc.h	61;"	d
+ICSR_IMB_ENABLE	ociw.h	76;"	d
+ICSR_IMB_INT	amcc.h	58;"	d
+ICSR_IMB_INT	ociw.h	73;"	d
+ICSR_INT_ASSERTED	amcc.h	56;"	d
+ICSR_INT_ASSERTED	ociw.h	71;"	d
+ICSR_INT_SEL_MASK	amcc.h	55;"	d
+ICSR_INT_SEL_MASK	ociw.h	70;"	d
+ICSR_INT_STATUS_MASK	amcc.h	54;"	d
+ICSR_INT_STATUS_MASK	ociw.h	69;"	d
+ICSR_MB_INT_MASK	amcc.h	65;"	d
+ICSR_MB_INT_MASK	ociw.h	80;"	d
+ICSR_OMB_BYTE	amcc.h	64;"	d
+ICSR_OMB_BYTE	ociw.h	79;"	d
+ICSR_OMB_ENABLE	amcc.h	63;"	d
+ICSR_OMB_ENABLE	ociw.h	78;"	d
+ICSR_OMB_INT	amcc.h	59;"	d
+ICSR_OMB_INT	ociw.h	74;"	d
+IMB_NOT_FULL	ociw.h	97;"	d
+IMB_NOT_HF	ociw.h	96;"	d
+IMB_RX_HF	amcc.h	81;"	d
+IMB_RX_PAE	amcc.h	82;"	d
+IMB_RX_RDY	amcc.h	80;"	d
+IMB_RX_RDY	ociw.h	95;"	d
+IMB_TX_BUSY	amcc.h	79;"	d
+IMB_TX_BUSY	ociw.h	94;"	d
+KDIR	Makefile	/^KDIR := \/lib\/modules\/$(shell uname -r)\/build$/;"	m
+KERNVER2_4	ociw.c	115;"	d	file:
+M	Makefile	/^	$(MAKE) -C $(KDIR) M=$(PWD) modules$/;"	m
+MBEF_IN_STATUS_MASK	amcc.h	75;"	d
+MBEF_IN_STATUS_MASK	ociw.h	90;"	d
+MBEF_OUT_STATUS_MASK	amcc.h	76;"	d
+MBEF_OUT_STATUS_MASK	ociw.h	91;"	d
+MIN	ociw.c	191;"	d	file:
+MOD_DEC_USE_COUNT	ociw.c	128;"	d	file:
+MOD_INC_USE_COUNT	ociw.c	127;"	d	file:
+NBUFS	ociw.c	/^static long NBUFS = 10; \/\/ 20 Mb for raw images, 12 Mb for fowler image$/;"	v	file:
+OCIW_A2P_LOCK_BIT	ociw.c	170;"	d	file:
+OCIW_BUFFER_SIZE	ociw.c	189;"	d	file:
+OCIW_CLR_MBIRQ	ociw.h	126;"	d
+OCIW_DEBUG	ociw.c	114;"	d	file:
+OCIW_GET_DONE	ociw.h	135;"	d
+OCIW_GET_FRAME	ociw.h	136;"	d
+OCIW_GET_ICSR	ociw.h	112;"	d
+OCIW_GET_IMAGESIZE	ociw.h	140;"	d
+OCIW_GET_IRQTIME	ociw.h	129;"	d
+OCIW_GET_MBEF	ociw.h	114;"	d
+OCIW_GET_PHYSBUFSIZE	ociw.h	139;"	d
+OCIW_GET_PTCR	ociw.h	115;"	d
+OCIW_GET_RCR	ociw.h	113;"	d
+OCIW_INTS_OFF	ociw.h	142;"	d
+OCIW_INTS_ON	ociw.h	131;"	d
+OCIW_MAGIC	ociw.h	102;"	d
+OCIW_MAJOR	ociw.c	188;"	d	file:
+OCIW_NAME	ociw.c	164;"	d	file:
+OCIW_P2A_LOCK_BIT	ociw.c	169;"	d	file:
+OCIW_POLL_DELAY	ociw.c	174;"	d	file:
+OCIW_READ_MB	ociw.h	122;"	d
+OCIW_RESET	ociw.h	107;"	d
+OCIW_RESET_ADDON	ociw.h	108;"	d
+OCIW_RESET_FIFO	ociw.h	109;"	d
+OCIW_RESET_MBFLAGS	ociw.h	110;"	d
+OCIW_RW_TIMEOUT	ociw.c	165;"	d	file:
+OCIW_SET_A2PBUF	ociw.h	119;"	d
+OCIW_SET_IMAGE	ociw.h	138;"	d
+OCIW_SET_IMAGEMODE	ociw.h	141;"	d
+OCIW_SET_IMBIRQ	ociw.h	125;"	d
+OCIW_SET_NCOLS	ociw.h	133;"	d
+OCIW_SET_NROWS	ociw.h	132;"	d
+OCIW_SET_NSAMPS	ociw.h	134;"	d
+OCIW_SET_OMBIRQ	ociw.h	124;"	d
+OCIW_SET_P2ABUF	ociw.h	118;"	d
+OCIW_SET_PTCR	ociw.h	117;"	d
+OCIW_SET_SAMPMODE	ociw.h	137;"	d
+OCIW_TEST	ociw.h	130;"	d
+OCIW_TEST_IRQ_BIT	ociw.c	171;"	d	file:
+OCIW_TIMEOUT	ociw.c	166;"	d	file:
+OCIW_WRITE_MB	ociw.h	123;"	d
+P2A_BUFFER_SIZE	amcc.c	87;"	d	file:
+PCI_DEVICE_ID_AMCC_S5920	ociw.c	186;"	d	file:
+PCI_DEVICE_ID_S5920	amcc.c	83;"	d	file:
+PED	ociw.c	196;"	d	file:
+PTCR_ENDIAN_CONVERT	amcc.h	69;"	d
+PTCR_ENDIAN_CONVERT	ociw.h	84;"	d
+PTCR_PTADDR_ENABLE	amcc.h	68;"	d
+PTCR_PTADDR_ENABLE	ociw.h	83;"	d
+PTCR_RD_FIFO_ENABLE	amcc.h	71;"	d
+PTCR_RD_FIFO_ENABLE	ociw.h	86;"	d
+PTCR_WAIT_STATES	amcc.h	72;"	d
+PTCR_WAIT_STATES	ociw.h	87;"	d
+PTCR_WR_FIFO_ENABLE	amcc.h	70;"	d
+PTCR_WR_FIFO_ENABLE	ociw.h	85;"	d
+PWD	Makefile	/^PWD := $(shell pwd)$/;"	m
+RCR_NV_ACC_MASK	amcc.h	47;"	d
+RCR_NV_ACC_MASK	ociw.h	62;"	d
+RCR_NV_AD_MASK	amcc.h	48;"	d
+RCR_NV_AD_MASK	ociw.h	63;"	d
+RCR_NV_CTRL_MASK	amcc.h	46;"	d
+RCR_NV_CTRL_MASK	ociw.h	61;"	d
+RCR_RESET_ADDON	amcc.h	51;"	d
+RCR_RESET_ADDON	ociw.h	66;"	d
+RCR_RESET_FIFO	amcc.h	50;"	d
+RCR_RESET_FIFO	ociw.h	65;"	d
+RCR_RESET_MBFLAGS	amcc.h	49;"	d
+RCR_RESET_MBFLAGS	ociw.h	64;"	d
+SIG	ociw.c	195;"	d	file:
+SIGMINUSPED	ociw.c	194;"	d	file:
+SIZE	pt.c	27;"	d	file:
+_AMCC_H_	amcc.h	17;"	d
+_OCIW_H_	ociw.h	32;"	d
+__KERNEL__	amcc.c	24;"	d	file:
+__KERNEL__	ociw.c	118;"	d	file:
+__attribute_used__	amcc.mod.c	/^__attribute_used__$/;"	v	file:
+__devinitdata	amcc.c	/^static struct pci_device_id id_table[] __devinitdata = {$/;"	v	file:
+__this_module	amcc.mod.c	/^struct module __this_module$/;"	v
+a2p	amcc.c	/^static struct amcc_buffer a2p;         \/* A2P buffer control struct *\/$/;"	v	file:
+a2p	ociw.c	/^struct ociw_buffer a2p;		 \/* A2P buffer control struct *\/$/;"	v
+amcc_buffer	amcc.c	/^struct amcc_buffer {$/;"	s	file:
+amcc_close	amcc.c	/^amcc_close (struct inode *inode, struct file *file)$/;"	f	file:
+amcc_driver	amcc.c	/^static struct pci_driver amcc_driver = {$/;"	v	file:
+amcc_exit	amcc.c	/^amcc_exit (void)$/;"	f
+amcc_exit	amcc.c	/^module_exit(amcc_exit);$/;"	v
+amcc_fops	amcc.c	/^static struct file_operations amcc_fops =$/;"	v	file:
+amcc_init	amcc.c	/^amcc_init (void)$/;"	f
+amcc_init	amcc.c	/^module_init(amcc_init);$/;"	v
+amcc_ioctl	amcc.c	/^amcc_ioctl (struct inode *inode, struct file *file,$/;"	f	file:
+amcc_open	amcc.c	/^amcc_open (struct inode *inode, struct file *file)$/;"	f	file:
+amcc_priv	amcc.c	/^struct amcc_priv {$/;"	s	file:
+amcc_probe	amcc.c	/^amcc_probe (struct pci_dev* pcidev, const struct pci_device_id* amcc_device_id)$/;"	f	file:
+amcc_read	amcc.c	/^amcc_read(struct file *file, char *buf, size_t count, loff_t *ppos)$/;"	f	file:
+amcc_read_opreg	amcc.c	/^amcc_read_opreg (int reg)$/;"	f
+amcc_remove	amcc.c	/^amcc_remove (struct pci_dev* pcidev)$/;"	f	file:
+amcc_write	amcc.c	/^amcc_write(struct file *file, const char *buf, size_t count, loff_t *ppos)$/;"	f	file:
+amcc_write_opreg	amcc.c	/^amcc_write_opreg (__u32 value, int reg)$/;"	f
+async	ociw.c	/^	u_int  async;$/;"	m	struct:ociw_buffer	file:
+badrs	ociw.c	/^static u32  badrs[6] =$/;"	v	file:
+bhstart	ociw.c	/^static short bhstart;  \/\/  which buffer bottom half should start at.$/;"	v	file:
+buf	amcc.c	/^    char *buf;$/;"	m	struct:amcc_buffer	file:
+buf	ociw.c	/^	char   *buf;$/;"	m	struct:ociw_buffer	file:
+bufpixtogo	ociw.c	/^static long bufpixtogo; \/\/ number of pixels till input buffer fills.$/;"	v	file:
+bytes_done	amcc.c	/^    volatile u_int bytes_done;$/;"	m	struct:amcc_buffer	file:
+bytes_done	ociw.c	/^	volatile u_int bytes_done;$/;"	m	struct:ociw_buffer	file:
+checkPix	ociw.c	/^int checkPix(u_short * pix, int npix,u_short expected)$/;"	f
+cleanup_module	ociw.c	/^cleanup_module (void)$/;"	f
+copy_size	amcc.c	/^    volatile u_int copy_size;$/;"	m	struct:amcc_buffer	file:
+copy_size	ociw.c	/^	volatile u_int copy_size;$/;"	m	struct:ociw_buffer	file:
+curbuf	ociw.c	/^static short *curbuf; \/\/ next empty spot in buffer where int routine writes to.$/;"	v	file:
+cursamp	ociw.c	/^static short cursamp; \/\/ which frame we are in (0 to nsamps-1)$/;"	v	file:
+did	ociw.c	/^int did = PCI_DEVICE_ID_AMCC_S5920;$/;"	v
+dosigs	ociw.c	/^static short dosigs; \/\/ starts at 0 for peds, goes to 1 for sigs.$/;"	v	file:
+ef_ints	amcc.c	/^static void ef_ints(void) \/\/ called from READ at low priority$/;"	f	file:
+ef_ints	ociw.c	/^void ef_ints()$/;"	f
+emptyFifo	ociw.c	/^void emptyFifo()$/;"	f
+fifoIntoBuf	amcc.c	/^static void fifoIntoBuf(void)$/;"	f	file:
+fifoIntoBuf	ociw.c	/^void fifoIntoBuf()$/;"	f
+frameq	ociw.c	/^DECLARE_WAIT_QUEUE_HEAD(frameq);$/;"	v
+frameq	ociw.c	/^wait_queue_head_t frameq;$/;"	v
+gb_dev	amcc.c	/^static struct amcc_priv gb_dev;           \/* Private device data *\/$/;"	v	file:
+hf_ints	amcc.c	/^static void hf_ints(void) \/\/ called from ISR at high priority$/;"	f	file:
+hf_ints	ociw.c	/^void hf_ints()$/;"	f
+hfmode	amcc.c	/^    int hfmode;$/;"	m	struct:amcc_priv	file:
+imagenum	ociw.c	/^static short imagenum = 0; \/\/ which destination image. 0 <= imagenum < nimages$/;"	v	file:
+init_module	ociw.c	/^init_module (void)$/;"	f
+ints_off	amcc.c	/^static void ints_off(void)$/;"	f	file:
+ints_on	amcc.c	/^static void ints_on(void)$/;"	f	file:
+irq	amcc.c	/^    int irq;                    \/* interrupt number *\/$/;"	m	struct:amcc_priv	file:
+irq	ociw.c	/^	u_char	  irq;			\/* interrupt number *\/$/;"	m	struct:ociw_s5920	file:
+irq_code	ociw.c	/^	volatile int   irq_code;$/;"	m	struct:ociw_buffer	file:
+latest_buf	ociw.c	/^static short volatile latest_buf;  \/\/  which buffer interrupt routine owns.$/;"	v	file:
+lock	amcc.c	/^static u_long lock = 0UL;       \/* generic lock dword *\/$/;"	v	file:
+lock	ociw.c	/^static u_long lock = 0UL;				   \/* generic lock dword *\/$/;"	v	file:
+m	Makefile	/^obj-m := amcc.o$/;"	m
+main	pt.c	/^main ()$/;"	f
+major	amcc.c	/^    int major;                  \/* Major number *\/$/;"	m	struct:amcc_priv	file:
+major	ociw.c	/^	int	 major;$/;"	m	struct:ociw_s5920	file:
+ncols	ociw.c	/^static short ncols = 1024; \/\/ number of column in image$/;"	v	file:
+nextTail	amcc.c	/^static inline void nextTail(void)$/;"	f	file:
+nimages	ociw.c	/^static short nimages = 2; \/\/ number of destination images. (src and bkg.)$/;"	v	file:
+nrows	ociw.c	/^static short nrows = 1024; \/\/ number of rows in image$/;"	v	file:
+nsamps	ociw.c	/^static short nsamps = 1; \/\/ number of sigs and\/or peds (nsamps = nsigs = npeds)$/;"	v	file:
+ociw_bottom_half	ociw.c	/^void ociw_bottom_half(void* unused)$/;"	f
+ociw_buffer	ociw.c	/^struct ociw_buffer {$/;"	s	file:
+ociw_count	ociw.c	/^static short ociw_count = 0;$/;"	v	file:
+ociw_dev	ociw.c	/^struct ociw_s5920 ociw_dev;				 \/* General data *\/$/;"	v
+ociw_fd	pt.c	/^static int  ociw_fd = 0L;			\/* device *\/$/;"	v	file:
+ociw_fops	ociw.c	/^static struct file_operations ociw_fops =$/;"	v	file:
+ociw_free_dev	ociw.c	/^ociw_free_dev ()$/;"	f	file:
+ociw_imagemode	ociw.c	/^int ociw_imagemode = SIGMINUSPED; \/\/ initialize CopyFowler mode $/;"	v
+ociw_init_dev	ociw.c	/^ociw_init_dev (struct ociw_s5920 *dev, struct pci_dev *pcidev)$/;"	f	file:
+ociw_invertvid	ociw.c	/^int ociw_invertvid =  0 ; \/\/$/;"	v
+ociw_ioctl	ociw.c	/^ociw_ioctl (struct inode *inode, struct file *file,$/;"	f	file:
+ociw_irq_handler	amcc.c	/^ociw_irq_handler (int irq, void *dev, struct pt_regs *regs)$/;"	f	file:
+ociw_irq_handler	ociw.c	/^ociw_irq_handler (int irq, void *dev, struct pt_regs *regs)$/;"	f	file:
+ociw_maxpix	ociw.c	/^int ociw_maxpix =  0x100000 ; \/\/ 1024 * 1024$/;"	v
+ociw_mmap	ociw.c	/^ociw_mmap (struct file *file, struct vm_area_struct *vma)$/;"	f	file:
+ociw_open	ociw.c	/^ociw_open (struct inode *inode, struct file *file)$/;"	f	file:
+ociw_physbuf	ociw.c	/^long ociw_physbuf = 0x6000000; \/\/ address of physical memory we can grab$/;"	v
+ociw_physbufsize	amcc.c	/^long ociw_physbufsize = 0; \/\/ size of physical memory we can use$/;"	v
+ociw_physbufsize	ociw.c	/^long ociw_physbufsize = 0x2000000; \/\/ size of physical memory we can use$/;"	v
+ociw_preframepix	ociw.c	/^int ociw_preframepix = 0; \/\/ number of pixels to toss at the start of each frame.$/;"	v
+ociw_read	ociw.c	/^ociw_read(struct file *file, char *buf, size_t count, loff_t *ppos)$/;"	f	file:
+ociw_read_opreg	ociw.c	/^ociw_read_opreg (int reg)$/;"	f
+ociw_readstrategy	ociw.c	/^int ociw_readstrategy = 1; \/\/ 1 is a medium speed strategy. 0=slow, 2=fast$/;"	v
+ociw_region2pix	ociw.c	/^int ociw_region2pix = 4096; \/\/ number pixels in region 2 (block copy)$/;"	v
+ociw_release	ociw.c	/^ociw_release (struct inode *inode, struct file *file)$/;"	f	file:
+ociw_s5920	ociw.c	/^struct ociw_s5920 {$/;"	s	file:
+ociw_task	ociw.c	/^static struct tq_struct ociw_task;$/;"	v	file:
+ociw_write	ociw.c	/^ociw_write(struct file *file, const char *buf, size_t count, loff_t *ppos)$/;"	f	file:
+ociw_write_opreg	ociw.c	/^ociw_write_opreg (__u32 value, int reg)$/;"	f
+op_regs	ociw.c	/^	u_long	  op_regs;		\/* this is BADDR[0] *\/$/;"	m	struct:ociw_s5920	file:
+op_regs_type	ociw.c	/^	int	 op_regs_type;   \/* MEM or I\/O operation registers *\/$/;"	m	struct:ociw_s5920	file:
+opreg_addr	amcc.c	/^    u32 opreg_addr;             \/* operation registers address BAR[0] *\/$/;"	m	struct:amcc_priv	file:
+opreg_len	amcc.c	/^    u32 opreg_len;              \/* operation registers size *\/$/;"	m	struct:amcc_priv	file:
+opreg_type	amcc.c	/^    int opreg_type;             \/* MEM or I\/O operation registers *\/$/;"	m	struct:amcc_priv	file:
+p2a	amcc.c	/^static struct amcc_buffer p2a;         \/* P2A buffer control struct *\/$/;"	v	file:
+p2a	ociw.c	/^struct ociw_buffer p2a;		 \/* P2A buffer control struct *\/$/;"	v
+pcidev	ociw.c	/^	struct pci_dev *pcidev;$/;"	m	struct:ociw_s5920	file:
+pedstart	ociw.c	/^static long *pedstart; \/\/ the first pixel in the fowler pedestal image block.$/;"	v	file:
+phy_buf	amcc.c	/^static short *phy_buf = NULL; \/\/ pointer to physical memory block$/;"	v	file:
+phy_buf	ociw.c	/^static short *phy_buf; \/\/ pointer to physical memory block, and first dest image$/;"	v	file:
+phy_buf_end	amcc.c	/^static short *phy_buf_end = NULL; \/\/ pointer to end of physical memory block. first invalid address$/;"	v	file:
+phys_addr	ociw.c	/^	u_int	   phys_addr;		  \/* real address *\/$/;"	m	struct:s5920_pt	file:
+pixqueue_head	amcc.c	/^static short *pixqueue_head; \/\/ read() gets from here. Points to first pixel that may be read.$/;"	v	file:
+pixqueue_tail	amcc.c	/^static short *pixqueue_tail; \/\/ irq puts to here. points to first pixel that may be written.$/;"	v	file:
+pixtogo	ociw.c	/^static long pixtogo; \/\/ total real pixels to go. bottom half owns it..$/;"	v	file:
+pt1_phys_addr	amcc.c	/^    u_long pt1_phys_addr;       \/* Pass-thru region 1 - BAR[1] *\/$/;"	m	struct:amcc_priv	file:
+pt1_size	amcc.c	/^    u_long pt1_size;            \/* Pass-thru region 1 size *\/$/;"	m	struct:amcc_priv	file:
+pt1_virt_addr	amcc.c	/^    void*  pt1_virt_addr;       \/* Virtual address after remapping *\/$/;"	m	struct:amcc_priv	file:
+pt2_phys_addr	amcc.c	/^    u_long pt2_phys_addr;       \/* Pass-thru region 2 - BAR[2] *\/$/;"	m	struct:amcc_priv	file:
+pt2_size	amcc.c	/^    u_long pt2_size;            \/* Pass-thru region 2 size *\/$/;"	m	struct:amcc_priv	file:
+pt2_virt_addr	amcc.c	/^    void*  pt2_virt_addr;       \/* Virtual address after remapping *\/$/;"	m	struct:amcc_priv	file:
+ptnum	amcc.c	/^    int ptnum;                  \/* number of pass-thru regions *\/$/;"	m	struct:amcc_priv	file:
+ptnum	ociw.c	/^	u_char	  ptnum;		  \/* number of pass-thru regions *\/$/;"	m	struct:ociw_s5920	file:
+pts	ociw.c	/^	struct s5920_pt pts[5];		 \/* pass-thru regions *\/$/;"	m	struct:ociw_s5920	file:
+rawbuf	ociw.c	/^static short *rawbuf; \/\/ pointer to first of NBUFS raw frames.$/;"	v	file:
+rawpixtogo	ociw.c	/^static long rawpixtogo; \/\/ total pixels including prepixels to go.$/;"	v	file:
+s5920_pt	ociw.c	/^struct s5920_pt {$/;"	s	file:
+sampmode	ociw.c	/^static short sampmode = 8; \/\/ sample mode, 8 = Fowler. Not used.$/;"	v	file:
+sigstart	ociw.c	/^static long *sigstart; \/\/ the first pixel in the fowler signal image block.$/;"	v	file:
+simple_vm_ops	ociw.c	/^static struct vm_operations_struct simple_vm_ops = {$/;"	v	file:
+simple_vma_close	ociw.c	/^void simple_vma_close(struct vm_area_struct *area)$/;"	f
+simple_vma_open	ociw.c	/^void simple_vma_open(struct vm_area_struct *area)$/;"	f
+size	amcc.c	/^    volatile u_int size;$/;"	m	struct:amcc_buffer	file:
+size	ociw.c	/^	u_int	   size;		   \/* dimensions *\/$/;"	m	struct:s5920_pt	file:
+size	ociw.c	/^	volatile u_int size;$/;"	m	struct:ociw_buffer	file:
+snooze	amcc.c	/^static void snooze(int i)$/;"	f	file:
+timeout	ociw.c	/^	int	 timeout;		\/* timeout for async waits *\/$/;"	m	struct:ociw_s5920	file:
+unix	amcc.mod.c	7;"	d	file:
+vid	ociw.c	/^int vid = PCI_VENDOR_ID_AMCC;$/;"	v
+virt_addr	ociw.c	/^	char	   *virt_addr;		  \/* after ioremap call *\/$/;"	m	struct:s5920_pt	file:
+we_wrapped	ociw.c	/^static long we_wrapped;$/;"	v	file:
+wq	ociw.c	/^DECLARE_WAIT_QUEUE_HEAD(wq);$/;"	v
+wq	ociw.c	/^wait_queue_head_t wq;$/;"	v

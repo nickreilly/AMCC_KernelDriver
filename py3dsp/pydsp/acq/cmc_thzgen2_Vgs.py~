@@ -1,0 +1,47 @@
+"""
+Look-up tables for Vgs values to use with THz Gen 2 chip
+"""
+
+# 
+bestVgs295K = numarray.array([[477, 476, 450, 478, 473, 433, 448], 
+                              [466, 475, 462, 477, 477, 482, 445],
+                              [459, 480, 435, 481, 459, 486, 482],
+                              [459, 465, 460, 455, 470, 477, 441],
+                              [464, 480, 458, 471, 471, 483, 475],
+                              [473, 453, 500, 434, 450, 446, 456],
+                              [465, 444, 480, 468, 468, 477, 463]])
+
+# This was based upon the high power data taken at 259K
+# These values are for the center point of the response peak, which is wrong
+bestVgs259K = numarray.array([[483, 477, 453, 478, 472, 431, 453], 
+                              [468, 474, 462, 475, 491, 476, 444],
+                              [463, 479, 441, 484, 458, 486, 482],
+                              [461, 465, 458, 450, 465, 470, 437],
+                              [473, 488, 457, 471, 472, 482, 477],
+                              [480, 455, 507, 433, 455, 446, 455],
+                              [473, 455, 486, 476, 475, 481, 468]])
+
+# Best value of Vgs to get most overlap of working pixels for each row
+bestVgsOverlap259K = numarray.array([478, 470, 480, 460, 479, 452, 473])
+
+
+# This was based upon the lower power data taken at 259K.
+# These values are based upon the highest Vgs value for response.
+bestVGs259K2 = numarray.array([[494, 491, 478, 490, 484, 450, 465],
+                               [482, 490, 478, 495, 510, 495, 465],
+                               [475, 491, 460, 496, 480, 502, 498],
+                               [472, 478, 472, 466, 482, 490, 455],
+                               [480, 497, 466, 482, 482, 494, 489],
+                               [488, 470, 518, 455, 464, 462, 466],
+                               [480, 465, 492, 485, 480, 486, 475]])
+
+# Similar to above, but using the high power data to find highest Vgs
+# prior to drop off of response.
+bestVGs259K3 = numarray.array([[483, 481, 460, 481, 480, 439, 457],
+                               [472, 481, 471, 481, 501, 490, 457],
+                               [467, 488, 451, 491, 468, 492, 492],
+                               [468, 472, 468, 454, 475, 484, 447],
+                               [476, 496, 464, 479, 480, 490, 484],
+                               [481, 462, 518, 443, 461, 457, 462],
+                               [472, 457, 486, 475, 478, 482, 468]])
+

@@ -1,0 +1,11 @@
+detname fairchild1421
+clockpgm fairchild-1421-rev1.s
+datapgm ociw.o
+outputformat interleaved
+badpixfile NULL
+maxrow 1
+maxcol 2048
+nout 2
+boxname OCIW4chan
+adrange 5.0
+ampgain 10.98

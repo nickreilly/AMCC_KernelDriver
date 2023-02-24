@@ -1,0 +1,12 @@
+#
+# Main Makefile for the ociw S5920 PCI  driver
+#
+
+KDIR := /lib/modules/$(shell uname -r)/build
+PWD := $(shell pwd)
+obj-m := amcc.o
+#EXTRA_CFLAGS := -msse2 -mmmx
+EXTRA_CFLAGS := -Wall
+
+default:
+	$(MAKE) -C $(KDIR) M=$(PWD) modules

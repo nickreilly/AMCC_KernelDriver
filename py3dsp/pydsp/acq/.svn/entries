@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="371"
+   name=""
+   committed-date="2005-09-13T23:32:36.214232Z"
+   url="https://astro.pas.rochester.edu/admin/svn/pydsp/trunk/pydsp/acq"
+   last-author="drew"
+   kind="dir"
+   uuid="e4d13a25-ebd4-0310-9850-b6c2f627dfe8"
+   revision="401"/>
+<entry
+   name="cmc_sb369.py"
+   kind="file"
+   schedule="add"
+   revision="0"/>
+<entry
+   committed-rev="157"
+   name="sutrmo.py"
+   text-time="2005-02-25T21:01:37.000000Z"
+   committed-date="2004-06-01T20:49:07.903203Z"
+   checksum="97d3cc9f725575bf8d250c4c9fca1bae"
+   last-author="dsp"
+   kind="file"
+   prop-time="2005-02-25T21:01:37.000000Z"/>
+<entry
+   name="cmc_warmup.py"
+   kind="file"
+   schedule="add"
+   revision="0"/>
+<entry
+   committed-rev="157"
+   name="darkcurb.py"
+   text-time="2005-02-25T21:01:37.000000Z"
+   committed-date="2004-06-01T20:49:07.903203Z"
+   checksum="0027bf5b8fb6537f2b6e3dcd65cd036c"
+   last-author="dsp"
+   kind="file"
+   prop-time="2005-02-25T21:01:37.000000Z"/>
+<entry
+   committed-rev="348"
+   name="majornvs.py"
+   text-time="2005-04-07T19:53:49.000000Z"
+   committed-date="2005-04-07T19:47:24.829891Z"
+   checksum="059ff9a681adc355e95ecaa44f620650"
+   last-author="drew"
+   kind="file"
+   prop-time="2005-04-07T19:53:49.000000Z"/>
+<entry
+   committed-rev="348"
+   name="biassetup.py"
+   text-time="2005-04-07T19:53:49.000000Z"
+   committed-date="2005-04-07T19:47:24.829891Z"
+   checksum="0b3efb17793e1c067a6a9d4dae0fde63"
+   last-author="drew"
+   kind="file"
+   prop-time="2005-04-07T19:53:49.000000Z"/>
+<entry
+   committed-rev="157"
+   name="stripemo.py"
+   text-time="2005-02-25T21:01:37.000000Z"
+   committed-date="2004-06-01T20:49:07.903203Z"
+   checksum="4ef9d1e00ef28fe0fd626861b62545c9"
+   last-author="dsp"
+   kind="file"
+   prop-time="2005-02-25T21:01:37.000000Z"/>
+<entry
+   name="cmc_sb369_v-v-curve.py"
+   kind="file"
+   schedule="add"
+   revision="0"/>
+<entry
+   committed-rev="157"
+   name="finishdatataking.py"
+   text-time="2005-02-25T21:01:37.000000Z"
+   committed-date="2004-06-01T20:49:07.903203Z"
+   checksum="b9e16810b421d593a1fb7a3dc497ec40"
+   last-author="dsp"
+   kind="file"
+   prop-time="2005-02-25T21:01:37.000000Z"/>
+<entry
+   committed-rev="348"
+   name="majordark_old.py"
+   text-time="2005-04-07T19:53:49.000000Z"
+   committed-date="2005-04-07T19:47:24.829891Z"
+   checksum="c0a9366fdcaf0de939086e49ec61cc79"
+   last-author="drew"
+   kind="file"
+   prop-time="2005-04-07T19:53:49.000000Z"/>
+<entry
+   committed-rev="371"
+   name="majordark.py"
+   text-time="2006-03-23T23:04:39.000000Z"
+   committed-date="2005-09-13T23:32:36.214232Z"
+   checksum="99f3ab0f1d131f557fcb195d3bbb13de"
+   last-author="drew"
+   kind="file"
+   prop-time="2006-03-23T23:04:39.000000Z"/>
+<entry
+   committed-rev="157"
+   name="bacnvs.py"
+   text-time="2005-02-25T21:01:37.000000Z"
+   committed-date="2004-06-01T20:49:07.903203Z"
+   checksum="c28d9aff6a04ea4df7670f587a9a1005"
+   last-author="dsp"
+   kind="file"
+   prop-time="2005-02-25T21:01:37.000000Z"/>
+<entry
+   committed-rev="348"
+   name="darkcur2.py"
+   text-time="2005-04-07T19:53:49.000000Z"
+   committed-date="2005-04-07T19:47:24.829891Z"
+   checksum="0ae5b92978e62dc0cd4909b58a94014f"
+   last-author="drew"
+   kind="file"
+   prop-time="2005-04-07T19:53:49.000000Z"/>
+<entry
+   committed-rev="348"
+   name="darkcurr.py"
+   text-time="2005-04-07T19:53:49.000000Z"
+   committed-date="2005-04-07T19:47:24.829891Z"
+   checksum="4f24c6ecb6b1c9943ac3ed1ff4d0e39f"
+   last-author="drew"
+   kind="file"
+   prop-time="2005-04-07T19:53:49.000000Z"/>
+<entry
+   committed-rev="371"
+   name="test.py"
+   text-time="2006-03-23T23:04:39.000000Z"
+   committed-date="2005-09-13T23:32:36.214232Z"
+   checksum="dc38004be060759f25fe1fef132da1f9"
+   last-author="drew"
+   kind="file"
+   prop-time="2006-03-23T23:04:39.000000Z"/>
+<entry
+   committed-rev="157"
+   name="dcgain.py"
+   text-time="2005-02-25T21:01:37.000000Z"
+   committed-date="2004-06-01T20:49:07.903203Z"
+   checksum="36ec90ed3742bed8196fe3bf8bbb1646"
+   last-author="dsp"
+   kind="file"
+   schedule="delete"
+   prop-time="2005-02-25T21:01:37.000000Z"/>
+<entry
+   committed-rev="157"
+   name="tempsetup.py"
+   text-time="2005-02-25T21:01:37.000000Z"
+   committed-date="2004-06-01T20:49:07.903203Z"
+   checksum="86e94cf5bb6bc510c389708545caeaea"
+   last-author="dsp"
+   kind="file"
+   prop-time="2005-02-25T21:01:37.000000Z"/>
+</wc-entries>

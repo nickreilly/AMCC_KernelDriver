@@ -1,0 +1,12 @@
+detname sipin226
+clockpgm sipin226.s
+datapgm ociw.o
+outputformat interleaved
+badpixfile NULL
+maxrow 1024
+maxcol 1024
+nout 4
+boxname OCIW4chan
+adrange 5.0
+ampgain 10.980000
+

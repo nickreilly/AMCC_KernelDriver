@@ -1,0 +1,1 @@
+cmd_/home/dsp/py3dsp/ociw_old/MoreBasic/amcc.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/dsp/py3dsp/ociw_old/MoreBasic/amcc.ko /home/dsp/py3dsp/ociw_old/MoreBasic/amcc.o /home/dsp/py3dsp/ociw_old/MoreBasic/amcc.mod.o;  true

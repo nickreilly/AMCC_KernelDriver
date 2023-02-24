@@ -1,0 +1,31 @@
+pyshowall
+=========
+
+a python version of gshowall..
+
+the 'gshowall.glade' file is XML, edited with 'glade-2' . 
+Change it with the command line 'glade-2 gshowall.glade' .
+
+save frequently if you have an old version.
+it wasn't too stable as of 
+Feb 2004.
+
+In Oct 2004, on a Fedora Core 2 box, this seems much better.
+
+pydsp hooks into most of this stuff
+by agreeing upon the names.
+when the python name is different, a namemap
+dictionary maps the python name to the 
+gshowall name.
+
+The gshowall box called 'detfile_txt'
+is the python run dictionary entry for
+'detname'. rd.namemap maps 'detname' to 'detfile'
+and pyshowall.py adds the '_txt' on when looking
+for the widget.
+
+TODO: the namemapping could use a little refactor.
+hard to say if it belongs in the run dict or the GUI..
+I think perhaps the GUI, as the system can run gui-less.
+
+(The gui can run systemless too, but that isn't normal.)

@@ -1,0 +1,99 @@
+/* $Id: lint563.txt,v 1.4 1998/04/06 21:17:40 jay Exp $ */
+Motorola DSP56300 LINT  Version 6.3.0 Jul 13 1999 
+Updated revision number.
+====
+Motorola DSP56300 LINT  Version 6.2.13 Apr 13 1999 
+ES222 coverage.
+====
+Motorola DSP56300 LINT  Version 6.2.12 Feb 03 1999 
+ES110 bug coverage added
+====
+Motorola DSP56300 LINT  Version 6.2.11 Jan 29 1999 
+Various improvements in Lint coverage for many mask sets.
+Lint supports the generation of a data for use by the
+assembler.
+====
+1. Added 56307
+2. Added 56309
+3. Fixed falsely detected error with message:
+Two consecutive LAs have a conditional branch at LA-1 of the 	inner loop
+4. Fixed falsely detected error of P memory moves at LA-2.
+
+Motorola DSP56300 LINT  Version 6.2.4 04-23-98
+Copyright Motorola, Inc. 1993-1998.  All rights reserved.
+Usage:  lint563  [-r<rev>] [assembler command lineoptions] <srcfile>...
+where <rev> is taken from the 'revision mask' field in the following table:
+
+CHIP       | REVISION MASK
+-----------+---------------------
+DSP56301   | 0F48S      (default)
+DSP56301   | 0F92R
+DSP56301   | 1E41B
+DSP56301   | 1F48S
+DSP56301   | 1F92R
+DSP56301   | 3F48S
+DSP56302   | 0F47S
+DSP56302   | 0F90S
+DSP56302   | 1F47S
+DSP56302   | 1F90S
+DSP56303   | 0F88S
+DSP56303   | 0F94R
+DSP56303   | 0J22A
+DSP56303   | 1F94R
+DSP56303   | 3J22A
+DSP56304   | 0F93S
+DSP56304   | 1F93S
+DSP56305   | 0F13S
+DSP56305   | 0H78G
+DSP56307   | 2H83G
+DSP56309   | 5H80G 
+====
+Motorola DSP56300 LINT  Version 6.2.3 04-06-98
+1.This version adds a check for the restriction of one
+word conditional jumps at la-1.
+====
+Motorola DSP56300 LINT  Version 6.2.2 02-16-98
+1.New mask sets are now covered.  The complete list is:
+CHIP       | REVISION MASK
+-----------+---------------------
+DSP56301   | 0F48S      (default)
+DSP56301   | 0F92R
+DSP56301   | 1E41B
+DSP56301   | 1F48S
+DSP56301   | 1F92R
+DSP56301   | 3F48S
+DSP56302   | 0F47S
+DSP56302   | 0F90S
+DSP56302   | 1F47S
+DSP56302   | 1F90S
+DSP56303   | 0F88S
+DSP56303   | 0F94R
+DSP56303   | 0J22A
+DSP56303   | 1F94R
+DSP56303   | 3J22A
+DSP56304   | 0F93S
+DSP56304   | 1F93S
+DSP56305   | 0F13S
+DSP56305   | 0H78G  
+====
+lint563,  Version 6.2.1, Jan 20 1998
+1.New mask sets are now covered.  The complete list is:
+CHIP       | REVISION MASK
+-----------+---------------------
+DSP56301   | 0F48S      (default)
+DSP56301   | 0F92R
+DSP56301   | 1E41B
+DSP56301   | 1F92R
+DSP56302   | 0F47S
+DSP56302   | 1F47S
+DSP56302   | 1F90S
+DSP56303   | 0F88S
+DSP56303   | 0F94R
+DSP56303   | 1F94R
+DSP56304   | 0F93S
+DSP56305   | 0F13S 
+====
+lint563,  Version 6.2.0, Jan 08 1998
+1.Just a version number change for the CD release.
+====
+

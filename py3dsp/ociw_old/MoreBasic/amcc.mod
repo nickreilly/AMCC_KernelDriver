@@ -1,0 +1,2 @@
+/home/dsp/py3dsp/ociw_old/MoreBasic/amcc.o
+

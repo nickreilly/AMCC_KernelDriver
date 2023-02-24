@@ -1,0 +1,23 @@
+#
+# finishdatataking.py
+#
+
+"""
+"""
+
+def takebiasdata() :
+    for bias in (0,50,100,200) :
+        rd['object']="%dmV_100ms_mos"%(bias)
+        biassetup(bias)
+        stripemo(nsamp=20)
+    biassetup(50)
+
+def finishdatataking() :
+    for temp in (33.0,36.0,39.0,42.0,45.0) :
+        tempsetup(temp)
+        for bias in (0,50,100,200) :
+            rd['object']="%dK_%dmV_100ms_mos"%(temp,bias)
+            biassetup(bias)
+            stripemo()
+    dd['heater']=3300
+    biassetup(BIASDEFAULT)

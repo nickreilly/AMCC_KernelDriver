@@ -1,0 +1,203 @@
+TITLE "PCI Interface PLD";
+%  Author              Greg Burley / Drew Moore     %
+%  Organization        OCIW / RIT                   %
+%  Revision Level      4                            %
+%  Target Device       EPM7256AETC144-7             %
+
+% This file is written in AHDL.                     %
+% it connects the AMCC 5920 target interface chip   %
+% and cypress FIFO to the High Speed Serial interface. %
+% Modified 10/17/00 by Drew Moore, RIT				%
+% to transmit and receive with start and stop bits	%
+% instead of frame sync								%
+% modified 5/30/01 by Drew Moore RIT                %
+% to have HIGH stop bits and LOW start bits         %
+% modified 6/22/01 by drew moore RIT				%
+% to access FIFO in 3 regions.						%
+% modified 8/04 by drew moore University of Rochester %
+% to work on a new board layout.					%
+
+INCLUDE "lpm_counter.inc"; % Altera library module, check \maxplus2\max2lib\mega_lpm %
+INCLUDE "lpm_shiftreg.inc"; % likewise.. %
+
+OPTIONS BIT0 = LSB; % "Normal" bit ordering. %
+
+SUBDESIGN pci32
+(
+	DQ[15..0]									:BIDIR; % Add on BUS, AMCC PCI Addr/Data, also FIFO out %
+	OSC, /RESET, /EF, /EF2, /FF, /HF, LF		:INPUT; % Main osc, SYSRST, Fifo empty/full/half full %
+	ERXD, ERXCK, ERXFS							:INPUT; % RS422 receive channel. (FS needed? could be xtra data?) %
+	FRXD, FRXCK     							:INPUT; % Fiber RX;  %
+	PTWR, /PTADR, PTNUM[1..0], /DXFR, OPT3V		:INPUT; % control from PCI interface chip %
+	ETXD, FTXD, ETXCK, FTXCK					:OUTPUT; % RS422 transmit channel %
+	ETXFS, ERST, TXBUSY							:OUTPUT; % RS422 transmit channel %
+	/WEN, /WEN2, WCLK, WCLK2                    :OUTPUT; % FIFO write control lines %
+    /REN, /REN2, RCLK, RCLK2, /LD, /LD2, /OE, /OE2    :OUTPUT; % FIFO Read control lines %
+    LED2, LED3, FRST, FRST2                     :OUTPUT; 
+    /ADDINT, ADCLK, REFCLK                      :OUTPUT; % %
+    D[15..0]                                    :OUTPUT; % drives FIFO data input %
+)
+
+VARIABLE
+    DQBUS[15..0]                                :TRI; % connects to DQ pins %
+    ADD[15..0]                                  :DFFE; % latch an address. Just For the halibut. %
+    RX_LD                                       :DFF; % internal signal that we just got all the bits. %
+	USE_HF										:DFF; % true if we should use Half full interrupt %
+	DUAL_FIFO									:DFF; % true if we have two fifos %
+	MHZ10										:DFF; % divide by two for 20 MHz board clock but 10 Mhz TX? %
+	D1WEN, D2WEN								:DFFE;
+	TX_LD										:NODE;
+
+	RXCNT	:LPM_COUNTER  WITH (LPM_WIDTH=6, LPM_DIRECTION="DOWN", LPM_SVALUE=B"00010000"); % receive counter %
+	TXCNT	:LPM_COUNTER  WITH (LPM_WIDTH=6, LPM_DIRECTION="DOWN", LPM_SVALUE=B"00100000"); % transmit counter %
+	FCNT  	:LPM_COUNTER  WITH (LPM_WIDTH=16); % fifo counter. Tells how many words in fifo. %
+	TSHIFT  :LPM_SHIFTREG WITH (LPM_WIDTH=18, LPM_DIRECTION="RIGHT"); % transmit shift register %
+	RSHIFT  :LPM_SHIFTREG WITH (LPM_WIDTH=16, LPM_DIRECTION="RIGHT"); % receive shift register %
+	XSHIFT  :LPM_SHIFTREG WITH (LPM_WIDTH=16, LPM_DIRECTION="RIGHT"); % extra receive shift register %
+
+BEGIN
+	ADCLK = OSC; % Buffer the oscillator and feed it to the AMCC. needs 2.5 ns rise/fall! %
+	REFCLK = OSC; % unused. %
+%
+	we want to use ADCLK, not OSC, for most of this stuff..
+    since ADCLK is more properly sync'd with the AMCC.
+	(We might want to divide down OSC to make ADCLK too.)
+% 
+%	DEFINE CLOCK EQUIVALENTS AND BI_DIRECTIONAL BUS %
+
+	MHZ10 = !MHZ10; % toggle.%
+	MHZ10.clk = ADCLK; %%
+	ETXCK = MHZ10; % change transmit data on rising edge. %
+	FTXCK = MHZ10; % change transmit data on rising edge. %
+	RCLK = !ADCLK; % Fifo read synched to local (add on) clock. %
+	RCLK2 = !ADCLK; % Fifo read synched to local (add on) clock. %
+
+	WCLK = ERXCK; % fifo write synched to receive clock (from dsp). %
+	WCLK2 = ERXCK; % fifo write synched to receive clock (from dsp). %
+
+% WCLK clocks data to fifo on its rising edge. %
+% that means WEN (write enable) aka /RX_LD, should change on falling edge. %
+	/WEN = !RX_LD; % invert RX_LD, send to the FIFO write pin %
+	/WEN2 = !RX_LD; % invert RX_LD, send to the FIFO write pin %
+
+	DQBUS[15..0].in = FCNT.q[15..0]; % only on-chip read is # of fifo entries. %
+	DQBUS[].oe = (!PTWR & !/DXFR & (PTNUM[1..0]==B"11")); % read counter on pass thru region 3. ACM 6/22/01 %
+	DQ[] = DQBUS[].out;  % send this data out. why no DQ[].oe term?? just a pin connection. %
+
+% 	GENERATE RX FRAME_SYNC SIGNAL %
+%	RX cnt gets set to 16 when the start bit comes in. 
+	it has a non-zero state at every falling edge of incoming data.
+	as the last data bit gets clocked, the RX counter finally goes to zero. %
+	RXCNT.clock = !ERXCK; % clock it along with transmit shift register (rx data stable) % 
+	RXCNT.cnt_en = !RXCNT.eq[0]; % count down to zero and stop there. %
+	RXCNT.sset = RXCNT.eq[0] & !ERXD; % set counter to 16 at start bit. %
+	RXCNT.aclr = !/RESET; % power up at zero. %
+
+% 	GENERATE LOAD SIGNALS FOR TX_SHIFT REG AND RX SHIFT REG %
+%	RX_LD goes active AS the last data bit is clocked. %
+%	(the data to the fifo goes to its proper state when the last bit is clocked..) %
+%	half a cycle after that, WCLK goes active (rising edge) which clocks the fifo. %
+%	half a cycle after that, RX_LD goes inactive. % 
+% XXX rxcnt changes on the same edge as RX_LD! clock skew problem possible? %
+	RX_LD.clk = !ERXCK; % generate synchronous rx load. when data stable. (wrong edge?) %
+	RX_LD.d = RXCNT.eq[1]; % just before counter times out, pulse the FIFO write. %
+	RX_LD.clrn = /RESET;
+
+    ADD[].clk = ADCLK; %latch the Address on rising ADCLK edge.%
+    ADD[15..0].d = DQ[15..0]; %from the DQ inputs%
+    ADD[].ena =  !/PTADR; %when the PDADR signal says to.% 
+
+	TX_LD = ( PTWR & !/DXFR & (PTNUM[1..0]==B"00"));  %load tx on region 0 writes. %
+	
+	% ETXFS is good for scope sync, maybe.. %
+	ETXFS = TX_LD;
+
+	TXCNT.clock = ADCLK; % clock it along with transmit shift register (rx data stable) % 
+	TXCNT.cnt_en = !TXCNT.eq[0]; % count down to zero and stop there. %
+	TXCNT.sset = TXCNT.eq[0] & TX_LD; % set counter to 16 at start bit. %
+	TXCNT.aclr = !/RESET; % power up at zero. %
+
+	TXBUSY = !TXCNT.eq[0]; % TXBUSY is read by device driver!!!%
+
+% 	DEFINE TX AND RX SHIFT REGISTERS %
+    TSHIFT.data[17..2] = DQ[15..0]; % DQ bus from PCI Chip %
+	TSHIFT.data[1] = GND;  % Plus the start bit. %
+	TSHIFT.data[0] = VCC; % Keep a stop bit at the output till we're good to go. %
+    TSHIFT.clock = ADCLK;  % 20 Mhz transmit clock, divided by two by enable...%
+	TSHIFT.shiftin = VCC; % shift in a HIGH, meaning a stop bit.. %
+	TSHIFT.load = TX_LD; % load on pass thru write to region 0 (sync issues? no, adclk!)%
+	TSHIFT.aclr = !/RESET; % clear on power up, no biggie.. %
+	TSHIFT.enable = (!MHZ10)#TX_LD; % shift out when MHZ10 is about to rise.%
+	ETXD = TSHIFT.shiftout; % output of shift reg %
+	FTXD = TSHIFT.shiftout; % output of shift reg to %
+
+   	RSHIFT.shiftin = ERXD; % input from LVDS receiver %
+    RSHIFT.clock = !ERXCK; % Clock normal data on falling edge. %
+    RSHIFT.enable = !RXCNT.eq[0]; % frame sync is active thru entire word %
+	RSHIFT.aclr = !/RESET; % probably no big reason for this either. %
+	
+   	XSHIFT.shiftin = ERXD; % input from LVDS receiver %
+    XSHIFT.clock = ERXCK; % Clock extra data on rising edge. %
+    XSHIFT.enable = !RXCNT.eq[0]; % frame sync is active thru entire word %
+	XSHIFT.aclr = !/RESET; % probably no big reason for this either. %
+
+	D[] = RSHIFT.q[]; % send the receive shift register to the FIFO chip. %
+
+% 	GENERATE READ_ENABLE AND WRITE_ENABLE SIGNALS FOR FIFO  %
+% 	OUTPUT_ENABLE SIGNAL FOR FIFO, INTERRUPT FLAG           %
+
+% for dual FIFO, assert one or the other. Could also have a "which fifo bit in the data stream. %
+
+% read the fifo on region 0,1,or 2 reads. ACM, 6-22-01 %
+	% DUH, probably only need one line for all this. No harm in reading both. %
+	/REN = !(!PTWR & !/DXFR & ((PTNUM[1..0]==B"00")#(PTNUM[1..0]==B"01")#(PTNUM[1..0]==B"10"))); 
+	/REN2 = !(!PTWR & !/DXFR & ((PTNUM[1..0]==B"00")#(PTNUM[1..0]==B"01")#(PTNUM[1..0]==B"10"))); 
+	/OE =  !(!PTWR & !/DXFR & ((PTNUM[1..0]==B"00")#(PTNUM[1..0]==B"01")#(PTNUM[1..0]==B"10"))); 
+	/OE2 =  !(!PTWR & !/DXFR & ((PTNUM[1..0]==B"00")#(PTNUM[1..0]==B"01")#(PTNUM[1..0]==B"10"))); 
+
+	USE_HF.clk = !ADCLK; % clock USE_HF flag on negative edge of addon clock. %
+	USE_HF.d = (PTWR & !/DXFR & (PTNUM[1..0]==B"01") & DQ[0]) % load USE_HF from D0 on region 1 writes. %
+			# (!(PTWR & !/DXFR & (PTNUM[1..0]==B"01")) & USE_HF);  % remember it otherwise %
+	USE_HF.clrn = /RESET; % and power up reset %
+
+	% Configure for DUAL fifo mode? %
+	DUAL_FIFO.clk = !ADCLK; % clock DUAL_FIFO flag on negative edge of addon clock. %
+	DUAL_FIFO.d = (PTWR & !/DXFR & (PTNUM[1..0]==B"01") & (DQ[1])) % load DUAL_FIFO from D1 on region 1 writes. %
+				# (!(PTWR & !/DXFR & (PTNUM[1..0]==B"01")) & DUAL_FIFO);  % remember it otherwise %
+	DUAL_FIFO.clrn = /RESET; % and power up reset %
+
+	% Could do some address qualification above too. % 
+	LED2 = USE_HF OR OPT3V OR ADD[15..0] == B"0110100101110001" ;
+	LED3 = /EF OR /EF2 OR !/FF or /PTADR OR ERXFS or FRXD or FRXCK OR LF;
+
+	/ADDINT = !((/EF & !USE_HF) # (!/HF & USE_HF)); % interrupt when not empty or half full. %
+
+% DUMMY SIGNALS %
+	/LD = !( PTWR & !/DXFR & (PTNUM[1..0]==B"11")); % load FIFO flag offset reg on writes to region 3 %
+	/LD2 = !( PTWR & !/DXFR & (PTNUM[1..0]==B"11")); %  %
+
+%  SYNCHRONIZE /WEN FROM WCLK TO RCLK %
+	D1WEN.d = VCC;	% synch set, asynch clear %
+	D1WEN.clk = WCLK ; % wclk is possibly fast.. 80 mhz.. from DSP. %
+	D1WEN.ena = !/WEN; % set this when WEN goes active %
+	D1WEN.clrn = !D2WEN; % clear it when it gets to next stage.%
+
+	D2WEN.clk = RCLK; %  rclock is 20 MHZ local clock %
+	D2WEN.d = D1WEN.q; % set when previous stage is active % 
+	D2WEN.ena = VCC;
+
+% 	SET UP THE FIFO COUNTER -- INCREMENT ON SYNCHED /WEN, DECREMENT ON /REN %
+%   WHY do we have this counter again?? %
+%   We may want to toggle a bit for the FIFO, however. %
+
+	FCNT.clock = RCLK; 
+	FCNT.cnt_en = (!/REN $ D2WEN); % $ == XOR. count on either but not both. % 
+	FCNT.clk_en = (!/REN # D2WEN); % clock on either %
+	FCNT.updown = D2WEN;
+	FCNT.aclr = !/RESET;
+
+	FRST = /RESET; % reset one FIFO (active Low) %
+	FRST2 = /RESET; % reset the other FIFO (active low) %
+	ERST = !/RESET; % reset the dsp (active hi) %
+END;
+

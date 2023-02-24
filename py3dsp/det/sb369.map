@@ -1,0 +1,51 @@
+#
+# Version:                                                              
+#      $Id:$
+#                                                                           
+# Revisions:                                         
+#      $Log:$
+# 
+# mapping file for the Raytheon SB-369 at U/R
+# maps bias and clock names to dac numbers.
+# more than one dac number can be assigned to a name
+# in that case, the same name will change both dacs.
+
+BIAS vna   0 # pin 1
+BIAS vpa   1
+BIAS vpd   2
+BIAS vnd   3
+BIAS vpr1  4
+BIAS vnr1  5
+BIAS vpr2  6 # pin 7
+BIAS vnr2  7
+BIAS vclamp 8
+BIAS vload  9
+BIAS voffset 10
+BIAS _vreset 11
+BIAS dsub 12
+BIAS vpout 13 
+BIAS vnout 14 # pin 15
+
+CLOCK heaterlo 8 # pin 3
+CLOCK heater 9
+CLOCK heat-lo  12 # pin 4
+CLOCK heat-hi  13
+CLOCK itime_lo 2 # pin 9
+CLOCK itime_hi 3
+CLOCK pMC_lo   18 # pin 17
+CLOCK pMC_hi   19
+CLOCK pData_lo 10 # pin 18
+CLOCK pData_hi 11
+CLOCK pDetA1lo 20 # pin 19
+CLOCK pDetA1hi 21
+CLOCK pDetA2lo 22 # pin 20
+CLOCK pDetA2hi 23
+CLOCK pDetA3lo 14 # pin 21
+CLOCK pDetA3hi 15
+CLOCK pDetA4lo 24 # pin 22
+CLOCK pDetA4hi 25 
+CLOCK sArOn1lo 26 # pin 23
+CLOCK sArOn1hi 27 
+CLOCK sArOn2lo 16 # pin 24
+CLOCK sArOn2hi 17 
+

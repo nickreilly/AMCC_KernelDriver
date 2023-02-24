@@ -1,0 +1,235 @@
+% ------------------------------ ps_proc begin  ----------------------
+%  Define procedures
+% --------------------------------
+% inch - translate inches to coord
+%        stack:  inch => coord
+/inch {72 mul} def
+
+% lineproc - Defines a path for a line between two points.
+%       stack:  x1 y1 x2 y2 => ---
+/lineproc
+{
+    0 begin
+       /y2 exch def  %  y2
+       /x2 exch def  %  x2
+       /y1 exch def  %  y1
+       /x1 exch def  %  x1
+		 newpath
+		 x1 y1 moveto
+		 x2 y2 lineto
+	end
+} def
+/lineproc load 0 4 dict put
+%
+% boxproc - Defines a path as a box.
+%       stack:  x y wid hgt => ---
+/boxproc
+{  0 begin 
+      newpath 
+      /p1 exch def  % hgt
+		/p2 exch def  % wid
+		/p3 exch def  % y
+		/p4 exch def  % x
+		p4 p3 moveto    % x y moveto
+		p2  0 rlineto   % wid 0 rlineto 
+		0  p1 rlineto   % 0 hgt rlineto 
+		p2 neg 0 rlineto   % -wid 0 rlineto 
+	   closepath
+	 end
+} def
+/boxproc load 0 4 dict put
+%
+% cboxproc - Defines a path as a box centered at x, y.
+%       stack:  x y wid hgt => ---
+/cboxproc
+{
+   0 begin
+       /p1 exch def  % hgt
+		 /p2 exch def  % wid
+		 /p3 exch def  % y
+		 /p4 exch def  % x
+		 p4 p2 2 div sub  % x = x-(wid/2), stack: nx
+		 p3 p1 2 div sub  % y = y-(wid/2), stack: nx, ny
+		 p2 p1 boxproc  % use box to draw cbox
+	end
+} def
+/cboxproc load 0 4 dict put
+%
+% dpointproc - Draws a point
+%          stack: x, y, rad, err_hgt 
+/dpointproc
+{
+   0 begin
+      /err_hgt exch def   % err_hgt ( 1 std dev )
+      /rad exch def       % rad - radius of dot & width of bars
+      /y exch def   % y
+      /x exch def   % x
+      newpath
+      x y rad 90 450 arc
+      stroke
+      % draw error bar
+      0 err_hgt ne   
+      {
+         x y err_hgt add x y err_hgt sub lineproc
+         stroke
+         x rad sub y err_hgt add x rad add y err_hgt add lineproc
+         stroke
+         x rad sub y err_hgt sub x rad add y err_hgt sub lineproc
+         stroke
+      } if
+   end  
+} def
+/dpointproc load 0 4 dict put
+%
+% ltextproc -  
+%            stack: x, y, s
+/ltextproc 
+{
+   0 begin
+      /s exch def   % string to print
+      /y exch def   % y
+      /x exch def   % x
+      x y moveto
+      s show
+   end
+} def
+/ltextproc load 0 3 dict put
+%
+% ctextproc - prints text center at x
+%          stack: x, y, s
+/ctextproc   
+{
+   0 begin
+      /s exch def  % string to print
+      /y exch def   % y
+      /x exch def   % x
+      x
+      s stringwidth
+      pop    
+      2 div sub
+      y moveto
+      s show
+   end
+} def
+/ctextproc load 0 3 dict put
+%
+% rtextproc - print text right justified
+%          stack: x, y, s
+/rtextproc
+{
+   0 begin
+      /s exch def  % string to print
+      /y exch def   % y
+      /x exch def   % x
+      s stringwidth
+      pop neg x add
+      y moveto
+      s show
+   end
+} def
+/rtextproc load 0 3 dict put
+%
+%  bitdumpproc -  processes a bitmap for display.
+%         stack: width, height
+/bitdumpproc
+{
+   0 begin
+      % read arguments
+      /height exch def
+      /width exch def
+      /picstr width string def % picstr holds one scan line
+
+      % read and dump the image
+      width height 8 [width 0 0 height neg 0 height]
+      {  currentfile picstr readhexstring pop }
+      image
+   end
+} def
+/bitdumpproc load 0 3 dict put
+%
+%  colordumpproc -  processes a bitmap for display.
+%         stack: width, height
+%
+/colordumpproc
+{
+   0 begin
+      % read arguments
+      /height exch def
+      /width exch def
+      /picstr width 3 mul string def % picstr holds one scan line
+ 
+      % read and dump the image
+      width height 8 [width 0 0 height neg 0 height]
+      {  currentfile picstr readhexstring pop }
+      false 3
+      colorimage
+   end
+} def
+/colordumpproc load 0 3 dict put
+%
+% Defines a path as a polygon. Parameters is polygon array (array of points).
+% Each point is an array [x y]. Example:
+% [ [100 100 ] [100 200] [200 220 ] [210 105] ] polygon_proc
+%
+/polygon_proc
+{
+   0 begin
+      newpath
+      /Array exch def
+      /loopcnt 0 def
+      Array
+      {
+         aload pop   % put point's x y on stack
+         % if( loopcnt ) { moveto } else { lineto } 
+         0 loopcnt eq { moveto } { lineto } ifelse
+         % increment loopcnt
+         /loopcnt loopcnt 1 add def
+      } forall
+      closepath
+   end
+} def
+/polygon_proc load 0 2 dict put
+% ------------------------------ End of function definition  ----------------------
+% Write Paper's letter Head
+% Write NASA,
+%
+gsave
+36 722 translate
+.3 .3 scale
+newpath 0 0 0 100 lineproc stroke 
+newpath 37.5 100 37.5 15.11 180 arc stroke
+newpath 73.71 109.76 moveto 94.07 34.25 lineto stroke
+newpath 106.14 37.5 12.5 191.19 360 arc stroke
+newpath 118.64 37.5 moveto 118.64 137.5 lineto 143.64 137.5 lineto 143.64 37.5 lineto stroke
+newpath 106.14 37.5 37.5 196.47 360 arc stroke 
+newpath 70.24 26.7 moveto 49.79 102.31 lineto stroke 
+newpath 37.5 100 12.5 10.63 180 arc stroke 
+newpath 25 100 moveto 25 0 lineto 0 0 lineto stroke
+newpath 147.81 0 moveto 187.91 117.11 lineto stroke 
+newpath 217.6 106.83 31.42 19.6 160.9 arc stroke	% A outer arc stroke 
+newpath 247.2 117.37 moveto 280.17 24.77 lineto 352.38 24.77 lineto stroke 
+newpath 352.38 42.63 17.86 270 90 arc stroke 
+newpath 352.57 60.49 moveto 302.51 60.61 lineto stroke 
+newpath 302.6 98.03 37.42 87.79 269.86 arc stroke 
+newpath 302.6 135.43 moveto 378.64 135.43 lineto 378.64 112.43 lineto 302.59 112.35 lineto stroke 
+newpath 302.6 98.03 14.32 90 270 arc stroke 
+newpath 302.62 83.71 moveto 351.34 83.76 lineto stroke 
+newpath 352.38 42.63 41.15 270 90 arc stroke 
+newpath 352.46 0 moveto 257.92 0 lineto 226.07 109.32 lineto stroke 
+newpath 217.6 106.83 8.83 16.41 163.14 arc stroke 
+newpath 209.15 109.39 moveto 176.41 0 lineto 147.81 0 lineto stroke
+newpath 393.64 0 moveto 433.75 117.11 lineto stroke 
+newpath 463.43 106.83 31.42 19.6 160.9 arc stroke 
+newpath 493.03 117.37 moveto 534.27 0 lineto 503.96 0 lineto 471.91 109.32 lineto stroke 
+newpath 463.43 106.83 8.83 16.41 163.14 arc stroke 
+newpath 454.98 109.39 moveto 422.24 0 lineto 393.64 0 lineto stroke
+grestore
+%
+% Write Infrared Telescope Facility
+36 720 576 720 lineproc stroke
+/Helvetica findfont 15 scalefont setfont
+200 722 (Infrared Telescope Facility) ltextproc
+%
+% ------------------------------ End of ps_proc   ----------------------
+%
+ 

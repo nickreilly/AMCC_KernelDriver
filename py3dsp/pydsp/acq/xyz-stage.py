@@ -1,0 +1,152 @@
+"""
+#tested on python 2.7 anaconda x64 build windows 7 
+Author: Kenny Fourspring
+Exelis 400 Iniative Drive Rochester, NY
+email: kenneth.fourspring@exelisinc.com
+November 2014; Last revision: 08-Dec-2014 8PM
+
+Edited: McMurtry
+"""
+
+import serial
+import os
+import time
+
+ynVerbose = 0 # 1 -> keeps all output 0 -> hides output
+ynMoveStage = 1 # 1-> moves the stages 0 -> useful for debugging code
+
+
+def stage_set_com_port(ynVerbose):
+    if os.name == 'posix':
+        StageComPort = '/dev/ttyUSB0' #this needs changed to what your computer sees the comport as
+        if ynVerbose == 1:
+            print "this is linux setting com port to " + stageComPort
+    if os.name == 'nt':
+        StageComPort = 'Com3'
+        if ynVerbose == 1:
+            print "this is windows! setting stage com port to " + stageComPort
+    return StageComPort
+
+
+def stage_open(serial,stageComPort):
+    StageObj = serial.Serial()
+    StageObj.close() # Close first to be sure.
+    StageObj.isOpen()    
+    StageObj.port = stageComPort
+    StageObj.baudrate = 9600
+    StageObj.timeout = None#this needs to be one otherwise the stage will error out
+    StageObj.parity = serial.PARITY_NONE
+    StageObj.stopbits = 1
+    StageObj.xonxoff = False
+    StageObj.rtscts = False
+    StageObj.open() 
+    return StageObj
+
+ 
+   
+def stage_online(stageObj, ynVerbose):  
+    stageObj.write('F')#this disables the jog buttons
+    if ynVerbose == 1:
+        print "taking the stages online" 
+        
+def stage_offline(stageObj, ynVerbose):  
+    stageObj.write('Q')#this reenbables the obj buttons
+    if ynVerbose == 1:
+        print "taking the stages offline" 
+        
+def stage_read_move(stageObj,ynVerbose,stageAxis):
+    ynSuccess = stageObj.read(1)#wait for stage to be done moving
+    if ynSuccess == '^':
+        if ynVerbose == 1:
+            print stageAxis+" stage has moved"
+    else:
+        print "there was an Error" # print this error all the time
+        
+def stage_move(stageObj,newPos,ynVerbose): 
+    newX = long(newPos[0]) 
+    newY = long(newPos[1])
+    newZ = long(newPos[2])
+    if newX != 0:
+        stageObj.write('C,I1M'+str(newX)+',R')
+        stage_read_move(stageObj,ynVerbose,'X')
+    if newY != 0:
+        stageObj.write('C,I2M'+str(newY)+',R')
+        stage_read_move(stageObj,ynVerbose,'Y')             
+    if newZ != 0:
+        stageObj.write('C,I3M'+str(newZ)+',R')
+        stage_read_move(stageObj,ynVerbose,'Z')
+
+
+def calc_steps(stepSizeMM, stepXMM, stepYMM, stepZMM, ynVerbose):
+    """ Convert from given position in mm to units of steps for motor. 
+     The small vs large movements can be wrong due to rounding
+     For example: 1mm is 154 steps, but 100mm is 15385 steps.
+     So, always move back to the beginning as a multiple of the stepSizeMM,
+     and NOT as the full scanLenXMM.
+     Calculate the XYZ num of steps based upon (total distance)/stepSizeMM
+    """
+    numSteps = int(round(stepSizeMM*1000/6.5,0))
+    nStepX = int(round(stepXMM/stepSizeMM, 0)) * numSteps 
+    nStepY = int(round(stepYMM/stepSizeMM, 0)) * numSteps
+    nStepZ = int(round(stepZMM/stepSizeMM, 0)) * numSteps
+    stepsXYZ = [nStepX, nStepY, nStepZ]
+    if ynVerbose == 1:
+        print stepsXYZ
+    return stepsXYZ
+
+
+def rasterimage(stepSizeMM=10, scanLenXMM=50, scanLenYMM=50, scanLenZMM=0, NumImg=2):
+    # units are mm (1.2 is = psf )(0.6 ~ nyquist)
+    # NumImg is the number of images that will be averaged to reduce noise.
+    # NOTE: all scanLen{X,Y,Z}MM must be non-zero or this code won't run.
+    # But user thinks "Zero means don't move in this direction"
+    # So we put in checks. Anything greater than zero but less than or equal
+    # to one step size will only run that for-loop once.
+    if scanLenXMM < stepSizeMM:
+        scanLenXMM = stepSizeMM 
+    if scanLenYMM < stepSizeMM:
+        scanLenYMM = stepSizeMM
+    if scanLenZMM < stepSizeMM:
+        scanLenZMM = stepSizeMM
+
+    stageComPort = stage_set_com_port(ynVerbose)
+    stageObj = stage_open(serial,stageComPort)
+    stage_online(stageObj, ynVerbose) #this disables the jogging
+
+    # At the end of each for-loop, this runs an extra move in the particular
+    # direction of that given for-loop. No big deal, we still move it back.
+    # And it doesn't take long to do it.  Not worth extra code to write checks
+    # 
+    # The range end and step are multiplied by 10 so that you can enter
+    # the scan length and the step size in values as small as 0.1mm. 
+    # Note: if you want step sizes smaller than 0.1mm then you should really
+    # do this in the step units and not mm since there will be too much 
+    # rounding error.
+    for z in range(0, int(scanLenZMM*10), int(stepSizeMM*10)):
+        for y in range(0, int(scanLenYMM*10), int(stepSizeMM*10)):
+            for x in range(0, int(scanLenXMM*10), int(stepSizeMM*10)):
+                #-----------------------------------------------------       
+                time.sleep(0.5) # not required but can be added
+                # run array controller here 
+                aveimgrun('src', NumImg)
+                #-----------------------------------------------------
+                # move only in x by one stepSizeMM
+                scanPos = calc_steps(stepSizeMM, stepSizeMM, 0, 0, ynVerbose)
+                stage_move(stageObj,scanPos, ynVerbose)
+            # Now move back to beginning in x and step once in y
+            scanPos = calc_steps(stepSizeMM, -scanLenXMM,stepSizeMM,0, ynVerbose)
+            stage_move(stageObj,scanPos, ynVerbose)
+        # Now move back to beginning in y and step once in z
+        scanPos = calc_steps(stepSizeMM, 0,-scanLenYMM,stepSizeMM, ynVerbose)
+        stage_move(stageObj,scanPos, ynVerbose)
+
+    if ynVerbose == 1:
+        print "recentering stages"
+    if ynMoveStage == 1 :
+        # Move back to beginning in z
+        scanPos = calc_steps(stepSizeMM, 0,0,-scanLenZMM, ynVerbose)
+        stage_move(stageObj,scanPos,ynVerbose)
+    stage_offline(stageObj,ynVerbose)# now the jog switches will work again
+    stageObj.close#close the stage at the end of the script
+    if ynVerbose == 1:
+        print "done with program"

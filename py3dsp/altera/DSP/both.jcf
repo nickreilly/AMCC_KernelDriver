@@ -1,0 +1,5 @@
+JCF002
+
+[JTAG_CHAIN]
+DEVICE_1=EPM7128S d:\burley\blackbox\dsp\ahdl\rochester\dsp_u9.pof
+DEVICE_2=EPM7128S d:\burley\blackbox\dsp\ahdl\rochester\epld_b.pof

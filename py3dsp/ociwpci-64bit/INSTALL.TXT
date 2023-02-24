@@ -1,0 +1,52 @@
+Some quick notes about installing the OCIW/AMCC device driver.
+
+rm *.o *.ko
+make
+(really should compile ok)
+
+As root, do the following:
+First, you can test to see if it actuall will load before you install 
+it and then reboot just to have it fail.  Type:
+insmod ./amcc.ko ociw_physbufsize=0x4000000
+   (in the above compile directory, of course!)
+Then look at 'dmesg' to see if it loaded fine.
+
+Next, install the kernel module.
+zzz old mkdir /lib/modules/`uname -r`/kernel/drivers/pci/amcc
+zzz old cp amcc.ko /lib/modules/`uname -r`/kernel/drivers/pci/amcc/amcc.ko
+cp amcc.ko /lib/modules/`uname -r`/kernel/drivers/misc/
+  # Could be that you really want to put it in kernel/drivers/pci/ --more sense
+
+mknod /etc/udev/devices/ociw0 c 125 0
+chmod 777 /etc/udev/devices/ociw0
+chown dsp /etc/udev/devices/ociw0
+chgrp dsp /etc/udev/devices/ociw0
+   (just to be really sure that we have permission to write to it.)
+Above was old way???
+Now, need to use rules to create the device node at boot or whenever
+the AMCC kernel module loading occurs. I don't think we need to make an
+actual node ourselves anymore.  These rules take care of it.  Ask Rich???
+Create the file: /etc/udev/rules.d/80-amcc.rules
+      with the following two lines:
+# For OCIW, udev rule to create /dev/amcc0 devices for PCI interface pcb
+KERNEL=='amcc*", NAME="amcc%n", MODE="0666"
+SUBSYSTEM=="amcc", ACTION=="add", RUN+="/bin/chmod 0666 /dev/$name"
+
+
+Create the file /etc/modprobe.d/amcc  with the following lines:
+alias char-major-125-* amcc 
+options amcc amcc_physbufsize=0x4000000
+
+Note on above: The amcc driver no longer needs to have a specific CONTIGUOUS block of memory dedicated at boot as part of the boot loader 
+(which is what those old ociwdev.txt notes are referring to the LILO 
+config options).  However, it still needs some memory dynamically 
+allocated (not sure if I am saying this right) and thus amcc REALLY DOES
+require the amcc_physbufsize option.
+
+Then edit /etc/modules   to add a line in it with just:
+amcc
+
+Now, you can reboot or just do:
+modprobe -v amcc
+
+

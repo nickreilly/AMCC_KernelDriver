@@ -1,0 +1,19 @@
+#!/bin/sh
+for FILE in  \
+  README.html ir2.h sysV_ipc_help.h \
+  btos.c cbl.c clo.c d_clip_range.c df_build_card.c df_free_fbuffer.c df_init.c \
+  df_math.c df_read_fits.c df_search_fheader.c df_stats.c df_write_fits.c dirlist.c \
+  dpoly.c drange.c d_round.c elapse_msec.c elapse_sec.c error_string.c get_vec.c \
+  keypress.c map.c matchname.c my_atof.c my_atol.c my_timegm.c parse_r.c pathname.c \
+  point_in_polygon.c sock_flush.c sock_open.c sock_read_data.c sock_readline.c  \
+  sock_read_msg.c sock_setup_server.c sock_udp_message.c sock_write_data.c sock_write_msg.c \
+  stats.c stricmp.c strlwr.c str_replace_sub.c str_rws.c strupr.c strxcat.c strxcpy.c  \
+  sysV_ipc_help.c t2d.c timestr.c unpad.c \
+  diffme
+do
+	echo '===' $FILE '============================================================'
+	diff -w $FILE /home/s2/src/dv/libir2/$FILE | more
+	echo '<Return> to continue'
+	read aline
+done
+

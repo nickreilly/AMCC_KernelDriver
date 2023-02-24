@@ -1,0 +1,61 @@
+For the OCIW/AMCC device driver, see the file ociwpc/INSTALL.TXT
+
+For DV, see the file dv/README.dv2.txt  but basically, if it does not
+compile, then there are missing packages that will need to be added, e.g. GSL
+and GTK stuff.  Note: the DV_HOME environment variable and .dv-init file are 
+absolutely needed, so do those steps.
+
+In the dsp user's .bashrc file, add:
+export LC_CTYPE=C
+export LC_NUMERIC=C
+export LC_COLLATE=C
+
+export CUPS_SERVER=lp.pas.rochester.edu
+export PRINTER=CopyRoom
+
+export LM_LICENSE_FILE=1700@crunch.pas.rochester.edu
+
+export IDLHOME=$HOME/idlpro
+export IDL_STARTUP=$IDLHOME/startup.pro
+
+export DV_HOME=/usr/local/dv
+# Not sure what this did, but it was on Itchy circa 2013.
+alias dv='XLIB_SKIP_ARGB_VISUALS=1 dv'
+
+PYDSPHOME=/home/dsp/dsp
+export PYDSPHOME
+alias pydsp='python -tt -i ${PYDSPHOME}/pydsp/start_pydsp.py'
+alias spydsp='python -tt -i ${PYDSPHOME}/pydsp/client.py'
+
+## end of stuff to add to .bashrc file
+
+For Filter Wheel Stepper Motor control:
+Install the Python parallel port module (python-parallel).
+Now, the module 'lp' must not be loaded, but it is a kernel module so you 
+cannot just simply blacklist it, you have to do a little more.  Luckily you 
+don't have to recompile the kernel to remove it (anymore).  Do the following:
+
+ a) Edit /etc/modules and comment out lp and add ppdev
+ b) Edit /etc/modprobe.d/blacklist and add "blacklist lp"
+    Also create a file /etc/modprobe.d/blacklist-lp.conf with the line
+    "blacklist lp"
+    Not sure about doing both, but didn't work with just the first one.
+ c) run: dpkg-reconfigure linux-image-$(uname -r)
+ d) edit /etc/default/cups (on older linux systems F10 or U8.10) 
+      OR /etc/modules-load.d/cups-filters.conf (on newer >14.04 ??)  
+    and set LOAD_LP_MODULE=no
+ e) reboot
+
+Next, add the dsp user to the lp group so that dsp can write to /dev/parport0 
+gpasswd -a dsp lp
+
+For the temperature controller:
+Install the Python Serial port module
+You can either add dsp to same group as the one that owns /dev/ttyS0
+gpasswd -a dsp dialout
+Or you can modify the /etc/udev/rules.d/50-udev.permissions file that is 
+used to create the devices at boot time.  Set ttyS*:root:uucp:0666
+
+
+
+

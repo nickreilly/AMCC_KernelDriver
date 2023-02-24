@@ -1,0 +1,14 @@
+/* $Id: dsplib.txt,v 1.2 1998/08/26 16:17:24 russo Exp $ */
+dsplib, Version 6.3, Mar 19 1999
+Added support for SC100 device.
+====
+dsplib, Version 6.2.1, Aug 26 1998
+Modified NT makefile to link in Microsoft's setargv.obj. This
+enables PC command line wildcard expansion.
+====
+dsplib, Version 6.2, Jan 06 1998
+1. The only change is to the version number, in preparation for
+the CD distribution release.
+====
+
+

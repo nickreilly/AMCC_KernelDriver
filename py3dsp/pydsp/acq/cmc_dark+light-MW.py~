@@ -1,0 +1,245 @@
+"""
+cmc_dark+light.py - a script to run in pydsp.
+    
+  1) aquires images in SUTR mode with the first set in the dark, 
+  2) moves the filter wheel to filter with high background, 
+  3) sets the reset clock to zero (off),
+  4) takes more SUTR images in the light
+  5) moves the filter wheel back to cds (dark)
+  6) takes more SUTR data in the dark to allow diodes to debias to zero.
+  7) sets the reset clock back to default.
+
+to use, type: execuser filename
+where filename is this file's name, but WITHOUT the .py
+"""
+
+from run import rd
+#import numpy
+#import xdir
+#import pyfits
+import time
+import filterBase
+import ls332
+
+
+filterBase.set("cds")
+
+# Ask user for SCA type
+print 'H1RG or H2RG?'
+whichSCA = str(raw_input())
+
+# HAWAII-1RG
+if whichSCA == 'H1RG' :
+    fullitime = 5800 # full array read time
+    longitime = 25000
+    fullrow = 1024
+
+
+# HAWAII-2RG
+if whichSCA == 'H2RG' :
+    fullitime = 11000 # full array read time
+    longitime = 11000
+    fullrow = 2048
+
+print 'What is the starting detector bias you want to do?'
+startbias = int(raw_input())
+
+print 'What is the ending detector bias you want to do?'
+endbias = int(raw_input())
+
+print 'In what increments do you want to change the detector bias?'
+stepbias = int(raw_input())
+
+print 'What amount do you want to shift the Voffset voltage (mV)?'
+extraoffset = int(raw_input())
+#extraoffset = 0
+
+OrigOffset = dd.voffset
+
+print 'After taking data at the current temperature, do you want to change the temperature and take dark+light at the new temperature? (y/n)'
+changeTemp = str(raw_input())
+
+if (changeTemp == 'y' or changeTemp == 'Y' or changeTemp == 'yes'):
+    print 'What is the FINAL temperature at which we are measuring dark current? NOTE: we can only do whole integer temperatures and steps. '
+    FinalTemp = int(raw_input())  # integer because of range in for-loop
+    print 'In what increments do you want to change the temperature?'
+    StepTemp = int(raw_input())
+    print 'How long do you want to wait at next temp before starting?'
+    print '    (enter in seconds)'
+    waittime_tempchange = int(raw_input())
+    print 'What temp do you want to set it to after the experiment? '
+    justFinalTemp = int(raw_input())  # integer because of range in for-loop
+
+if changeTemp != 'y':
+    print 'Do you want to change temp after and NOT run another experiment? (y/n)'
+    justChangeTemp = str(raw_input())
+
+    if (justChangeTemp == 'y' or justChangeTemp == 'Y' or justChangeTemp == 'yes'):
+        print 'to what? '
+        justFinalTemp = int(raw_input())  # integer because of range in for-loop
+
+
+print 'How long do you want to wait for temperature stability before starting?'
+print '    (enter in seconds)'
+waittime = int(raw_input()) 
+#waittime = 5
+
+def WaitAndBurst():
+    print 'Taking a nap before starting!'
+    #crun2()
+    time.sleep(waittime) # wait for temperature to stabilize
+    burst()  # stop CRUN mode
+    time.sleep(5)
+    burst()  # sometimes, once is not enough
+    time.sleep(5)
+    burst()
+    time.sleep(5)
+    
+def exposure(exposure_time, filt):
+    rd.nsamp = 1
+    pedrun()  # take the pedestal frame before exposure
+    initial_time = time.time()
+    filterBase.set(filt)
+    while True:
+        pedrun()
+        time.sleep(0.001)
+        now_time = time.time()
+        if (now_time - initial_time) > exposure_time:
+            break
+    filterBase.set("cds")
+    pedrun()  # take the final image after exposure
+
+
+def WaitAndBurst_tempchange(NextTemp):
+    rd.nsamp = 1
+    not_at_temp = True
+    while not_at_temp:
+        tmps()
+        current_temp = ls332.readTemp() 
+        if abs(NextTemp - current_temp) < 0.01:
+            crun()
+            time.sleep(300)
+            burst()
+            time.sleep(5)
+            burst()
+            tmps()
+            current_temp = ls332.readTemp()
+            if abs(NextTemp - current_temp) < 0.05:
+                not_at_temp = False
+        else:
+            crun2()
+            time.sleep(600)
+            burst()
+            time.sleep(5)
+            burst()
+            time.sleep(5)
+            burst()
+    #time.sleep(waittime_tempchange) # wait for temperature to stabilize
+    burst()  # stop CRUN mode
+    time.sleep(5)
+    burst()  # sometimes, once is not enough
+    time.sleep(5)
+    burst()  # sometimes, once is not enough
+    time.sleep(5)
+    burst()  # sometimes, once is not enough
+    time.sleep(5)
+
+
+def DarkVsBias():
+    # What is our current temperature?
+    tmps()
+    #CurrTemp = int(round(readTemp())) # round and return as integer -- no decimal
+    CurrTemp = int(round(ls332.readTemp())) # round and return as integer -- no decimal. Changed it to match the command from temp modulation code
+    #CurrTemp = round(readTemp(),1)
+ 
+    # Loop through a number of applied biases.
+    for detbias in range(startbias, endbias+1, stepbias):
+        # The applied reverse detector bias = (dsub-vreset), invert to get dsub
+        detsub = dd.vreset + detbias
+        dd.dsub = detsub
+
+        # Set the object name for this data with the bias in the name.
+        rd.object = "dk_%dK_%dmV"%(CurrTemp, detbias)
+        #rd.object = "dk_%sK_%dmV"%(str(CurrTemp), detbias)
+        rd.gc = 'Taking dark+light data. No reset between SUTR sets.'
+        #rd.lc = 'Post proton-radiation exposure'
+        rd.lc = 'This is the start of the dark data.'
+
+        rd.nsamp = 1
+        rd.itime = fullitime
+        rd.nrow = fullrow
+        for blah in range(20):
+            sscan() # just take some throw-away data to help new bias settle.
+    
+        # Take some samples in the dark
+        rd.nsamp = 200  # was 2000
+        rd.itime = fullitime
+        sutr()
+        # Turn off the reset clock so that we still do non-destructive reads.
+        dd.resetnhi = 0
+        '''
+        # Also, move the Voffset voltage to keep things on scale with A/D converters.
+        dd.voffset = OrigOffset - extraoffset
+        # Take some samples in the light
+        ##filterBase.set("8.6")
+        filterBase.set("m'") #Maybe try m' if this does not work well.
+        #filterBase.set("5.8")
+        rd.nsamp = 200    # was 100
+        rd.itime = longitime # was 60 sec with ND filter.
+        '''
+        rd.gc = 'Taking dark+light data. No reset between SUTR sets.'
+        rd.lc = 'This is the light exposed data.'
+        # sutr()
+        # Move filter back to dark and take more samples
+        #filterBase.set("cds")
+        exposure(2*60*60, "5.8")  # Start w 2 hours?
+        
+        
+        rd.nsamp = 200
+        rd.itime = fullitime
+        rd.gc = 'Taking dark+light data. No reset between SUTR sets.'
+        rd.lc = 'This is the data back in the dark after light exposure.'
+        sutr()
+        # Turn on the upper rail of reset clock (allows clocking reset, not continuous)
+        dd.resetnhi = 3300
+
+
+if (changeTemp == 'y' or changeTemp == 'Y' or changeTemp == 'yes'):
+    # What is our current temperature?
+    time.sleep(1)
+    tmps()
+    time.sleep(1)
+    StartTemp = int(round(ls332.readTemp())) # round and return as integer - no decimal
+    for NextTemp in range(StartTemp, FinalTemp+1, StepTemp):
+        if NextTemp != StartTemp:
+            time.sleep(1)
+            ls332.setSetpointTemp(NextTemp) # Tell controller to change temperature
+            time.sleep(1)
+            WaitAndBurst_tempchange(NextTemp)  # wait some time, then stop crun
+            DarkVsBias() # Take data at the current temperature
+        else:
+            WaitAndBurst()
+            DarkVsBias()
+else :
+    WaitAndBurst()  # wait some time, then stop crun
+    DarkVsBias()  # just taking darks at this one temp
+
+print 'Finished taking your data'
+dd.voffset = OrigOffset
+rd.lc = ''
+rd.gc = ''
+#rd.nrow = 1024
+#rd.ncol = 1024
+rd.nrowskip = 0
+rd.ncolskip = 0
+rd.nsamp = 1
+rd.dsub = 350
+rd.object = 'test'
+rd.itime = fullitime
+sscan()
+
+if justChangeTemp == 'y' or changeTemp == 'y':
+    ls332.setSetpointTemp(justFinalTemp)
+
+
+crun2()

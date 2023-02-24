@@ -1,0 +1,21 @@
+2019-03-26:
+
+
+Before 2019-03-26:
+    I just recently was able to get the program to communicate with the
+CY8-board over USB, this was a major step of progress and puts the project
+on firm footing, I only wish I had a little more experience doing this
+sort of thing. I wan't to make the project a little more OOPy, not out
+of any love for the paradigm but it seems like the natural way to write
+the program to allow for similar compatability no matter how we interface
+with the black box. So there needs to be a common interface between these
+components:
+
+    - Dummy Mode
+    - PCI (ociw?)
+    - USB
+
+The dev.py file seems to be the natural place to do this. Also I wanted
+to map out the files in their relation to one another, plus really look
+at how all the threads pop up, I want to make sure shut-down works right.
+

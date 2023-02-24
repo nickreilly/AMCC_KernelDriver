@@ -1,0 +1,57 @@
+#
+# Version:                                                              
+#      $Id:$
+#                                                                           
+# Revisions:                                         
+#      $Log$
+#
+# this file sets up the dacs to the number of millivolts specified here.
+# it does it in the order that the voltages are found in the file.
+# upon reset, all of the voltages are zero.
+#
+# Raytheon recommends starting with all voltages at 0, then power up as
+# shown on page 51 of User's Manual.
+vna   +0
+vpa   +0 # nominal is +5500
+vpd   +0 # +5500
+vnd   +0
+vpr1  +0 # +5500
+vnr1  +0
+vpr2  +0 # +5500
+vnr2  +0
+vclamp +0 # +4700
+vload  +0
+voffset +100 
+_vreset  +0 # +3700
+dsub  +0
+vpout +0 # +5500
+vnout +0
+
+# The heater resistor is on pins 3 & 4.  Since these are clocks, there
+# are four voltages to set for it.  Usually, we would keep the negative
+# side (pin 3) at zero and set pin 4 to a higher positive voltage.
+heaterlo +0
+heater +0
+heat-lo  +0
+heat-hi  +0
+itime_lo +0
+itime_hi +2000
+pMC_lo   +0
+pMC_hi   +0 # +5500
+pData_lo +0
+pData_hi +0 # +5500
+pDetA1lo +0
+pDetA1hi +0 # +5500
+pDetA2lo +0
+pDetA2hi +0 # +5500
+pDetA3lo +0
+pDetA3hi +0 # +5500
+pDetA4lo +0
+pDetA4hi +0 # +5500
+sArOn1lo +0 # +5500
+sArOn1hi +0 # +5500
+sArOn2lo +0
+sArOn2hi +0
+
+
+

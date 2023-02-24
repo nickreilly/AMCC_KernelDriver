@@ -1,0 +1,4 @@
+#!/bin/bash
+
+python -tt -i ./start_pydsp.py 
+

@@ -1,0 +1,116 @@
+\BOOKMARK [1][-]{section*.2}{Contents}{}
+\BOOKMARK [1][-]{section.1}{Module DataDict}{}
+\BOOKMARK [2][-]{subsection.1.1}{Variables}{section.1}
+\BOOKMARK [2][-]{subsection.1.2}{Class DataDict}{section.1}
+\BOOKMARK [3][-]{subsubsection.1.2.1}{Methods}{subsection.1.2}
+\BOOKMARK [3][-]{subsubsection.1.2.2}{Class Variables}{subsection.1.2}
+\BOOKMARK [1][-]{section.2}{Module autouser}{}
+\BOOKMARK [2][-]{subsection.2.1}{Variables}{section.2}
+\BOOKMARK [2][-]{subsection.2.2}{Class AutoUser}{section.2}
+\BOOKMARK [3][-]{subsubsection.2.2.1}{Methods}{subsection.2.2}
+\BOOKMARK [1][-]{section.3}{Module det}{}
+\BOOKMARK [2][-]{subsection.3.1}{Functions}{section.3}
+\BOOKMARK [2][-]{subsection.3.2}{Variables}{section.3}
+\BOOKMARK [2][-]{subsection.3.3}{Class DetDict}{section.3}
+\BOOKMARK [3][-]{subsubsection.3.3.1}{Methods}{subsection.3.3}
+\BOOKMARK [3][-]{subsubsection.3.3.2}{Class Variables}{subsection.3.3}
+\BOOKMARK [1][-]{section.4}{Module detectors.default}{}
+\BOOKMARK [1][-]{section.5}{Module detectors.sipin226}{}
+\BOOKMARK [2][-]{subsection.5.1}{Functions}{section.5}
+\BOOKMARK [2][-]{subsection.5.2}{Variables}{section.5}
+\BOOKMARK [2][-]{subsection.5.3}{Class Bunch}{section.5}
+\BOOKMARK [3][-]{subsubsection.5.3.1}{Methods}{subsection.5.3}
+\BOOKMARK [3][-]{subsubsection.5.3.2}{Class Variables}{subsection.5.3}
+\BOOKMARK [1][-]{section.6}{Module dsp}{}
+\BOOKMARK [2][-]{subsection.6.1}{Functions}{section.6}
+\BOOKMARK [2][-]{subsection.6.2}{Variables}{section.6}
+\BOOKMARK [2][-]{subsection.6.3}{Class ClockLine}{section.6}
+\BOOKMARK [3][-]{subsubsection.6.3.1}{Methods}{subsection.6.3}
+\BOOKMARK [3][-]{subsubsection.6.3.2}{Class Variables}{subsection.6.3}
+\BOOKMARK [2][-]{subsection.6.4}{Class ClockLine}{section.6}
+\BOOKMARK [3][-]{subsubsection.6.4.1}{Methods}{subsection.6.4}
+\BOOKMARK [3][-]{subsubsection.6.4.2}{Class Variables}{subsection.6.4}
+\BOOKMARK [2][-]{subsection.6.5}{Class DspThread}{section.6}
+\BOOKMARK [3][-]{subsubsection.6.5.1}{Methods}{subsection.6.5}
+\BOOKMARK [3][-]{subsubsection.6.5.2}{Class Variables}{subsection.6.5}
+\BOOKMARK [1][-]{section.7}{Module dv}{}
+\BOOKMARK [2][-]{subsection.7.1}{Functions}{section.7}
+\BOOKMARK [2][-]{subsection.7.2}{Variables}{section.7}
+\BOOKMARK [1][-]{section.8}{Module filterBase}{}
+\BOOKMARK [2][-]{subsection.8.1}{Functions}{section.8}
+\BOOKMARK [2][-]{subsection.8.2}{Variables}{section.8}
+\BOOKMARK [2][-]{subsection.8.3}{Class cvFilter}{section.8}
+\BOOKMARK [3][-]{subsubsection.8.3.1}{Methods}{subsection.8.3}
+\BOOKMARK [2][-]{subsection.8.4}{Class fixedFilter}{section.8}
+\BOOKMARK [3][-]{subsubsection.8.4.1}{Methods}{subsection.8.4}
+\BOOKMARK [1][-]{section.9}{Module filterII}{}
+\BOOKMARK [2][-]{subsection.9.1}{Functions}{section.9}
+\BOOKMARK [2][-]{subsection.9.2}{Variables}{section.9}
+\BOOKMARK [1][-]{section.10}{Module filterwh}{}
+\BOOKMARK [2][-]{subsection.10.1}{Functions}{section.10}
+\BOOKMARK [2][-]{subsection.10.2}{Variables}{section.10}
+\BOOKMARK [1][-]{section.11}{Module fits}{}
+\BOOKMARK [2][-]{subsection.11.1}{Functions}{section.11}
+\BOOKMARK [2][-]{subsection.11.2}{Variables}{section.11}
+\BOOKMARK [2][-]{subsection.11.3}{Class fitsbuffer}{section.11}
+\BOOKMARK [3][-]{subsubsection.11.3.1}{Methods}{subsection.11.3}
+\BOOKMARK [1][-]{section.12}{Module ociw}{}
+\BOOKMARK [2][-]{subsection.12.1}{Functions}{section.12}
+\BOOKMARK [2][-]{subsection.12.2}{Variables}{section.12}
+\BOOKMARK [2][-]{subsection.12.3}{Class AbstractFrame}{section.12}
+\BOOKMARK [3][-]{subsubsection.12.3.1}{Methods}{subsection.12.3}
+\BOOKMARK [2][-]{subsection.12.4}{Class RawFrame}{section.12}
+\BOOKMARK [3][-]{subsubsection.12.4.1}{Methods}{subsection.12.4}
+\BOOKMARK [3][-]{subsubsection.12.4.2}{Class Variables}{subsection.12.4}
+\BOOKMARK [1][-]{section.13}{Module pydsp}{}
+\BOOKMARK [2][-]{subsection.13.1}{Functions}{section.13}
+\BOOKMARK [2][-]{subsection.13.2}{Variables}{section.13}
+\BOOKMARK [2][-]{subsection.13.3}{Class pydspWebServer}{section.13}
+\BOOKMARK [3][-]{subsubsection.13.3.1}{Methods}{subsection.13.3}
+\BOOKMARK [3][-]{subsubsection.13.3.2}{Class Variables}{subsection.13.3}
+\BOOKMARK [1][-]{section.14}{Module pyshowall.pyshowall}{}
+\BOOKMARK [2][-]{subsection.14.1}{Functions}{section.14}
+\BOOKMARK [2][-]{subsection.14.2}{Variables}{section.14}
+\BOOKMARK [2][-]{subsection.14.3}{Class gui\137writer}{section.14}
+\BOOKMARK [3][-]{subsubsection.14.3.1}{Methods}{subsection.14.3}
+\BOOKMARK [2][-]{subsection.14.4}{Class GuiThread}{section.14}
+\BOOKMARK [3][-]{subsubsection.14.4.1}{Methods}{subsection.14.4}
+\BOOKMARK [3][-]{subsubsection.14.4.2}{Class Variables}{subsection.14.4}
+\BOOKMARK [1][-]{section.15}{Module run}{}
+\BOOKMARK [2][-]{subsection.15.1}{Functions}{section.15}
+\BOOKMARK [2][-]{subsection.15.2}{Variables}{section.15}
+\BOOKMARK [2][-]{subsection.15.3}{Class RunDict}{section.15}
+\BOOKMARK [3][-]{subsubsection.15.3.1}{Methods}{subsection.15.3}
+\BOOKMARK [3][-]{subsubsection.15.3.2}{Class Variables}{subsection.15.3}
+\BOOKMARK [1][-]{section.16}{Module runrun}{}
+\BOOKMARK [2][-]{subsection.16.1}{Functions}{section.16}
+\BOOKMARK [2][-]{subsection.16.2}{Variables}{section.16}
+\BOOKMARK [1][-]{section.17}{Module sload}{}
+\BOOKMARK [2][-]{subsection.17.1}{Class sloader}{section.17}
+\BOOKMARK [3][-]{subsubsection.17.1.1}{Methods}{subsection.17.1}
+\BOOKMARK [3][-]{subsubsection.17.1.2}{Class Variables}{subsection.17.1}
+\BOOKMARK [1][-]{section.18}{Module start\137pydsp}{}
+\BOOKMARK [2][-]{subsection.18.1}{Functions}{section.18}
+\BOOKMARK [2][-]{subsection.18.2}{Variables}{section.18}
+\BOOKMARK [1][-]{section.19}{Module tempcontrol}{}
+\BOOKMARK [2][-]{subsection.19.1}{Variables}{section.19}
+\BOOKMARK [2][-]{subsection.19.2}{Class tcontroller}{section.19}
+\BOOKMARK [3][-]{subsubsection.19.2.1}{Methods}{subsection.19.2}
+\BOOKMARK [1][-]{section.20}{Module tests}{}
+\BOOKMARK [2][-]{subsection.20.1}{Functions}{section.20}
+\BOOKMARK [2][-]{subsection.20.2}{Variables}{section.20}
+\BOOKMARK [1][-]{section.21}{Module tmptr}{}
+\BOOKMARK [2][-]{subsection.21.1}{Functions}{section.21}
+\BOOKMARK [2][-]{subsection.21.2}{Variables}{section.21}
+\BOOKMARK [1][-]{section.22}{Module tmptr\137curve10}{}
+\BOOKMARK [2][-]{subsection.22.1}{Functions}{section.22}
+\BOOKMARK [2][-]{subsection.22.2}{Variables}{section.22}
+\BOOKMARK [1][-]{section.23}{Module wheel}{}
+\BOOKMARK [2][-]{subsection.23.1}{Functions}{section.23}
+\BOOKMARK [2][-]{subsection.23.2}{Variables}{section.23}
+\BOOKMARK [2][-]{subsection.23.3}{Class Wheel}{section.23}
+\BOOKMARK [3][-]{subsubsection.23.3.1}{Methods}{subsection.23.3}
+\BOOKMARK [1][-]{section.24}{Module xdir}{}
+\BOOKMARK [2][-]{subsection.24.1}{Functions}{section.24}
+\BOOKMARK [2][-]{subsection.24.2}{Variables}{section.24}
+\BOOKMARK [1][-]{section*.4}{Index}{}

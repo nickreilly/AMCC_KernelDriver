@@ -1,0 +1,97 @@
+======================
+High-speed link Report
+======================
+
+:Author: Drew Moore
+:Date: Apr 7, 2007
+ 
+This document
+summarizes an investigation into improving the mechanism by which pixels
+are transferred from the DSP controller to the PCI card in the 
+Linux PC host in the "Black Box" systems. 
+
+There were two aspects to this investigation:
+
+* Buffering pixels on the DSP board (avoiding
+  complicated clocking code for a four channel system)
+* Sending pixels at a faster rate from DSP to PC.
+
+The investigation met with some success, but did not achieve the
+goal of 5 Megapixel per second rates.
+
+Pixel Buffering on the DSP
+--------------------------
+
+At the onset of this investigation, the DSP had but a single register
+for shifting out a pixel. DSP software
+always had to wait for a pixel to be written out before
+putting the next pixel into the shift register. This was annoying,
+but not terribly bad:
+For a four-channel system (the current capacity of the acquisition), 
+at the faster data rates employed at the NIR lab at the University of Rochester,
+four pixels are transmitted every 10 microseconds. With an 80 MHz DSP
+instruction rate, this is 800 processor clock cycles. 
+Four pixels take up a small fraction of this time. Each pixel is 
+16 data bits, a start bit, and at least one stop bit. Rounding it to
+20 bits per pixel, that is 80 cycles out of 800, so only 10 percent of
+the loop time was spent waiting on the register to clear.  
+Still, waiting on the shift registers often became intermixed with other code
+that was waiting for signals to settle, etc. It was more
+desirable to allow the software to simply write the four pixels all at once,
+without any waiting for registers to clear. If data rates were to
+increase, this would get worse.
+
+The first issue encountered was the limited number of macrocells
+available in the CPLD (an Altera Max 7000 series)
+that was responsible for sending the pixels. 
+It simply did not have enough macrocells available to support
+48 more bits of shift register.
+
+This was overcome by using cells in a neighboring chip.
+
+The next issue encountered was deciding how to implement the multi-pixel
+buffering circuit. One obvious architecture was a FIFO-oriented
+input buffer. In this approach, the DSP could simply write pixels
+to the same location. Pixels would be read from the head of the FIFO
+by the circuitry driving the serial line. Selection circuitry would 
+write a pixel coming from the DSP to the tail of the FIFO.
+
+Although this approach sounded attractive, the implementation of
+the circuit distributed between the pair of CPLDs seemed too daunting
+to tackle.
+A simpler approach was devised: Make one large shift register,
+containing the 64 bits of pixel, plus the start and stop bits necessary
+to frame the data coming in.
+
+At this point, the possibility of always sending a 64 bit transfer was
+considered. It seemed that this would bring with it some issues as well.
+An implicit requirement in this modification was that **current clocking
+software should not break as a result of this new circuitry.**
+(The FIFO approach would have met that, and even done better in that
+modification of current software to run at a faster rate would have been
+simple.)
+
+The implementation required slight modification to the DSP board.
+Two jumper wires were added to connect a new pair of signals between
+the chips, allowing data to flow from the extra registers into the
+main registers, and an enable signal to flow from the main register to
+the extra registers. 
+
+Of the four pixel registers that now can be written, the original register
+was designated to be the "master" register. (Each register has its own
+address.) Writing to the master register initiates the shift activity.
+To send four pixels at once, the three slave registers are loaded first.
+loaded first. If the original mode of operation is required, only the master
+register is written to. 
+
+When the master register is written, shifting of the entire register is
+enabled. (This required the second wire mentioned above.) 
+
+This long shift register has stop bits continually shifted in as the data
+is shifted out. When all the data has been shifted out, the enable line
+goes inactive. When pixels are written into the register, not only are their
+data bits written, but their start bits are written too. When the transmit
+logic detects a missing start bit from an extra register, it can terminate the
+transmission immediately, removing the enable.
+
+

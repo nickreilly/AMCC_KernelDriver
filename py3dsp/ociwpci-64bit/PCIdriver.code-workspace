@@ -1,0 +1,13 @@
+{
+    "folders": [
+        {
+            "path": "."
+        },
+        {
+            "path": "../../../../var/log"
+        },
+        {
+            "path": "../../../../data/NatashaBackup/dsp/dsp/pydsp"
+        }
+    ]
+}

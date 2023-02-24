@@ -1,0 +1,43 @@
+<html>
+<pre>
+<b>HG notes for the DV source </b>
+
+<b>1.  cloning a copy of DV and pulling updates </b>
+
+   Clone:
+   ---------
+   mkdir src
+   cd src
+   hg clone ssh://s2@iaa//home/s2/src/dv dv
+
+   Updating:
+   ---------
+   hg pull
+   hg update
+
+<b>2.  creating </b>
+
+   hg init    - create the .hg repository (no files added).
+   hg add     - should all all files in the cwd.
+   hg commit -u s2 - commit to repository.
+
+<b>3.  commits </b>
+
+   hg commit  -u tony - to commit changes to repository.
+
+<b>4. hg status </b>
+
+   hg status            - ? show file present, but not added.
+   hg status  --all     - shows all files the status indicators
+   
+   hg locate            - list files in your repository
+
+<b>5. other commands </b>
+
+   hg add  path/file       - add a file from the repository
+
+   hg rm  path/file        - remove a file from the repository
+
+</pre>
+</html>
+

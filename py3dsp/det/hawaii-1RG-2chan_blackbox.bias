@@ -1,0 +1,87 @@
+#
+# Version:                                                              
+#      $Id: hawaii.bias,v 1.3 2003/12/01 22:48:52 drew Exp $
+#                                                                           
+# Revisions:                                         
+#      $Log: hawaii.bias,v $
+#      Revision 1.3  2003/12/01 22:48:52  drew
+#      updated voltages
+#
+#      Revision 1.2  2003/07/16 00:14:24  dsp
+#      got all the names, and the voltages too.
+#
+# 
+# this file sets up the dacs to the number of millivolts specified here.
+# it does it in the order that the voltages are found in the file.
+# upon reset, all of the voltages are zero.
+
+# bias DB pin 1
+vdd 3300 
+# bias DB pin 2
+vdda 3300
+# bias DB pin 3
+cdrain 000
+# bias DB pin 4
+drain 000
+# bias DB pin 5 is NC.
+# nc
+# bias DB pin 6
+heater 3800
+# bias DB pin 7
+
+# bias DB pin 8 
+vpower 3300
+# bias DB pin 9 
+vgate 2400
+# vload is on header board!
+vload 3300
+# voffset is on header board!
+voffset -2000 
+# bias DB pin 12
+_vreset 000
+# bias DB pin 13 -- needs connection!!
+dsub 0
+# vdetsub 
+
+# clock rails..
+# 
+vfastlo 0000
+vfasthi 3300
+vslowlo 0000 
+vslowhi 3300 
+
+fsblo	0000
+fsbhi	3300
+csblo	0000
+csbhi	3300
+
+# DET clocks..
+# clock DB pin 1
+# fsyncb -- NC on 226 # USE INSTEAD Seq 14.
+# clock DB pin 8
+# csb -- framest on 226 # actually ROW clock in software!
+
+# COL clocks:
+# clock DB pin 9
+# LSYNCB -- CPhi1 on 226
+# clock DB pin 10
+# HCLK -- CPhi2 on 226
+# clock DB pin 11
+# MRESET -- CSync on 226
+
+
+# row clocks:
+# clock DB pin 17
+# VCLK -- RPhi1 on 226
+# clock DB pin 18
+# RESETEN -- RPhi2 on 226
+# clock DB pin 19
+# READEN -- RSync on 226
+
+
+
+
+#vggcllo -5500 
+#vggclhi -1000 
+#vresetlo -5500 
+#vresethi -4000 

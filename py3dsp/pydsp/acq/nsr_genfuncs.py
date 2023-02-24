@@ -1,0 +1,73 @@
+from run import rd
+from runrun import sscan, sutr
+import filterBase
+import time
+import numpy as np
+
+def nap(waittime):
+    rd.nsamp = 1
+    print('Napping!')
+    initial_time = time.time()
+    while True:
+        sscan()
+        time.sleep(0.001)
+        now_time = time.time()
+        if (now_time - initial_time) > waittime:
+            print 'Waking up!'
+            return
+
+def set_array_vars(array_type):
+    if array_type == 'H2RG':
+        rd.object = 'test'
+        rd.nrow = 2048
+        rd.nrowskip = 0
+        rd.ncol = 2048
+        rd.itime = 11000
+        rd.nsamp = 1
+        rd.gc = ''
+        rd.lc = ''
+
+class NC1_chars:
+    def __init__(self):
+        sub_rows = 256
+        sub_start_row = 650 # Pinhole Dimensions
+        sub_end_row = 1650 # Pinhole Dimensions
+        full_start = 0
+        full_end = 2048
+        nrowskips_sub = np.arange(sub_start_row, sub_end_row, sub_rows)
+        nrowskips = np.arange(full_start, full_end, sub_rows)
+
+        self.mission_itime = 1500
+        self.mission_samples = 18
+        self.sub_rows = sub_rows
+        self.full_skips = nrowskips
+        self.small_skips = nrowskips_sub
+        self.sub_start_row = sub_start_row
+        self.sub_end_row = sub_end_row
+        self.detbias = 250
+
+def nc1_sutr(num_ramps, row_start=0, row_end=2048, number_garbage_frames=10):
+    nc1_chars = NC1_chars()
+    nskips = np.arange(row_start, row_end, nc1_chars.sub_rows)
+    ynums = nskips[-1] + nc1_chars.sub_rows
+    rd.gc = 'NC1 Style SUTR ramps:' + str(num_ramps) + ' at each subarray, ynums:' + str(ynums)
+    for i_sub, nrowskip in enumerate(nskips):
+        print('Starting Garbage Frames')
+        for i_garbage in range(number_garbage_frames):
+            rd.nrow = nc1_chars.sub_rows + 10
+            rd.nrowskip = nrowskip - 5
+            rd.itime = nc1_chars.mission_itime
+            rd.nsamp = 1
+            sscan()
+        for ramp in range(num_ramps):
+            # for ramps in range(numramps):
+            print('Starting subarray ' + str(i_sub) + ' Ramp num: ' + str(ramp))
+            rd.lc = 'Ramp number:' + str(ramp) + ' of ' + str(num_ramps)
+            rd.nrow = nc1_chars.sub_rows
+            rd.nrowskip = nrowskip
+            rd.nsamp = nc1_chars.mission_samples # num_samples_list[i_filter]
+            sutr()
+            # rd.nsamp = 1
+    set_array_vars('H2RG')
+
+

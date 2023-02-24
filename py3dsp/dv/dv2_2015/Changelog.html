@@ -1,0 +1,136 @@
+<html>
+<h3>DV Changelog</h3>
+
+<pre>
+<b>todo: </b>
++ parse_r.c all 'if( buf ) == NULL ' for all.
+
+<b>2015.09 </b>
++ autoscale on histogram. (link them to the rescaling in the images).
+  if number of bin &lt max-min, set bins to range.
+
+<b>2015.07 </b>
+1506:
+  + started new version 2015.07.
+  + removed "Cshell", "NSFCAM", "Spex" in Offset tab. (platescale should be in header).
+  + adding mga (moris guider adjustment) to help center moris's guiding with guidedog.
+  + Did hg commit on 2015/07/31
+  + updated dv.h with new Gd_slit_auto_guidebox_a,_b values per SJB.
+1510:
+  + added xgfit/xgfit.doc(pdf) to document fit. (document was part of xgfit)
+  + updated dv.h with new Gd_slit_auto_guidebox_a,_b values per SJB email 10/29/2015.
+  + Compiled/Installed on 10/30 for spex.  Did a HG commit on 11/02.
+
+<b>2014.10 </b>
+
+Added Spex Signal-to-Noise estimate.
+Did hg commin on 10/13.
+
+<b>2014.07 </b>
+
+140729:
+    added back GTK_WIDGET_HAS_FOCUS to compile with centos5/moris in cmdcon.c
+1408:
+  + Renamed libir1 to libir2, and imported some function from spex2:
+    added function for ir1 to the dv the 'master' copy for libir1.
+    replaced dlimit() with d_clip_range(), added d_round().
+    Moved systemV IPC function to sysV_ipc_help.c/.h (not part of makefile).
+    Added sock_udp_message.c, sock_readline.c, sock_flush.c, stats.o
+    Replace elapse_ms() with elapse_msec() - must pass start and end times.
+    Did a hg commit on 140813.
+1410:
+    updated libir2 sec2timeStr() from spex
+    Changed version to 2014.07
+    Did a hg commit on 141013 as version 2014.07
+
+<b>DV version 2014.05 </b>
+
+1308:
+  + support 1 subarray for s2's bigdog/guidedog.
+  + works better with 4096x4096.
+  + did a save.me on 140514 (and moved save/ to /home/s2/src/dv ).
+  + 140520 - Changed version to 1405, created HG repo.
+  + minor fixes to libir1 (so other can copy it).
+
+<b> DV version 2013.05 </b>
+
++ Compile and ran under 32 and 64bit linux.
++ Discovered huge memory leak problem related to the gtk_file_chooser dialog.
+  This is a buggy widget with memory leaks, I was calling gtk_file_chooser_set_current_folder()
+  in update_file_save_dialog() when every time data in the buffer changed causing
+  performance issue and growing memory footprint on very call.
+  I am limit calling it now, so problem exist but hopefully it has minimal impact.
++ did a save.me on May 30, 2013
+
+<b>DV version 2012.07 </b>
+
++ changed default font_name to "monospace 8". (9/1).
++ Now compiles and run under centos6.  (9/1).
+  Fixed a few compiler error and warnings for C and GTK.
++ charles noticed object box don't update some graphs:
+  - histogram did not update when object box moved - Fixed.
+  - line cut w/ box did not update with Object Box with was 1 (mininum is 2).
++ Removed skip bad data code in NOISE DisplayType. The code ignored
+  pixel value of 65535. Code was put into DV for SGIR controller testing.
+
+<b>DV version 2011.08 </b>
+
++ sock_read_data() - fixed socket IO so sleeps are not used for reads.
+                     timeout_cnt to timeout_ms. Added more shutdown().
++ Fixed MEM_ALT_ERR to ERR_MALLOC
++ removed libir1/parse.c (should use parse_r). replace some atof with my_atof.
++ fixed stats for h2rg development.
++ composite visual and the XLIB_SKIP_ARGB_VISUALS fix.
+  + tries for 24 bit, TRUE COLOR. System visual was 24bits,
+    but gdk_visual_get_best_with_type was returning 32bits.
+    Got rid of xdv script.
++ add some moris support.
++ fix problem with closing open/save dialog box via
+  the window manager (it was destroying the widgets, not hiding them).
++ The grayRed color map show low values as 'light blue'
+
+<b>DV version 2011.02 </b>
+
+- fixed line cut not refresh when objstatbox is moved.
+- added dvio
+- minor changes to irlib: btos, sock_open.
+
+<b>DV version 2008.08 </b>
+
++ Converted from GTK 1.2x to GTK 2.x.
++ Included local copy of libir1 in DV's source tree.
++ New configure dialog box have most of DV controls:
+   display, math, setup, offset, commmandio, macors, aboutDV.
++ support mirsi's file & dimension. (06/2009)
++ Read a stargrasp data file. (06/2009)
+  Handle data with Header but NAXIS of 0.
++ improvement to pointer display. (hide stat, linecut)
++ using GIO or replace:
+   gtk_input_remove() -> g_source_remove
+   gdk_input_add() -> g_io_channel_* and friends
++ configure window can be a separate dialog window (using dv -W).
++ remove tcs1
+
+<b>new ideals:</b>
+
+  Maybe same font as use TCS3.
+  Remove PANGO ifdef
+
+  better printer support (pdf, print dialog, ...).
+  Fixed color PDF.
+
+  bigger colormap bar.
+
+  2 lines for dpy_status
+  2nd line can be a colormap bar.
+
+<b>help finding memory leaks </b>
+
+valgrind --leak-check=yes dv
+
+   '--track-origins=yes' to help tracking down uninitialised-value errors
+
+valgrind --leak-check=yes --track-fds=yes dv
+
+</pre>
+</html>

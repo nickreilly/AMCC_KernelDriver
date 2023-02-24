@@ -1,0 +1,550 @@
+\begin{theindex}
+
+  \item autouser \textit{(module)}, \hyperpage{9--10}
+    \subitem autouser.AutoUser \textit{(class)}, \hyperpage{10}
+      \subsubitem autouser.AutoUser.\_\_call\_\_ \textit{(method)}, 
+		\hyperpage{10}
+      \subsubitem autouser.AutoUser.\_\_init\_\_ \textit{(method)}, 
+		\hyperpage{10}
+
+  \indexspace
+
+  \item BaseHTTPServer.BaseHTTPRequestHandler.address\_string \textit{(function)}, 
+		\hyperpage{41}
+  \item BaseHTTPServer.BaseHTTPRequestHandler.date\_time\_string \textit{(function)}, 
+		\hyperpage{41}
+  \item BaseHTTPServer.BaseHTTPRequestHandler.end\_headers \textit{(function)}, 
+		\hyperpage{42}
+  \item BaseHTTPServer.BaseHTTPRequestHandler.handle\_one\_request \textit{(function)}, 
+		\hyperpage{42}
+  \item BaseHTTPServer.BaseHTTPRequestHandler.log\_date\_time\_string \textit{(function)}, 
+		\hyperpage{42}
+  \item BaseHTTPServer.BaseHTTPRequestHandler.log\_error \textit{(function)}, 
+		\hyperpage{42}
+  \item BaseHTTPServer.BaseHTTPRequestHandler.parse\_request \textit{(function)}, 
+		\hyperpage{42}
+  \item BaseHTTPServer.BaseHTTPRequestHandler.send\_error \textit{(function)}, 
+		\hyperpage{42}
+  \item BaseHTTPServer.BaseHTTPRequestHandler.send\_header \textit{(function)}, 
+		\hyperpage{42}
+  \item BaseHTTPServer.BaseHTTPRequestHandler.send\_response \textit{(function)}, 
+		\hyperpage{42}
+  \item BaseHTTPServer.BaseHTTPRequestHandler.version\_string \textit{(function)}, 
+		\hyperpage{43}
+
+  \indexspace
+
+  \item DataDict \textit{(module)}, \hyperpage{4--8}
+    \subitem DataDict.DataDict \textit{(class)}, \hyperpage{6--8}
+      \subsubitem DataDict.DataDict.\_\_cmp\_\_ \textit{(method)}, 
+		\hyperpage{6}, \hyperpage{13}, \hyperpage{49}
+      \subsubitem DataDict.DataDict.\_\_contains\_\_ \textit{(method)}, 
+		\hyperpage{6}, \hyperpage{13}, \hyperpage{49}
+      \subsubitem DataDict.DataDict.\_\_delitem\_\_ \textit{(method)}, 
+		\hyperpage{6}, \hyperpage{13}, \hyperpage{49}
+      \subsubitem DataDict.DataDict.\_\_getattr\_\_ \textit{(method)}, 
+		\hyperpage{6}, \hyperpage{13}, \hyperpage{49}
+      \subsubitem DataDict.DataDict.\_\_getitem\_\_ \textit{(method)}, 
+		\hyperpage{6}, \hyperpage{13}, \hyperpage{49}
+      \subsubitem DataDict.DataDict.\_\_iter\_\_ \textit{(method)}, 
+		\hyperpage{6}, \hyperpage{14}, \hyperpage{49}
+      \subsubitem DataDict.DataDict.\_\_len\_\_ \textit{(method)}, 
+		\hyperpage{6}, \hyperpage{14}, \hyperpage{49}
+      \subsubitem DataDict.DataDict.\_\_setitem\_\_ \textit{(method)}, 
+		\hyperpage{7}, \hyperpage{14}, \hyperpage{50}
+      \subsubitem DataDict.DataDict.additem \textit{(method)}, 
+		\hyperpage{7}, \hyperpage{14}, \hyperpage{50}
+      \subsubitem DataDict.DataDict.clear \textit{(method)}, 
+		\hyperpage{7}, \hyperpage{15}, \hyperpage{50}
+      \subsubitem DataDict.DataDict.copy \textit{(method)}, 
+		\hyperpage{7}, \hyperpage{15}, \hyperpage{50}
+      \subsubitem DataDict.DataDict.get \textit{(method)}, 
+		\hyperpage{7}, \hyperpage{15}, \hyperpage{50}
+      \subsubitem DataDict.DataDict.has\_key \textit{(method)}, 
+		\hyperpage{7}, \hyperpage{15}, \hyperpage{50}
+      \subsubitem DataDict.DataDict.items \textit{(method)}, 
+		\hyperpage{7}, \hyperpage{15}, \hyperpage{50}
+      \subsubitem DataDict.DataDict.iteritems \textit{(method)}, 
+		\hyperpage{7}, \hyperpage{15}, \hyperpage{50}
+      \subsubitem DataDict.DataDict.iterkeys \textit{(method)}, 
+		\hyperpage{8}, \hyperpage{15}, \hyperpage{50}
+      \subsubitem DataDict.DataDict.itervalues \textit{(method)}, 
+		\hyperpage{8}, \hyperpage{15}, \hyperpage{50}
+      \subsubitem DataDict.DataDict.keys \textit{(method)}, 
+		\hyperpage{8}, \hyperpage{15}, \hyperpage{51}
+      \subsubitem DataDict.DataDict.popitem \textit{(method)}, 
+		\hyperpage{8}, \hyperpage{15}, \hyperpage{51}
+      \subsubitem DataDict.DataDict.set\_widget \textit{(method)}, 
+		\hyperpage{8}, \hyperpage{15}, \hyperpage{51}
+      \subsubitem DataDict.DataDict.setdefault \textit{(method)}, 
+		\hyperpage{8}, \hyperpage{15}, \hyperpage{51}
+      \subsubitem DataDict.DataDict.update \textit{(method)}, 
+		\hyperpage{8}, \hyperpage{15}, \hyperpage{51}
+      \subsubitem DataDict.DataDict.values \textit{(method)}, 
+		\hyperpage{8}, \hyperpage{15}, \hyperpage{51}
+  \item det \textit{(module)}, \hyperpage{11--15}
+    \subitem det.DetDict \textit{(class)}, \hyperpage{13--15}
+    \subitem det.get\_detname \textit{(function)}, \hyperpage{12}
+    \subitem det.init \textit{(function)}, \hyperpage{11}
+    \subitem det.loadbiasmap \textit{(function)}, \hyperpage{12}
+    \subitem det.loaddet \textit{(function)}, \hyperpage{12}
+    \subitem det.powerdown \textit{(function)}, \hyperpage{12}
+    \subitem det.powerup \textit{(function)}, \hyperpage{12}
+    \subitem det.savedet \textit{(function)}, \hyperpage{12}
+    \subitem det.setbiases \textit{(function)}, \hyperpage{11}
+    \subitem det.setclockpgm \textit{(function)}, \hyperpage{11}
+    \subitem det.showbiases \textit{(function)}, \hyperpage{11}
+    \subitem det.writebiasdacfunc \textit{(function)}, \hyperpage{11}
+    \subitem det.writeclockdac \textit{(function)}, \hyperpage{11}
+  \item detectors \textit{(package)}
+    \subitem detectors.default \textit{(module)}, \hyperpage{16}
+    \subitem detectors.sipin226 \textit{(module)}, \hyperpage{17--18}
+      \subsubitem detectors.sipin226.Bunch \textit{(class)}, 
+		\hyperpage{17--18}
+      \subsubitem detectors.sipin226.get\_vbias \textit{(function)}, 
+		\hyperpage{17}
+      \subsubitem detectors.sipin226.get\_vreset \textit{(function)}, 
+		\hyperpage{17}
+      \subsubitem detectors.sipin226.set\_vbias \textit{(function)}, 
+		\hyperpage{17}
+  \item dsp \textit{(module)}, \hyperpage{19--27}
+    \subitem dsp.adc2diode \textit{(function)}, \hyperpage{20}
+    \subitem dsp.clearSeqBits \textit{(function)}, \hyperpage{19}
+    \subitem dsp.clockit \textit{(function)}, \hyperpage{20}
+    \subitem dsp.ClockLine \textit{(class)}, \hyperpage{22--25}
+    \subitem dsp.DspThread \textit{(class)}, \hyperpage{25--27}
+      \subsubitem dsp.DspThread.blocking\_do\_nowait \textit{(method)}, 
+		\hyperpage{25}
+      \subsubitem dsp.DspThread.do \textit{(method)}, \hyperpage{25}
+      \subsubitem dsp.DspThread.do\_nowait \textit{(method)}, 
+		\hyperpage{25}
+      \subsubitem dsp.DspThread.interrupt \textit{(method)}, 
+		\hyperpage{25}
+      \subsubitem dsp.DspThread.shutdown \textit{(method)}, 
+		\hyperpage{25}
+      \subsubitem dsp.DspThread.tc\_in\_acq \textit{(method)}, 
+		\hyperpage{26}
+      \subsubitem dsp.DspThread.threadable \textit{(method)}, 
+		\hyperpage{26}
+    \subitem dsp.dspthreadable \textit{(function)}, \hyperpage{20}
+    \subitem dsp.dummymode \textit{(function)}, \hyperpage{19}
+    \subitem dsp.dummymodeOff \textit{(function)}, \hyperpage{19}
+    \subitem dsp.getFrameTime \textit{(function)}, \hyperpage{21}
+    \subitem dsp.getPedTime \textit{(function)}, \hyperpage{21}
+    \subitem dsp.load\_srec \textit{(function)}, \hyperpage{20}
+    \subitem dsp.rampnext \textit{(function)}, \hyperpage{21}
+    \subitem dsp.read \textit{(function)}, \hyperpage{19}
+    \subitem dsp.read7888 \textit{(function)}, \hyperpage{21}
+    \subitem dsp.readAdcs \textit{(function)}, \hyperpage{19}
+    \subitem dsp.readBiasCurrent \textit{(function)}, \hyperpage{21}
+    \subitem dsp.readBiasVoltage \textit{(function)}, \hyperpage{21}
+    \subitem dsp.readClockCurrent \textit{(function)}, \hyperpage{21}
+    \subitem dsp.readClockVoltage \textit{(function)}, \hyperpage{21}
+    \subitem dsp.rglobal \textit{(function)}, \hyperpage{21}
+    \subitem dsp.rnorm \textit{(function)}, \hyperpage{20}
+    \subitem dsp.ron \textit{(function)}, \hyperpage{20}
+    \subitem dsp.rrow \textit{(function)}, \hyperpage{21}
+    \subitem dsp.sciStepN \textit{(function)}, \hyperpage{21}
+    \subitem dsp.seebiaspin \textit{(function)}, \hyperpage{22}
+    \subitem dsp.seeclockpin \textit{(function)}, \hyperpage{22}
+    \subitem dsp.senddsp \textit{(function)}, \hyperpage{20}
+    \subitem dsp.set\_heater\_by\_tweak \textit{(function)}, 
+		\hyperpage{20}
+    \subitem dsp.setSeqBits \textit{(function)}, \hyperpage{19}
+    \subitem dsp.singlepix \textit{(function)}, \hyperpage{20}
+    \subitem dsp.startingAlert \textit{(function)}, \hyperpage{19}
+    \subitem dsp.stoppingAlert \textit{(function)}, \hyperpage{20}
+    \subitem dsp.testBiases \textit{(function)}, \hyperpage{19}
+    \subitem dsp.testClockRails \textit{(function)}, \hyperpage{19}
+    \subitem dsp.timer \textit{(function)}, \hyperpage{21}
+    \subitem dsp.tweak\_heater \textit{(function)}, \hyperpage{20}
+    \subitem dsp.vDiode \textit{(function)}, \hyperpage{21}
+    \subitem dsp.writebias \textit{(function)}, \hyperpage{22}
+    \subitem dsp.writedac \textit{(function)}, \hyperpage{20}
+    \subitem dsp.writeSeqBits \textit{(function)}, \hyperpage{19}
+  \item dv \textit{(module)}, \hyperpage{28--29}
+    \subitem dv.active \textit{(function)}, \hyperpage{29}
+    \subitem dv.advance\_fbuf \textit{(function)}, \hyperpage{28}
+    \subitem dv.bmax \textit{(function)}, \hyperpage{28}
+    \subitem dv.buffer \textit{(function)}, \hyperpage{29}
+    \subitem dv.dv\_dofile \textit{(function)}, \hyperpage{28}
+    \subitem dv.dv\_path \textit{(function)}, \hyperpage{28}
+    \subitem dv.load\_bkg \textit{(function)}, \hyperpage{28}
+    \subitem dv.load\_src \textit{(function)}, \hyperpage{28}
+    \subitem dv.math \textit{(function)}, \hyperpage{28}
+    \subitem dv.send2dv \textit{(function)}, \hyperpage{28}
+    \subitem dv.send\_command \textit{(function)}, \hyperpage{28}
+    \subitem dv.src\_minus\_bkg \textit{(function)}, \hyperpage{28}
+    \subitem dv.vfmode \textit{(function)}, \hyperpage{29}
+    \subitem dv.view \textit{(function)}, \hyperpage{28}
+
+  \indexspace
+
+  \item filterBase \textit{(module)}, \hyperpage{30--31}
+    \subitem filterBase.cvFilter \textit{(class)}, \hyperpage{30}
+      \subsubitem filterBase.cvFilter.\_\_init\_\_ \textit{(method)}, 
+		\hyperpage{30}
+      \subsubitem filterBase.cvFilter.moveto \textit{(method)}, 
+		\hyperpage{30}
+      \subsubitem filterBase.cvFilter.set \textit{(method)}, 
+		\hyperpage{30}
+    \subitem filterBase.fixedFilter \textit{(class)}, 
+		\hyperpage{30--31}
+      \subsubitem filterBase.fixedFilter.\_\_init\_\_ \textit{(method)}, 
+		\hyperpage{31}
+      \subsubitem filterBase.fixedFilter.moveto \textit{(method)}, 
+		\hyperpage{31}
+      \subsubitem filterBase.fixedFilter.set \textit{(method)}, 
+		\hyperpage{31}
+    \subitem filterBase.move \textit{(function)}, \hyperpage{30}
+  \item filterII \textit{(module)}, \hyperpage{32}
+    \subitem filterII.get\_bandwidth \textit{(function)}, 
+		\hyperpage{32}
+    \subitem filterII.get\_filtername \textit{(function)}, 
+		\hyperpage{32}
+    \subitem filterII.get\_wavelength \textit{(function)}, 
+		\hyperpage{32}
+    \subitem filterII.set \textit{(function)}, \hyperpage{32}
+  \item filterwh \textit{(module)}, \hyperpage{33}
+    \subitem filterwh.get\_bandwidth \textit{(function)}, 
+		\hyperpage{33}
+    \subitem filterwh.get\_filtername \textit{(function)}, 
+		\hyperpage{33}
+    \subitem filterwh.get\_wavelength \textit{(function)}, 
+		\hyperpage{33}
+    \subitem filterwh.set \textit{(function)}, \hyperpage{33}
+  \item fits \textit{(module)}, \hyperpage{34}
+    \subitem fits.block\_descrambler \textit{(function)}, 
+		\hyperpage{34}
+    \subitem fits.fitsbuffer \textit{(class)}, \hyperpage{34}
+      \subsubitem fits.fitsbuffer.\_\_init\_\_ \textit{(method)}, 
+		\hyperpage{34}
+      \subsubitem fits.fitsbuffer.set\_size \textit{(method)}, 
+		\hyperpage{34}
+    \subitem fits.fitsheader \textit{(function)}, \hyperpage{34}
+    \subitem fits.interleaved\_descrambler \textit{(function)}, 
+		\hyperpage{34}
+    \subitem fits.quadrant\_descrambler \textit{(function)}, 
+		\hyperpage{34}
+    \subitem fits.write\_image \textit{(function)}, \hyperpage{34}
+
+  \indexspace
+
+  \item object.\_\_delattr\_\_ \textit{(function)}, \hyperpage{6}, 
+		\hyperpage{13}, \hyperpage{17}, \hyperpage{23, 24}, 
+		\hyperpage{26}, \hyperpage{46}, \hyperpage{49}
+  \item object.\_\_getattribute\_\_ \textit{(function)}, \hyperpage{6}, 
+		\hyperpage{13}, \hyperpage{17}, \hyperpage{23, 24}, 
+		\hyperpage{26}, \hyperpage{46}, \hyperpage{49}
+  \item object.\_\_hash\_\_ \textit{(function)}, \hyperpage{6}, 
+		\hyperpage{13}, \hyperpage{17}, \hyperpage{23, 24}, 
+		\hyperpage{26}, \hyperpage{46}, \hyperpage{49}
+  \item object.\_\_new\_\_ \textit{(function)}, \hyperpage{6}, 
+		\hyperpage{14}, \hyperpage{18}, \hyperpage{23, 24}, 
+		\hyperpage{26}, \hyperpage{47}, \hyperpage{49}
+  \item object.\_\_reduce\_\_ \textit{(function)}, \hyperpage{7}, 
+		\hyperpage{14}, \hyperpage{18}, \hyperpage{23, 24}, 
+		\hyperpage{26}, \hyperpage{47}, \hyperpage{49}
+  \item object.\_\_reduce\_ex\_\_ \textit{(function)}, \hyperpage{7}, 
+		\hyperpage{14}, \hyperpage{18}, \hyperpage{23, 24}, 
+		\hyperpage{26}, \hyperpage{47}, \hyperpage{50}
+  \item object.\_\_repr\_\_ \textit{(function)}, \hyperpage{18}, 
+		\hyperpage{23, 24}
+  \item object.\_\_setattr\_\_ \textit{(function)}, \hyperpage{18}, 
+		\hyperpage{23, 24}, \hyperpage{26}, \hyperpage{47}
+  \item object.\_\_str\_\_ \textit{(function)}, \hyperpage{7}, 
+		\hyperpage{14}, \hyperpage{18}, \hyperpage{23, 24}, 
+		\hyperpage{26}, \hyperpage{47}, \hyperpage{50}
+  \item ociw \textit{(module)}, \hyperpage{35--37}
+    \subitem ociw.AbstractFrame \textit{(class)}, \hyperpage{36}
+      \subsubitem ociw.AbstractFrame.\_\_init\_\_ \textit{(method)}, 
+		\hyperpage{36}
+      \subsubitem ociw.AbstractFrame.grab \textit{(method)}, 
+		\hyperpage{36}
+    \subitem ociw.clear\_fifo \textit{(function)}, \hyperpage{35}
+    \subitem ociw.command \textit{(function)}, \hyperpage{35}
+    \subitem ociw.data24 \textit{(function)}, \hyperpage{35}
+    \subitem ociw.interrupted \textit{(function)}, \hyperpage{35}
+    \subitem ociw.open \textit{(function)}, \hyperpage{35}
+    \subitem ociw.peek\_fifo \textit{(function)}, \hyperpage{35}
+    \subitem ociw.RawFrame \textit{(class)}, \hyperpage{36--37}
+      \subsubitem ociw.RawFrame.\_\_init\_\_ \textit{(method)}, 
+		\hyperpage{36}
+      \subsubitem ociw.RawFrame.frameAlert \textit{(method)}, 
+		\hyperpage{36}
+      \subsubitem ociw.RawFrame.grab \textit{(method)}, \hyperpage{37}
+      \subsubitem ociw.RawFrame.grab\_data \textit{(method)}, 
+		\hyperpage{37}
+      \subsubitem ociw.RawFrame.grab\_postdata \textit{(method)}, 
+		\hyperpage{37}
+      \subsubitem ociw.RawFrame.grab\_predata \textit{(method)}, 
+		\hyperpage{36}
+      \subsubitem ociw.RawFrame.preframeAlert \textit{(method)}, 
+		\hyperpage{36}
+    \subitem ociw.read \textit{(function)}, \hyperpage{35}
+    \subitem ociw.reset \textit{(function)}, \hyperpage{35}
+    \subitem ociw.write \textit{(function)}, \hyperpage{35}
+
+  \indexspace
+
+  \item pydsp \textit{(module)}, \hyperpage{38--43}
+    \subitem pydsp.cloop \textit{(function)}, \hyperpage{40}
+    \subitem pydsp.doCompleter \textit{(function)}, \hyperpage{40}
+    \subitem pydsp.execcmd \textit{(function)}, \hyperpage{40}
+    \subitem pydsp.execuser \textit{(function)}, \hyperpage{39}
+    \subitem pydsp.help \textit{(function)}, \hyperpage{38}
+    \subitem pydsp.loaduser \textit{(function)}, \hyperpage{39}
+    \subitem pydsp.pydspWebServer \textit{(class)}, \hyperpage{41--43}
+      \subsubitem pydsp.pydspWebServer.do\_GET \textit{(method)}, 
+		\hyperpage{41}
+      \subsubitem pydsp.pydspWebServer.do\_POST \textit{(method)}, 
+		\hyperpage{41}
+    \subitem pydsp.pyshowall\_connect \textit{(function)}, 
+		\hyperpage{40}
+    \subitem pydsp.rbv \textit{(function)}, \hyperpage{38}
+    \subitem pydsp.rdbiascurrent \textit{(function)}, \hyperpage{38}
+    \subitem pydsp.rdbiasvoltage \textit{(function)}, \hyperpage{38}
+    \subitem pydsp.rdclockcurrent \textit{(function)}, \hyperpage{38}
+    \subitem pydsp.rdclockrail \textit{(function)}, \hyperpage{38}
+    \subitem pydsp.runuser \textit{(function)}, \hyperpage{39}
+    \subitem pydsp.see \textit{(function)}, \hyperpage{38}
+    \subitem pydsp.startpydsp \textit{(function)}, \hyperpage{40}
+    \subitem pydsp.startTempControl \textit{(function)}, \hyperpage{39}
+    \subitem pydsp.startWebServer \textit{(function)}, \hyperpage{40}
+    \subitem pydsp.tccarrot \textit{(function)}, \hyperpage{39}
+    \subitem pydsp.tcgoal \textit{(function)}, \hyperpage{39}
+    \subitem pydsp.tcgoto \textit{(function)}, \hyperpage{39}
+    \subitem pydsp.tcstart \textit{(function)}, \hyperpage{39}
+    \subitem pydsp.tcstop \textit{(function)}, \hyperpage{39}
+    \subitem pydsp.tcwait \textit{(function)}, \hyperpage{39}
+    \subitem pydsp.temp2file \textit{(function)}, \hyperpage{39}
+    \subitem pydsp.try\_int \textit{(function)}, \hyperpage{40}
+    \subitem pydsp.userload \textit{(function)}, \hyperpage{39}
+    \subitem pydsp.words \textit{(function)}, \hyperpage{38}
+  \item pyshowall \textit{(package)}
+    \subitem pyshowall.pyshowall \textit{(module)}, \hyperpage{44--47}
+      \subsubitem pyshowall.pyshowall.abortfunc \textit{(function)}, 
+		\hyperpage{44}
+      \subsubitem pyshowall.pyshowall.activatecmd \textit{(function)}, 
+		\hyperpage{44}
+      \subsubitem pyshowall.pyshowall.do\_update \textit{(function)}, 
+		\hyperpage{45}
+      \subsubitem pyshowall.pyshowall.gui\_raw\_input \textit{(function)}, 
+		\hyperpage{44}
+      \subsubitem pyshowall.pyshowall.gui\_writer \textit{(class)}, 
+		\hyperpage{46}
+      \subsubitem pyshowall.pyshowall.GuiThread \textit{(class)}, 
+		\hyperpage{46--47}
+      \subsubitem pyshowall.pyshowall.init\_showall \textit{(function)}, 
+		\hyperpage{45}
+      \subsubitem pyshowall.pyshowall.mytimer \textit{(function)}, 
+		\hyperpage{45}
+      \subsubitem pyshowall.pyshowall.on\_Abort\_clicked \textit{(function)}, 
+		\hyperpage{44}
+      \subsubitem pyshowall.pyshowall.on\_activate \textit{(function)}, 
+		\hyperpage{45}
+      \subsubitem pyshowall.pyshowall.on\_command\_activate \textit{(function)}, 
+		\hyperpage{44}
+      \subsubitem pyshowall.pyshowall.on\_enter\_notify\_event \textit{(function)}, 
+		\hyperpage{44}
+      \subsubitem pyshowall.pyshowall.on\_focus\_out\_event \textit{(function)}, 
+		\hyperpage{44}
+      \subsubitem pyshowall.pyshowall.on\_leave\_notify\_event \textit{(function)}, 
+		\hyperpage{44}
+      \subsubitem pyshowall.pyshowall.on\_Run\_clicked \textit{(function)}, 
+		\hyperpage{45}
+      \subsubitem pyshowall.pyshowall.on\_Scan\_clicked \textit{(function)}, 
+		\hyperpage{45}
+      \subsubitem pyshowall.pyshowall.on\_Voltages\_clicked \textit{(function)}, 
+		\hyperpage{45}
+      \subsubitem pyshowall.pyshowall.restart\_timer \textit{(function)}, 
+		\hyperpage{45}
+      \subsubitem pyshowall.pyshowall.runfunc \textit{(function)}, 
+		\hyperpage{44}
+      \subsubitem pyshowall.pyshowall.scanfunc \textit{(function)}, 
+		\hyperpage{44}
+      \subsubitem pyshowall.pyshowall.scantime \textit{(function)}, 
+		\hyperpage{45}
+      \subsubitem pyshowall.pyshowall.set\_widget \textit{(function)}, 
+		\hyperpage{45}
+      \subsubitem pyshowall.pyshowall.showbiases \textit{(function)}, 
+		\hyperpage{44}
+      \subsubitem pyshowall.pyshowall.startguithread \textit{(function)}, 
+		\hyperpage{45}
+      \subsubitem pyshowall.pyshowall.stop\_timer \textit{(function)}, 
+		\hyperpage{45}
+      \subsubitem pyshowall.pyshowall.totaltime \textit{(function)}, 
+		\hyperpage{45}
+
+  \indexspace
+
+  \item run \textit{(module)}, \hyperpage{48--51}
+    \subitem run.asksavedet \textit{(function)}, \hyperpage{48}
+    \subitem run.init \textit{(function)}, \hyperpage{48}
+    \subitem run.recover \textit{(function)}, \hyperpage{48}
+    \subitem run.RunDict \textit{(class)}, \hyperpage{49--51}
+    \subitem run.savesetup \textit{(function)}, \hyperpage{48}
+    \subitem run.setup \textit{(function)}, \hyperpage{48}
+  \item runrun \textit{(module)}, \hyperpage{52--54}
+    \subitem runrun.bgscan \textit{(function)}, \hyperpage{54}
+    \subitem runrun.bkg \textit{(function)}, \hyperpage{52}
+    \subitem runrun.brun \textit{(function)}, \hyperpage{53}
+    \subitem runrun.bscan \textit{(function)}, \hyperpage{53}
+    \subitem runrun.burst \textit{(function)}, \hyperpage{52}
+    \subitem runrun.calibrateItime \textit{(function)}, \hyperpage{52}
+    \subitem runrun.crun \textit{(function)}, \hyperpage{54}
+    \subitem runrun.minItime \textit{(function)}, \hyperpage{52}
+    \subitem runrun.pedrun \textit{(function)}, \hyperpage{53}
+    \subitem runrun.pedscan \textit{(function)}, \hyperpage{53}
+    \subitem runrun.preCheckItime \textit{(function)}, \hyperpage{52}
+    \subitem runrun.rrun \textit{(function)}, \hyperpage{53}
+    \subitem runrun.scandir \textit{(function)}, \hyperpage{54}
+    \subitem runrun.scantime \textit{(function)}, \hyperpage{52}
+    \subitem runrun.sigrun \textit{(function)}, \hyperpage{53}
+    \subitem runrun.sigscan \textit{(function)}, \hyperpage{53}
+    \subitem runrun.src \textit{(function)}, \hyperpage{52}
+    \subitem runrun.srun \textit{(function)}, \hyperpage{53}
+    \subitem runrun.vdiode \textit{(function)}, \hyperpage{52}
+
+  \indexspace
+
+  \item sload \textit{(module)}, \hyperpage{55--56}
+    \subitem sload.sloader \textit{(class)}, \hyperpage{55--56}
+      \subsubitem sload.sloader.\_\_init\_\_ \textit{(method)}, 
+		\hyperpage{55}
+      \subsubitem sload.sloader.file2srecs \textit{(method)}, 
+		\hyperpage{55}
+      \subsubitem sload.sloader.load\_srec \textit{(method)}, 
+		\hyperpage{55}
+      \subsubitem sload.sloader.sendfile \textit{(method)}, 
+		\hyperpage{55}
+      \subsubitem sload.sloader.sendsrec \textit{(method)}, 
+		\hyperpage{55}
+      \subsubitem sload.sloader.sendsrecs \textit{(method)}, 
+		\hyperpage{55}
+      \subsubitem sload.sloader.sendvals \textit{(method)}, 
+		\hyperpage{55}
+      \subsubitem sload.sloader.srec2ints \textit{(method)}, 
+		\hyperpage{55}
+      \subsubitem sload.sloader.syncup \textit{(method)}, 
+		\hyperpage{55}
+      \subsubitem sload.sloader.waitsync \textit{(method)}, 
+		\hyperpage{55}
+  \item SocketServer.BaseRequestHandler.\_\_init\_\_ \textit{(function)}, 
+		\hyperpage{41}
+  \item start\_pydsp \textit{(module)}, \hyperpage{57}
+    \subitem start\_pydsp.initHardware \textit{(function)}, 
+		\hyperpage{57}
+    \subitem start\_pydsp.loadDetAndRun \textit{(function)}, 
+		\hyperpage{57}
+    \subitem start\_pydsp.startPyshowall \textit{(function)}, 
+		\hyperpage{57}
+
+  \indexspace
+
+  \item tempcontrol \textit{(module)}, \hyperpage{58--59}
+    \subitem tempcontrol.tcontroller \textit{(class)}, 
+		\hyperpage{58--59}
+      \subsubitem tempcontrol.tcontroller.\_\_init\_\_ \textit{(method)}, 
+		\hyperpage{58}
+      \subsubitem tempcontrol.tcontroller.ac\_watts \textit{(method)}, 
+		\hyperpage{58}
+      \subsubitem tempcontrol.tcontroller.adjustCarrot \textit{(method)}, 
+		\hyperpage{59}
+      \subsubitem tempcontrol.tcontroller.dc\_watts \textit{(method)}, 
+		\hyperpage{58}
+      \subsubitem tempcontrol.tcontroller.do \textit{(method)}, 
+		\hyperpage{59}
+      \subsubitem tempcontrol.tcontroller.goto \textit{(method)}, 
+		\hyperpage{59}
+      \subsubitem tempcontrol.tcontroller.K\_per\_min \textit{(method)}, 
+		\hyperpage{58}
+      \subsubitem tempcontrol.tcontroller.load\_r \textit{(method)}, 
+		\hyperpage{59}
+      \subsubitem tempcontrol.tcontroller.r\_power \textit{(method)}, 
+		\hyperpage{58}
+      \subsubitem tempcontrol.tcontroller.readTemp \textit{(method)}, 
+		\hyperpage{59}
+      \subsubitem tempcontrol.tcontroller.set\_dc\_calibration \textit{(method)}, 
+		\hyperpage{59}
+      \subsubitem tempcontrol.tcontroller.setHeater \textit{(method)}, 
+		\hyperpage{59}
+      \subsubitem tempcontrol.tcontroller.volts \textit{(method)}, 
+		\hyperpage{59}
+      \subsubitem tempcontrol.tcontroller.watts \textit{(method)}, 
+		\hyperpage{58}
+      \subsubitem tempcontrol.tcontroller.watts\_per\_K \textit{(method)}, 
+		\hyperpage{58}
+  \item tests \textit{(module)}, \hyperpage{60--61}
+    \subitem tests.test\_autouser \textit{(function)}, \hyperpage{60}
+    \subitem tests.test\_DataDict \textit{(function)}, \hyperpage{60}
+    \subitem tests.test\_det \textit{(function)}, \hyperpage{60}
+    \subitem tests.test\_dsp \textit{(function)}, \hyperpage{60}
+    \subitem tests.test\_dv \textit{(function)}, \hyperpage{60}
+    \subitem tests.test\_filter \textit{(function)}, \hyperpage{60}
+    \subitem tests.test\_pydsp \textit{(function)}, \hyperpage{60}
+    \subitem tests.test\_run \textit{(function)}, \hyperpage{60}
+    \subitem tests.test\_runrun \textit{(function)}, \hyperpage{60}
+    \subitem tests.test\_scans \textit{(function)}, \hyperpage{60}
+    \subitem tests.test\_start\_pydsp \textit{(function)}, 
+		\hyperpage{60}
+    \subitem tests.test\_xdir \textit{(function)}, \hyperpage{60}
+    \subitem tests.testall \textit{(function)}, \hyperpage{60}
+  \item threading.Thread.getName \textit{(function)}, \hyperpage{26}, 
+		\hyperpage{47}
+  \item threading.Thread.isAlive \textit{(function)}, \hyperpage{27}, 
+		\hyperpage{47}
+  \item threading.Thread.isDaemon \textit{(function)}, \hyperpage{27}, 
+		\hyperpage{47}
+  \item threading.Thread.join \textit{(function)}, \hyperpage{27}, 
+		\hyperpage{47}
+  \item threading.Thread.setDaemon \textit{(function)}, \hyperpage{27}, 
+		\hyperpage{47}
+  \item threading.Thread.setName \textit{(function)}, \hyperpage{27}, 
+		\hyperpage{47}
+  \item threading.Thread.start \textit{(function)}, \hyperpage{27}, 
+		\hyperpage{47}
+  \item tmptr \textit{(module)}, \hyperpage{62}
+    \subitem tmptr.tdiode \textit{(function)}, \hyperpage{62}
+  \item tmptr\_curve10 \textit{(module)}, \hyperpage{63}
+    \subitem tmptr\_curve10.tdiode \textit{(function)}, \hyperpage{63}
+
+  \indexspace
+
+  \item wheel \textit{(module)}, \hyperpage{64--65}
+    \subitem wheel.angle \textit{(function)}, \hyperpage{64}
+    \subitem wheel.backlash \textit{(function)}, \hyperpage{64}
+    \subitem wheel.getdial \textit{(function)}, \hyperpage{64}
+    \subitem wheel.getdialsteps \textit{(function)}, \hyperpage{64}
+    \subitem wheel.move \textit{(function)}, \hyperpage{64}
+    \subitem wheel.presetdial \textit{(function)}, \hyperpage{64}
+    \subitem wheel.setdial \textit{(function)}, \hyperpage{64}
+    \subitem wheel.setdialnb \textit{(function)}, \hyperpage{64}
+    \subitem wheel.Wheel \textit{(class)}, \hyperpage{65}
+      \subsubitem wheel.Wheel.\_\_init\_\_ \textit{(method)}, 
+		\hyperpage{65}
+      \subsubitem wheel.Wheel.getsteps \textit{(method)}, 
+		\hyperpage{65}
+      \subsubitem wheel.Wheel.setdegrees \textit{(method)}, 
+		\hyperpage{65}
+      \subsubitem wheel.Wheel.steps\_to \textit{(method)}, 
+		\hyperpage{65}
+
+  \indexspace
+
+  \item xdir \textit{(module)}, \hyperpage{66--67}
+    \subitem xdir.get\_nextobjfilename \textit{(function)}, 
+		\hyperpage{66}
+    \subitem xdir.get\_nightpath \textit{(function)}, \hyperpage{66}
+    \subitem xdir.get\_objfilename \textit{(function)}, \hyperpage{66}
+    \subitem xdir.get\_objpath \textit{(function)}, \hyperpage{66}
+    \subitem xdir.nonight \textit{(function)}, \hyperpage{66}
+    \subitem xdir.noobject \textit{(function)}, \hyperpage{66}
+    \subitem xdir.paths \textit{(function)}, \hyperpage{66}
+    \subitem xdir.set\_night \textit{(function)}, \hyperpage{66}
+    \subitem xdir.set\_object \textit{(function)}, \hyperpage{66}
+    \subitem xdir.setclockpath \textit{(function)}, \hyperpage{66}
+    \subitem xdir.setdatapath \textit{(function)}, \hyperpage{66}
+    \subitem xdir.setdetpath \textit{(function)}, \hyperpage{66}
+
+\end{theindex}

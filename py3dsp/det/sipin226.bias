@@ -1,0 +1,53 @@
+#
+# Version:                                                              
+#      $Id:$
+#                                                                           
+# Revisions:                                         
+#      $Log$
+#
+# this file sets up the dacs to the number of millivolts specified here.
+# it does it in the order that the voltages are found in the file.
+# upon reset, all of the voltages are zero.
+vddcl -2000
+vnd   -5500
+vssuc -1000
+vpd   -2000
+vneg  -6000
+backbias -1500
+vidle -5000
+vslew -4300
+vddout -1000
+vload  +4100
+voffset +100 
+_vreset  -3500
+dsub -3500
+
+# The heater resistor is on pins 3 & 4.  Since these are clocks, there
+# are four voltages to set for it.  Usually, we would keep the negative
+# side (pin 3) at zero and set pin 4 to a higher positive voltage.
+heaterlo 0
+heaterhi 0
+#heat+lo 0
+#heat+hi 0
+pF1_lo  -5500
+pF1_hi  -2000
+pF2_lo  -5500
+pF2_hi  -2000
+pFS_lo  -5500
+pFS_hi  -2000
+pS1_lo  -5500
+pS1_hi  -2000
+pS2_lo  -5500
+pS2_hi  -2000
+pSS_lo  -5500
+pSS_hi  -2000
+pGloblo -2000
+pGlobhi -2000
+pResetlo  -5500
+pResethi  -3600
+prSExlo -5500 
+prSExhi -2000
+Vggcl_lo  -5500
+Vggcl_hi  -1000
+ 
+

@@ -1,0 +1,210 @@
+TITLE "EPLD_B OCIW BASE ADDRESS DECODER + FOUR-WIRE INTERFACE";
+%  Author              Greg Burley / Drew Moore     %
+%  Organization        OCIW / RIT                   %
+%  Revision Level      1.0X                         %
+%  Target Device       EPM7128SQC100-6              %
+%  LVDS FULL SPEED, and RESET CHIP %
+
+INCLUDE "lpm_counter.inc";
+INCLUDE "lpm_shiftreg.inc";
+INCLUDE "lpm_ff.inc";
+OPTIONS BIT0 = LSB;
+
+SUBDESIGN epld_B
+(
+    DQ[15..0]                                   :BIDIR;
+    D[15..0]                                    :BIDIR;
+%    /RESET                                      :INPUT;% % Driven by power on reset.%
+    /SS[11..0]                                  :OUTPUT;
+    A[9..0]                                     :INPUT;
+    CLK, /RD, /WR                               :INPUT; 
+    /AA3                                        :INPUT; % /RST = reset from RS232 cable %
+%    /RST                                  :INPUT;  /RST = reset from RS232 cable %
+%    /ERST                                       :INPUT;  /ERST = reset %
+%    FRXCK,FRXD                                  :INPUT; %
+%    HSS,%
+	REFCLKI                                 :INPUT;
+    /MR                                         :BIDIR; % Master reset. Drives Power on chip.% 
+    /IRQA, /IRQB                                :OUTPUT;
+%    /ORST                                       :INPUT; % %Once Main command converter reset. %
+    ETXD                                        :OUTPUT;
+    ETXCK                                :OUTPUT; 
+    FTXD,REFCLKO                          :OUTPUT;
+    ERXD, ERXCK                                 :INPUT;
+    ERXFS                                       :OUTPUT;
+    INTFF                                       :OUTPUT;
+	SHIFTIN 									:INPUT; % Shift data from U9 %
+	SHIFTEN										:OUTPUT; % Shift enable to U9 %
+)
+
+VARIABLE    
+    DBUS[15..0], DQBUS[15..0]                   :TRI;
+    INTFF                                       :DFFE;
+    TX_LD                                       :NODE; % Main out register %
+    TX_LD2                                      :NODE; 
+	/WR_DLYD									:DFF; 
+%    GOT_RESET_CMD                                :DFFE;
+%
+%    HEADBIT    :LPM_FF  WITH (LPM_WIDTH=8); % % hijack bits for digital output latches %
+    TCNT    :LPM_COUNTER  WITH (LPM_WIDTH=7, LPM_DIRECTION="DOWN",
+               LPM_SVALUE=H"4a");
+    RCNT    :LPM_COUNTER  WITH (LPM_WIDTH=5, LPM_DIRECTION="DOWN",
+               LPM_SVALUE=H"11");
+    RCNT2   :LPM_COUNTER  WITH (LPM_WIDTH=5, LPM_DIRECTION="DOWN",
+               LPM_SVALUE=H"10");
+    TSHIFT  :LPM_SHIFTREG WITH (LPM_WIDTH=20, LPM_DIRECTION="RIGHT");
+    TSHIFT2  :LPM_SHIFTREG WITH (LPM_WIDTH=20, LPM_DIRECTION="RIGHT");
+       
+
+BEGIN
+
+%   DQBUS BRIDGES TO BACKPLANE -- DBUS BRIDGES TO DSP %
+    DQBUS[].in = D[];
+    DQBUS[].oe = (!/WR & !/AA3);
+    DQ[] = DQBUS[].out;
+
+    DBUS[].in = DQ[];
+    DBUS[].oe = (!/RD & !/AA3);
+    D[] = DBUS[].out;
+
+    ETXCK = CLK; %Falling edge of clock is active at RX end%
+
+    REFCLKO = REFCLKI;
+
+%   TX SHIFT REGISTER AT ADDRESS $FF89 USING /SS1 %
+%   Master Transmit regitster is always shifting. %
+%	Slaves only shift if they are enabled. %
+%   crowbar stop bits in if slaves are disabled. %
+
+    TSHIFT.shiftin = TSHIFT2.shiftout # TCNT.eq[0] ;
+    TSHIFT.data[19] = VCC; % stop bit%
+    TSHIFT.data[18] = D[15] XOR A[0]; % Flip MSB on writes to odd location%
+    TSHIFT.data[17..3] = D[14..0];
+    TSHIFT.data[2] = GND; % start bit, active LOW %
+    TSHIFT.data[1] = VCC; % But DON'T SEND START BIT TILL WRITE CYCLE IS DONE!! %
+    TSHIFT.data[0] = VCC; % and this is to be EXTRA sure!! (??) %
+
+    TSHIFT.clock = CLK; % same clock as everything else. %
+    TSHIFT.load = TX_LD;
+
+    ETXD = TSHIFT.shiftout; % this is the LSB of the register.%
+    FTXD = TSHIFT.shiftout; % %
+
+    TSHIFT2.shiftin = shiftin;
+    TSHIFT2.data[19] = VCC; % stop bit % 
+    TSHIFT2.data[18] = D[15] XOR A[0]; 
+    TSHIFT2.data[17..3] = D[14..0];
+    TSHIFT2.data[2] = GND; % start bit %
+    TSHIFT2.data[1] = VCC; % stop bit %
+    TSHIFT2.data[0] = VCC; % stop bit (??) %
+    TSHIFT2.clock = CLK;
+    TSHIFT2.load = TX_LD2 ; % if load high, clock in data, if low, shift.  %
+    TSHIFT2.enable = SHIFTEN # TX_LD2;   % won't load or shift if not enabled. %
+
+	% TCNT goes nonzero during master write. %
+	% don't start shifting until the master write is done. %
+	SHIFTEN = ((!TCNT.eq[0]) & !TX_LD);
+	
+	% DATA is invalid on the first rising edge of a write cycle. %
+	% This means external write accesses must have at least one wait state %
+	
+	/WR_DLYD.d = /WR;
+	/WR_DLYD.clk = clk;
+	
+    TX_LD = ( !/WR & !/WR_DLYD & !/AA3 & (A[9..1]==H"1E8")); % load data at writes to FFFFD0 & FFFFD1 % 	
+    TX_LD2= ( !/WR & !/WR_DLYD & !/AA3 & (A[9..1]==H"1E9")); % load data at writes to FFFFD2 & FFFFD3 % 
+
+    TCNT.clock = CLK;
+    TCNT.cnt_en = !TCNT.eq[0] & !TX_LD;
+    TCNT.sset = TX_LD;
+
+%   GENERATE FRAME SYNC SIGNAL FOR DSP ESSI PORT %
+    RCNT.clock = !ERXCK;
+    RCNT.cnt_en = !RCNT.eq[0];
+    RCNT.sset = (!ERXD & RCNT.eq[0]); % set frame sync if start bit (L) %
+
+    RCNT2.clock = ERXCK;
+    RCNT2.cnt_en = !RCNT2.eq[0];
+    RCNT2.sset = (!RCNT.eq[0] & RCNT2.eq[0]);
+
+    ERXFS = !RCNT2.eq[0] & !INTFF; % don't assert frame sync during reset %
+
+%   
+    Crowbar the int lines.  At reset, they are mode pins. 
+    XXX - need to add logic to remove the crowbar later if the
+    IRQs are needed. (Not likely. Irqs kill deterministic clocking)
+%
+    /IRQA = VCC; % MODA High, all others low = byte-wide eeprom boot. % 
+    /IRQB = GND; 
+
+%   GRAB + DECODE RESET/INT SIGNAL FROM RX SHIFT REG %
+    INTFF.d = !ERXD; % we clock in L for a missing stop bit. ERXD low=missing stop %
+    % XXX add a little more checking here? %
+%    GOT_RESET.set = (!ERXD & RCNT.eq[0]);  also set "reset possible" flag.% 
+%    GOT_RESET.d = GOT_RESET & (ERXD XOR RCNT[0] XOR RCNT[2]);
+         must get specific word, AND missing stop bit to assert reset. %
+
+    INTFF.clk = !ERXCK; % data is stable on falling edge of clock. %
+    INTFF.ena = RCNT.eq[1]; % only clock at the stop bit time. %
+    % INTFF.clrn = !/RESET;  when we see the reset pulse active, our job is done. % 
+    /MR = TRI(GND,INTFF); % OR !/RST);  intFF OR /RST (from j1/ u15 serial port) will reset %
+    %/RESET = TRI(GND,!/MR);  Drive the reset line, but as an open drain output. %
+
+%   SLOT SELECT SIGNALS FOR THE VARIOUS BOARDS  %
+    /SS[0] = !((A[7..0] >= H"80") & (A[7..0] <= H"87") & !/AA3); % POWER %
+%    /SS[1] = !((((A[9..0] >= H"388") & (A[9..0] <= H"38F"))
+		#(A[9..0]==H"3D4")#(A[9..0]==H"3D5")#(A[9..0]==H"3D6")#(A[9..0]==H"3D7")) & !/AA3); %% DSP %
+    /SS[1] = !(((A[9..3] == B"1110001")#(A[9..2]==B"11110101"))); % DSP %
+    /SS[4] = !((A[7..0] >= H"90") & (A[7..0] <= H"9F") & !/AA3); % HACK I. clk drv %
+    /SS[3] = !((A[7..0] >= H"A0") & (A[7..0] <= H"AF") & !/AA3); 
+    /SS[2] = !((A[7..0] >= H"00") & (A[7..0] <= H"1F") & !/AA3); % HACK II. sig proc %
+    /SS[5] = !((A[7..0] >= H"20") & (A[7..0] <= H"3F") & !/AA3); 
+
+    /SS[8] = !((A[7..0] >= H"B0") & (A[7..0] <= H"BF") & !/AA3);
+    /SS[9] = !((A[7..0] >= H"C0") & (A[7..0] <= H"CF") & !/AA3);
+
+    /SS[6] = !((A[7..0] >= H"40") & (A[7..0] <= H"5F") & !/AA3);
+    /SS[7] = !((A[7..0] >= H"60") & (A[7..0] <= H"7F") & !/AA3);
+
+    /SS[10] = !((A[9..0] == H"082") & !/AA3); 
+    /SS[11] = !((A[9..0] == H"083") & !/AA3); 
+
+%   BOARD       SLOT    DECODED ADDRESS         DEVICE      %
+%   =======     =====   ==================      =======     %
+%   POWER       /SS0    $FFFF80                 DAC         %
+%   DSP         /SS1    $FFFF88                 SEQREG      %
+%                       $......                 ......      %
+%                       $FFFF8F                 SEQREG      %
+%                       $FFFFD0                 HSS TX      %
+%                       $FFFFD1                 HSS RX      %
+%   SIGNAL      /SS2    $FFFF90                 ADC_A       %
+%   PROC                $FFFF91                 ADC_B       %
+%                       $FFFF98 -- $FFFF9F      DAC         %
+%   SIG_PROC    /SS3    $FFFFA0                 ADC_C       %
+%                       $FFFFA8                 ADC_D       %
+%                       $FFFFA8 -- $FFFFAF      DAC         %
+%   SIG_PROC    /SS8    $FFFFB0                 ADC_E       %
+%                       $FFFFB1                 ADC_F       %
+%                       $FFFFB8 -- $FFFFBF      DAC         %
+%   SIG_PROC    /SS9    $FFFFC0                 ADC_G       %
+%                       $FFFFC1                 ADC_H       %
+%                       $FFFFC8 -- $FFFFCF      DAC         %
+%   CLK_DRV     /SS4    $FFFF00 -- $FFFF07      DAC         %
+%                       $FFFF08 -- $FFFF0F      DAC         %
+%                       $FFFF10 -- $FFFF17      DAC         %
+%                       $FFFF18 -- $FFFF1F      DAC         %
+%   CLK_DRV     /SS5    $FFFF20 -- $FFFF27      DAC         %
+%                       $FFFF28 -- $FFFF2F      DAC         %
+%                       $FFFF30 -- $FFFF37      DAC         %
+%                       $FFFF38 -- $FFFF3F      DAC         %
+%   CLK_DRV     /SS6    $FFFF40 -- $FFFF47      DAC         %
+%                       $FFFF48 -- $FFFF4F      DAC         %
+%                       $FFFF50 -- $FFFF57      DAC         %
+%                       $FFFF58 -- $FFFF5F      DAC         %
+%   CLK_DRV     /SS7    $FFFF60 -- $FFFF67      DAC         %
+%                       $FFFF68 -- $FFFF6F      DAC         %
+%                       $FFFF70 -- $FFFF77      DAC         %
+%                       $FFFF78 -- $FFFF7F      DAC         %
+
+END;
+ 

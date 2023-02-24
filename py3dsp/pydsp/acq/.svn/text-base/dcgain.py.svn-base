@@ -1,0 +1,31 @@
+#
+# dcgain.py
+#
+
+"""
+    script to acquire a sequence of pedestal images
+    with the reset always asserted, the bias always
+    at zero, and the reset voltage swept over a range.
+"""
+
+rd['itime'] = 1000
+rd['lc'] = 'taking dc gain data. reset always on.'
+rd['object'] = 'dcgain2'
+rd['nsamp'] = 1
+rd['nrow'] = 512
+rd['ncol'] = 512
+rd['nrowskip'] = 0
+rd['ncolskip'] = 0
+import time
+
+for v in range( -250, 1250, 50) :
+    dd['voffset'] =  -(1950 + v)
+    dd['vreset'] = v
+    dd['dsub'] = v
+    time.sleep(3) 
+    rnext()
+    pedrun()
+    dd['voffset'] =  - (2000 + v)
+    time.sleep(3) 
+    rnext()
+    pedrun()

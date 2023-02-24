@@ -1,0 +1,260 @@
+
+<!doctype html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module dsp</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>dsp</strong></big></big> (version $Id: dsp.py 394 2006-04-08 20:48:08Z drew $ )</font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/dsp/dsp/pydsp/dsp.py">/home/dsp/dsp/pydsp/dsp.py</a></font></td></tr></table>
+    <p><tt>dsp.py<br>
+Encapulates&nbsp;command&nbsp;level&nbsp;access&nbsp;to&nbsp;the&nbsp;running&nbsp;56303&nbsp;dsp&nbsp;program.<br>
+&nbsp;<br>
+This&nbsp;module&nbsp;deals&nbsp;with&nbsp;the&nbsp;command&nbsp;table&nbsp;that&nbsp;appears&nbsp;in&nbsp;the&nbsp;clock&nbsp;program.<br>
+Challenge&nbsp;faced&nbsp;here:&nbsp;different&nbsp;dsp&nbsp;programs&nbsp;need&nbsp;to<br>
+be&nbsp;talked&nbsp;to&nbsp;in&nbsp;different&nbsp;ways!<br>
+&nbsp;<br>
+It&nbsp;depends&nbsp;upon&nbsp;the&nbsp;ociw&nbsp;module,&nbsp;which&nbsp;handles&nbsp;the&nbsp;physical&nbsp;link<br>
+(booting&nbsp;the&nbsp;dsp,&nbsp;serial&nbsp;communication,&nbsp;etc)<br>
+ociw&nbsp;does&nbsp;not&nbsp;know&nbsp;or&nbsp;care&nbsp;what&nbsp;is&nbsp;inside&nbsp;the&nbsp;clock&nbsp;program.<br>
+(well,&nbsp;should&nbsp;not&nbsp;anyway.)<br>
+This&nbsp;dependency&nbsp;is&nbsp;somewhat&nbsp;hardcoded..&nbsp;although&nbsp;that&nbsp;is&nbsp;<br>
+kinda&nbsp;hard&nbsp;to&nbsp;do&nbsp;in&nbsp;Python.&nbsp;;-)<br>
+&nbsp;<br>
+Could&nbsp;we&nbsp;make&nbsp;this&nbsp;communication&nbsp;a&nbsp;MONITOR?<br>
+We&nbsp;could&nbsp;just&nbsp;boot&nbsp;the&nbsp;monitor&nbsp;section,&nbsp;and&nbsp;replace<br>
+clocking&nbsp;programs&nbsp;without&nbsp;replacing&nbsp;the&nbsp;monitor!<br>
+&nbsp;<br>
+Module&nbsp;Todo:<br>
+Check&nbsp;to&nbsp;see&nbsp;if&nbsp;clock&nbsp;program&nbsp;has&nbsp;been&nbsp;compiled.<br>
+if&nbsp;not,&nbsp;do&nbsp;that&nbsp;from&nbsp;here.<br>
+May&nbsp;want&nbsp;to&nbsp;break&nbsp;the&nbsp;command&nbsp;#defines&nbsp;out&nbsp;into&nbsp;a<br>
+separate&nbsp;file,&nbsp;and&nbsp;read&nbsp;the&nbsp;same&nbsp;file&nbsp;into&nbsp;both<br>
+C&nbsp;and&nbsp;Python.&nbsp;(Once&nbsp;and&nbsp;only&nbsp;once.)<br>
+&nbsp;(Apply&nbsp;the&nbsp;"command"&nbsp;pattern&nbsp;here?<br>
+&nbsp;Instead&nbsp;of&nbsp;writing&nbsp;this&nbsp;code,&nbsp;use&nbsp;template&nbsp;of&nbsp;command<br>
+&nbsp;various&nbsp;templates&nbsp;could&nbsp;be&nbsp;defined&nbsp;in&nbsp;the&nbsp;dsp's&nbsp;header<br>
+&nbsp;file.&nbsp;Populate&nbsp;command&nbsp;code&nbsp;in&nbsp;python&nbsp;dynamically<br>
+&nbsp;by&nbsp;reading&nbsp;the&nbsp;C&nbsp;header&nbsp;file.)<br>
+Check&nbsp;to&nbsp;see&nbsp;if&nbsp;the&nbsp;compiled&nbsp;clock&nbsp;program&nbsp;is&nbsp;already<br>
+running&nbsp;on&nbsp;the&nbsp;dsp.&nbsp;If&nbsp;so,&nbsp;don't&nbsp;re-download..<br>
+just&nbsp;re-sync??<br>
+This&nbsp;module&nbsp;is&nbsp;a&nbsp;candidate&nbsp;for&nbsp;a&nbsp;separate<br>
+thread.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#fffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="ociw.html">ociw</a><br>
+<a href="sload.html">sload</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+<a href="threading.html">threading</a><br>
+</td><td width="25%" valign=top><a href="time.html">time</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="threading.html#Thread">threading.Thread</a>(<a href="threading.html#_Verbose">threading._Verbose</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="dsp.html#DspThread">DspThread</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="dsp.html#ClockLine">ClockLine</a>
+</font></dt><dt><font face="helvetica, arial"><a href="dsp.html#ClockLine">ClockLine</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><strong>BiasLine</strong> = <a name="BiasLine">class ClockLine</a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="ClockLine-__init__"><strong>__init__</strong></a>(self, **args)</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__dict__</strong> = &lt;dictproxy object&gt;<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dl>
+
+<dl><dt><strong>__weakref__</strong> = &lt;attribute '__weakref__' of 'ClockLine' objects&gt;<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;(if&nbsp;defined)</tt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ClockLine">class <strong>ClockLine</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="ClockLine-__init__"><strong>__init__</strong></a>(self, **args)</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__dict__</strong> = &lt;dictproxy object&gt;<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dl>
+
+<dl><dt><strong>__weakref__</strong> = &lt;attribute '__weakref__' of 'ClockLine' objects&gt;<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;(if&nbsp;defined)</tt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="DspThread">class <strong>DspThread</strong></a>(<a href="threading.html#Thread">threading.Thread</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Dsp&nbsp;<a href="__builtin__.html#object">object</a>.&nbsp;singleton.&nbsp;runs&nbsp;as&nbsp;thread.<br>
+Page&nbsp;284&nbsp;of&nbsp;python&nbsp;in&nbsp;a&nbsp;nutshell.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="dsp.html#DspThread">DspThread</a></dd>
+<dd><a href="threading.html#Thread">threading.Thread</a></dd>
+<dd><a href="threading.html#_Verbose">threading._Verbose</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="DspThread-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="DspThread-blocking_do_nowait"><strong>blocking_do_nowait</strong></a>(self, callable, *args, **kwds)</dt><dd><tt>make&nbsp;a&nbsp;request&nbsp;on&nbsp;the&nbsp;dsp&nbsp;thread.<br>
+if&nbsp;request&nbsp;is&nbsp;accepted,&nbsp;<br>
+return&nbsp;a&nbsp;unique&nbsp;event&nbsp;<br>
+that&nbsp;will&nbsp;allow&nbsp;caller&nbsp;to&nbsp;sleep&nbsp;until&nbsp;the&nbsp;task&nbsp;is&nbsp;done<br>
+if&nbsp;request&nbsp;is&nbsp;rejected,&nbsp;raise&nbsp;StopIteration</tt></dd></dl>
+
+<dl><dt><a name="DspThread-do"><strong>do</strong></a>(self, callable, *args, **kwds)</dt><dd><tt>execute&nbsp;callable&nbsp;on&nbsp;dspthread<br>
+&nbsp;<br>
+return&nbsp;its&nbsp;result,&nbsp;or&nbsp;raise&nbsp;its&nbsp;exception.</tt></dd></dl>
+
+<dl><dt><a name="DspThread-do_nowait"><strong>do_nowait</strong></a>(self, callable, *args, **kwds)</dt><dd><tt>make&nbsp;a&nbsp;request&nbsp;on&nbsp;the&nbsp;dsp&nbsp;thread.<br>
+when&nbsp;request&nbsp;is&nbsp;accepted,&nbsp;return&nbsp;a&nbsp;unique&nbsp;event&nbsp;<br>
+that&nbsp;will&nbsp;allow&nbsp;caller&nbsp;to&nbsp;sleep&nbsp;until&nbsp;the&nbsp;task&nbsp;is&nbsp;done<br>
+if&nbsp;request&nbsp;is&nbsp;rejected,&nbsp;raise&nbsp;StopIteration</tt></dd></dl>
+
+<dl><dt><a name="DspThread-interrupt"><strong>interrupt</strong></a>(self, source<font color="#909090">='unspecified'</font>)</dt><dd><tt>Tell&nbsp;the&nbsp;dsp&nbsp;thread&nbsp;to&nbsp;halt&nbsp;execution.</tt></dd></dl>
+
+<dl><dt><a name="DspThread-run"><strong>run</strong></a>(self)</dt><dd><tt>The&nbsp;main&nbsp;loop&nbsp;of&nbsp;the&nbsp;hardware&nbsp;serializer.<br>
+do&nbsp;NOT&nbsp;call&nbsp;directly.</tt></dd></dl>
+
+<dl><dt><a name="DspThread-shutdown"><strong>shutdown</strong></a>(self)</dt><dd><tt>shut&nbsp;down&nbsp;in&nbsp;an&nbsp;orderly&nbsp;fashion.</tt></dd></dl>
+
+<dl><dt><a name="DspThread-tc_in_acq"><strong>tc_in_acq</strong></a>(self, current_temp)</dt></dl>
+
+<dl><dt><a name="DspThread-threadable"><strong>threadable</strong></a>(self, func)</dt><dd><tt>helper&nbsp;function&nbsp;to&nbsp;make&nbsp;a&nbsp;function&nbsp;threadable</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="threading.html#Thread">threading.Thread</a>:<br>
+<dl><dt><a name="DspThread-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="DspThread-getName"><strong>getName</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="DspThread-isAlive"><strong>isAlive</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="DspThread-isDaemon"><strong>isDaemon</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="DspThread-join"><strong>join</strong></a>(self, timeout<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="DspThread-setDaemon"><strong>setDaemon</strong></a>(self, daemonic)</dt></dl>
+
+<dl><dt><a name="DspThread-setName"><strong>setName</strong></a>(self, name)</dt></dl>
+
+<dl><dt><a name="DspThread-start"><strong>start</strong></a>(self)</dt></dl>
+
+<hr>
+Data and other attributes inherited from <a href="threading.html#_Verbose">threading._Verbose</a>:<br>
+<dl><dt><strong>__dict__</strong> = &lt;dictproxy object&gt;<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dl>
+
+<dl><dt><strong>__weakref__</strong> = &lt;attribute '__weakref__' of '_Verbose' objects&gt;<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;(if&nbsp;defined)</tt></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-adc2diode"><strong>adc2diode</strong></a>(n_adc)</dt><dd><tt>Convert&nbsp;the&nbsp;hi&nbsp;res&nbsp;temp&nbsp;dac&nbsp;reading&nbsp;to&nbsp;a&nbsp;diode&nbsp;voltage</tt></dd></dl>
+ <dl><dt><a name="-clearSeqBits"><strong>clearSeqBits</strong></a>(bitpat)</dt><dd><tt>clear&nbsp;only&nbsp;the&nbsp;bits&nbsp;that&nbsp;are&nbsp;SET&nbsp;in&nbsp;bitpat.<br>
+leave&nbsp;the&nbsp;others&nbsp;unchanged.</tt></dd></dl>
+ <dl><dt><a name="-clockit"><strong>clockit</strong></a>(*args, **kwds)</dt><dd><tt>Acquire&nbsp;an&nbsp;image&nbsp;into&nbsp;the&nbsp;driver&nbsp;buffer.<br>
+&nbsp;<br>
+first,&nbsp;tell&nbsp;device&nbsp;driver&nbsp;to&nbsp;get&nbsp;ready.<br>
+then,&nbsp;tell&nbsp;clock&nbsp;program&nbsp;to&nbsp;go.<br>
+then,&nbsp;sit&nbsp;and&nbsp;wait&nbsp;for&nbsp;the&nbsp;dsp&nbsp;<br>
+(all&nbsp;the&nbsp;while&nbsp;reading&nbsp;and&nbsp;displaying&nbsp;pixels&nbsp;to&nbsp;go.)<br>
+separate&nbsp;thread&nbsp;would&nbsp;be&nbsp;nice.</tt></dd></dl>
+ <dl><dt><a name="-dspthreadable"><strong>dspthreadable</strong></a>(func)</dt><dd><tt>helper&nbsp;function&nbsp;to&nbsp;make&nbsp;a&nbsp;function&nbsp;threadable</tt></dd></dl>
+ <dl><dt><a name="-dummymode"><strong>dummymode</strong></a>()</dt><dd><tt>kick&nbsp;into&nbsp;an&nbsp;offline&nbsp;mode&nbsp;for&nbsp;system&nbsp;use&nbsp;if&nbsp;no&nbsp;hardware&nbsp;available.</tt></dd></dl>
+ <dl><dt><a name="-dummymodeOff"><strong>dummymodeOff</strong></a>(device)</dt></dl>
+ <dl><dt><a name="-getFrameTime"><strong>getFrameTime</strong></a>(*args, **kwds)</dt><dd><tt>Return&nbsp;actual&nbsp;time&nbsp;of&nbsp;last&nbsp;frame.<br>
+Requires&nbsp;clock&nbsp;code&nbsp;to&nbsp;cooperate.</tt></dd></dl>
+ <dl><dt><a name="-getPedTime"><strong>getPedTime</strong></a>(*args, **kwds)</dt><dd><tt>Return&nbsp;actual&nbsp;time&nbsp;of&nbsp;nsamp&nbsp;pedestal&nbsp;frames.</tt></dd></dl>
+ <dl><dt><a name="-load_srec"><strong>load_srec</strong></a>(*args, **kwds)</dt><dd><tt>Reset&nbsp;the&nbsp;target,&nbsp;download&nbsp;an&nbsp;srecord&nbsp;file,&nbsp;and&nbsp;execute&nbsp;it.</tt></dd></dl>
+ <dl><dt><a name="-rampnext"><strong>rampnext</strong></a>(*args, **kwds)</dt><dd><tt>itime&nbsp;between&nbsp;each&nbsp;sample&nbsp;for&nbsp;the&nbsp;next&nbsp;image</tt></dd></dl>
+ <dl><dt><a name="-read"><strong>read</strong></a>(dataexpected<font color="#909090">=1</font>)</dt><dd><tt>wrapper&nbsp;for&nbsp;read</tt></dd></dl>
+ <dl><dt><a name="-read7888"><strong>read7888</strong></a>(*args, **kwds)</dt><dd><tt>Read&nbsp;and&nbsp;return&nbsp;last&nbsp;7888&nbsp;ADC&nbsp;conversion&nbsp;and&nbsp;setup&nbsp;next&nbsp;conversion</tt></dd></dl>
+ <dl><dt><a name="-readAdcs"><strong>readAdcs</strong></a>()</dt><dd><tt>issue&nbsp;the&nbsp;read&nbsp;adc&nbsp;command</tt></dd></dl>
+ <dl><dt><a name="-readBiasCurrent"><strong>readBiasCurrent</strong></a>(*args, **kwds)</dt><dd><tt>read&nbsp;the&nbsp;bias&nbsp;current&nbsp;in&nbsp;microamps</tt></dd></dl>
+ <dl><dt><a name="-readBiasVoltage"><strong>readBiasVoltage</strong></a>(*args, **kwds)</dt><dd><tt>Read&nbsp;the&nbsp;bias&nbsp;voltage&nbsp;in&nbsp;volts</tt></dd></dl>
+ <dl><dt><a name="-readClockCurrent"><strong>readClockCurrent</strong></a>(*args, **kwds)</dt><dd><tt>read&nbsp;the&nbsp;clock&nbsp;voltage&nbsp;in&nbsp;volts</tt></dd></dl>
+ <dl><dt><a name="-readClockVoltage"><strong>readClockVoltage</strong></a>(*args, **kwds)</dt><dd><tt>read&nbsp;the&nbsp;clock&nbsp;current&nbsp;in&nbsp;microamps</tt></dd></dl>
+ <dl><dt><a name="-rglobal"><strong>rglobal</strong></a>(*args, **kwds)</dt><dd><tt>Set&nbsp;to&nbsp;reset&nbsp;global&nbsp;mode</tt></dd></dl>
+ <dl><dt><a name="-rnorm"><strong>rnorm</strong></a>(*args, **kwds)</dt><dd><tt>Set&nbsp;reset&nbsp;to&nbsp;normal,&nbsp;use&nbsp;ron&nbsp;to&nbsp;set&nbsp;always-on&nbsp;reset</tt></dd></dl>
+ <dl><dt><a name="-ron"><strong>ron</strong></a>(*args, **kwds)</dt><dd><tt>Set&nbsp;reset&nbsp;to&nbsp;alwayson,&nbsp;use&nbsp;rnorm&nbsp;to&nbsp;revert&nbsp;to&nbsp;normal&nbsp;reset</tt></dd></dl>
+ <dl><dt><a name="-rrow"><strong>rrow</strong></a>(*args, **kwds)</dt><dd><tt>Set&nbsp;to&nbsp;reset&nbsp;row&nbsp;mode</tt></dd></dl>
+ <dl><dt><a name="-sciStepN"><strong>sciStepN</strong></a>(*args, **kwds)</dt><dd><tt>Send&nbsp;numsteps&nbsp;to&nbsp;the&nbsp;IM483&nbsp;stepper&nbsp;motor&nbsp;controller&nbsp;<br>
+connected&nbsp;to&nbsp;the&nbsp;SCI&nbsp;port&nbsp;on&nbsp;the&nbsp;DSP.</tt></dd></dl>
+ <dl><dt><a name="-senddsp"><strong>senddsp</strong></a>(*args, **kwds)</dt><dd><tt>Send&nbsp;command&nbsp;(cnum)&nbsp;and&nbsp;value&nbsp;(val),&nbsp;to&nbsp;the&nbsp;clocking&nbsp;program.</tt></dd></dl>
+ <dl><dt><a name="-setSeqBits"><strong>setSeqBits</strong></a>(bitpat)</dt><dd><tt>set&nbsp;only&nbsp;the&nbsp;bits&nbsp;in&nbsp;bitpat.<br>
+leave&nbsp;the&nbsp;others&nbsp;unchanged.</tt></dd></dl>
+ <dl><dt><a name="-set_heater_by_tweak"><strong>set_heater_by_tweak</strong></a>(desired_mv)</dt></dl>
+ <dl><dt><a name="-startingAlert"><strong>startingAlert</strong></a>()</dt><dd><tt>Calls&nbsp;observers&nbsp;who&nbsp;want&nbsp;to&nbsp;know&nbsp;that&nbsp;clocking&nbsp;has&nbsp;started.</tt></dd></dl>
+ <dl><dt><a name="-stoppingAlert"><strong>stoppingAlert</strong></a>()</dt><dd><tt>Calls&nbsp;observers&nbsp;who&nbsp;want&nbsp;to&nbsp;know&nbsp;that&nbsp;clocking&nbsp;has&nbsp;stopped.</tt></dd></dl>
+ <dl><dt><a name="-testBiases"><strong>testBiases</strong></a>()</dt></dl>
+ <dl><dt><a name="-testClockRails"><strong>testClockRails</strong></a>()</dt></dl>
+ <dl><dt><a name="-timer"><strong>timer</strong></a>(*args, **kwds)</dt><dd><tt>Return&nbsp;the&nbsp;current&nbsp;value&nbsp;of&nbsp;the&nbsp;dsp&nbsp;timer.&nbsp;no&nbsp;error&nbsp;checking.</tt></dd></dl>
+ <dl><dt><a name="-tweak_heater"><strong>tweak_heater</strong></a>(heater)</dt><dd><tt>Single&nbsp;word&nbsp;command&nbsp;to&nbsp;bump&nbsp;heater&nbsp;up&nbsp;or&nbsp;down&nbsp;a&nbsp;little&nbsp;bit.<br>
+current&nbsp;heater&nbsp;voltage&nbsp;must&nbsp;be&nbsp;near&nbsp;the&nbsp;new&nbsp;voltage.<br>
++/-&nbsp;100&nbsp;dac&nbsp;counts.</tt></dd></dl>
+ <dl><dt><a name="-vDiode"><strong>vDiode</strong></a>(*args, **kwds)</dt><dd><tt>Read&nbsp;the&nbsp;diode&nbsp;voltage.&nbsp;currently&nbsp;just&nbsp;with&nbsp;the&nbsp;hi-res&nbsp;temp&nbsp;input</tt></dd></dl>
+ <dl><dt><a name="-writeSeqBits"><strong>writeSeqBits</strong></a>(bitpat)</dt><dd><tt>Write&nbsp;the&nbsp;20&nbsp;bit&nbsp;sequence&nbsp;register&nbsp;with&nbsp;a&nbsp;specific&nbsp;pattern.</tt></dd></dl>
+ <dl><dt><a name="-writebias"><strong>writebias</strong></a>(*args, **kwds)</dt><dd><tt>write&nbsp;a&nbsp;voltage&nbsp;in&nbsp;dac&nbsp;counts&nbsp;off&nbsp;of&nbsp;zero&nbsp;to&nbsp;a&nbsp;bias&nbsp;DAC&nbsp;(0-15)</tt></dd></dl>
+ <dl><dt><a name="-writedac"><strong>writedac</strong></a>(*args, **kwds)</dt><dd><tt>Write&nbsp;a&nbsp;voltage&nbsp;in&nbsp;daccounts&nbsp;off&nbsp;of&nbsp;zero&nbsp;to&nbsp;a&nbsp;clock&nbsp;DAC&nbsp;(0-31)<br>
+&nbsp;<br>
+clips&nbsp;dac&nbsp;write&nbsp;if&nbsp;past&nbsp;rails</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>__URL__</strong> = '$URL: http://astro.pas.rochester.edu/svn/pydsp/trunk/pydsp/dsp.py $'<br>
+<strong>__author__</strong> = '$Author: drew $'<br>
+<strong>__version__</strong> = '$Id: dsp.py 394 2006-04-08 20:48:08Z drew $ '<br>
+<strong>biases</strong> = [&lt;dsp.ClockLine object&gt;, &lt;dsp.ClockLine object&gt;, &lt;dsp.ClockLine object&gt;, &lt;dsp.ClockLine object&gt;, &lt;dsp.ClockLine object&gt;, &lt;dsp.ClockLine object&gt;, &lt;dsp.ClockLine object&gt;, &lt;dsp.ClockLine object&gt;, &lt;dsp.ClockLine object&gt;, &lt;dsp.ClockLine object&gt;, &lt;dsp.ClockLine object&gt;, &lt;dsp.ClockLine object&gt;, &lt;dsp.ClockLine object&gt;, &lt;dsp.ClockLine object&gt;, &lt;dsp.ClockLine object&gt;]<br>
+<strong>clocks</strong> = [&lt;dsp.ClockLine object&gt;, &lt;dsp.ClockLine object&gt;, &lt;dsp.ClockLine object&gt;, &lt;dsp.ClockLine object&gt;, &lt;dsp.ClockLine object&gt;, &lt;dsp.ClockLine object&gt;, &lt;dsp.ClockLine object&gt;, &lt;dsp.ClockLine object&gt;, &lt;dsp.ClockLine object&gt;, &lt;dsp.ClockLine object&gt;, &lt;dsp.ClockLine object&gt;, &lt;dsp.ClockLine object&gt;, &lt;dsp.ClockLine object&gt;, &lt;dsp.ClockLine object&gt;, &lt;dsp.ClockLine object&gt;, &lt;dsp.ClockLine object&gt;]<br>
+<strong>startfuncs</strong> = []<br>
+<strong>starttime</strong> = 1146251790.69258<br>
+<strong>stopfuncs</strong> = []</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#7799ee">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Author</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#7799ee"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">$Author:&nbsp;drew&nbsp;$</td></tr></table>
+</body></html>

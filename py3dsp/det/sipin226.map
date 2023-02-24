@@ -1,0 +1,53 @@
+#
+# Version:                                                              
+#      $Id:$
+#                                                                           
+# Revisions:                                         
+#      $Log:$
+# 
+# mapping file for the SB226 PIN at U/R
+# maps bias and clock names to dac numbers.
+# more than one dac number can be assigned to a name
+# in that case, the same name will change both dacs.
+
+BIAS vddcl 0 # pin 1
+BIAS vnd   1
+BIAS vssuc 2
+BIAS vpd   3
+BIAS vneg  4
+BIAS backbias 5
+BIAS vidle 6 # pin 7
+BIAS vslew 7
+BIAS vddout 8
+BIAS vload  9
+BIAS voffset 10
+BIAS _vreset 11
+BIAS dsub 12
+BIAS pin14 13 
+BIAS pin15 14 
+
+CLOCK heaterlo 8 # pin 3
+CLOCK heaterhi 9
+#CLOCK heat+lo 12 # pin 4
+#CLOCK heat+hi 13
+CLOCK pF1_lo 2 # pin 9
+CLOCK pF1_hi 3
+CLOCK pF2_lo 6 # pin 10
+CLOCK pF2_hi 7
+CLOCK pFS_lo 28 # pin 11
+CLOCK pFS_hi 29
+CLOCK pS1_lo 18 # pin 17
+CLOCK pS1_hi 19
+CLOCK pS2_lo 10 # pin 18
+CLOCK pS2_hi 11
+CLOCK pSS_lo 20 # pin 19
+CLOCK pSS_hi 21
+CLOCK pGloblo 22 # pin 20
+CLOCK pGlobhi 23
+CLOCK pResetlo 14 # pin 21
+CLOCK pResethi 15
+CLOCK prSExlo 24 # pin 22
+CLOCK prSExhi 25 
+CLOCK Vggcl_lo 26 # pin 23
+CLOCK Vggcl_hi 27 
+

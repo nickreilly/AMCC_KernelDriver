@@ -1,0 +1,6 @@
+def myfunc() :
+    for i in range(0, 1, 1) :
+        print "this is a test"
+        print "second line"
+
+myfunc()

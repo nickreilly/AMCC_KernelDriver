@@ -1,0 +1,32 @@
+detpath /home/dsp/py3dsp/det
+clockpath /home/dsp/py3dsp/56300
+detname hawaii-2RG
+nrow 2048
+ncol 2048
+nrowskip 0
+ncolskip 0
+nta 0
+ncd 1
+itime 1000
+nsamp 1
+ctstime 0
+adctime 0
+sampmode src
+runflag 0
+bufferflag src
+fwp 0.0
+wavelength 0.0
+bandwidth 0.0
+fwn filterwheel-2
+filter blind
+telescope lab
+observer moore
+gc 
+lc 
+voffset -2200
+heater  
+vreset 100
+dsub 100
+datapath /data
+night H2RG-20908
+object test

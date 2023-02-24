@@ -1,0 +1,13 @@
+[INFO] 2023-02-22 16:17:45,547:pydsp - Starting application
+[DEBUG] 2023-02-22 16:17:45,547:pydsp - Starting with hardware mode: pci
+[INFO] 2023-02-22 16:17:45,547:pydsp - Initializing hardware interface over PCI
+[DEBUG] 2023-02-22 16:17:45,549:pydsp.dsp - reading dsp
+[DEBUG] 2023-02-22 16:17:45,550:pydsp - dev=<amcc.PCIDevice object at 0x7f54d53f9c90>
+[DEBUG] 2023-02-22 16:17:45,550:pydsp - loading det and run
+[DEBUG] 2023-02-22 16:17:45,614:pydsp - loading pydsp
+[DEBUG] 2023-02-22 16:17:45,932:pydsp.runrun - Opening runrun
+[DEBUG] 2023-02-22 16:17:45,939:pydsp - booting dsp
+[DEBUG] 2023-02-22 16:17:45,939:pydsp.pydsp - reading dsp
+[DEBUG] 2023-02-22 16:17:45,939:pydsp.pydsp - pydsp.py::pydsp running recover
+[DEBUG] 2023-02-22 16:17:45,948:pydsp.pydsp - pydsp.py::pydsp recovered!
+[DEBUG] 2023-02-22 16:17:45,948:pydsp - pydsp:temp control starting.

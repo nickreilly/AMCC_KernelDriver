@@ -1,0 +1,200 @@
+ -- Copyright (C) 1991-2006 Altera Corporation
+ -- Your use of Altera Corporation's design tools, logic functions 
+ -- and other software and tools, and its AMPP partner logic 
+ -- functions, and any output files any of the foregoing 
+ -- (including device programming or simulation files), and any 
+ -- associated documentation or information are expressly subject 
+ -- to the terms and conditions of the Altera Program License 
+ -- Subscription Agreement, Altera MegaCore Function License 
+ -- Agreement, or other applicable license agreement, including, 
+ -- without limitation, that your use is for the sole purpose of 
+ -- programming logic devices manufactured by Altera and sold by 
+ -- Altera or its authorized distributors.  Please refer to the 
+ -- applicable agreement for further details.
+ -- 
+ -- This is a Quartus II output file. It is for reporting purposes only, and is
+ -- not intended for use as a Quartus II input file. This file cannot be used
+ -- to make Quartus II pin assignments - for instructions on how to make pin
+ -- assignments, please see Quartus II help.
+ ---------------------------------------------------------------------------------
+
+
+
+ ---------------------------------------------------------------------------------
+ -- NC            : No Connect. This pin has no internal connection to the device.
+ -- VCCINT        : Dedicated power pin, which MUST be connected to VCC  (3.3V).
+ -- VCCIO         : Dedicated power pin, which MUST be connected to VCC
+ --                 of its bank.
+ -- GND           : Dedicated ground pin. Dedicated GND pins MUST be connected to GND.
+ --					It can also be used to report unused dedicated pins. The connection
+ --					on the board for unused dedicated pins depends on whether this will
+ --					be used in a future design. One example is device migration. When
+ --					using device migration, refer to the device pin-tables. If it is a
+ --					GND pin in the pin table or if it will not be used in a future design
+ --					for another purpose the it MUST be connected to GND. If it is an unused
+ --					dedicated pin, then it can be connected to a valid signal on the board
+ --					(low, high, or toggling) if that signal is required for a different
+ --					revision of the design.
+ -- GND+          : Unused input pin. It can also be used to report unused dual-purpose pins.
+ --					This pin should be connected to GND. It may also be connected  to a
+ --					valid signal  on the board  (low, high, or toggling)  if that signal
+ --					is required for a different revision of the design.
+ -- GND*          : Unused  I/O  pin.   This pin can either be left unconnected or
+ --           	    connected to GND.  Connecting this pin to GND will improve the
+ --           	    device's immunity to noise.
+ -- RESERVED      : Unused I/O pin, which MUST be left unconnected.
+ -- RESERVED_INPUT    : Pin is tri-stated and should be connected to the board.
+ -- RESERVED_INPUT_WITH_WEAK_PULLUP    : Pin is tri-stated with internal weak pull-up resistor.
+ -- RESERVED_INPUT_WITH_BUS_HOLD       : Pin is tri-stated with bus-hold circuitry.
+ -- NON_MIGRATABLE: This pin cannot be migrated.
+ ---------------------------------------------------------------------------------
+
+Quartus II Version 6.0 Build 178 04/27/2006 SJ Web Edition
+CHIP  "pci16"  ASSIGNED TO AN: EPM7256AETC144-5
+
+Pin Name/Usage               : Location  : Dir.   : I/O Standard      : Voltage : I/O Bank  : User Assignment
+-------------------------------------------------------------------------------------------------------------
+GND*                         : 1         :        :                   :         :           :                
+GND*                         : 2         :        :                   :         :           :                
+GND                          : 3         : gnd    :                   :         :           :                
+GND*                         : 4         :        :                   :         :           :                
+GND*                         : 5         :        :                   :         :           :                
+GND*                         : 6         :        :                   :         :           :                
+GND*                         : 7         :        :                   :         :           :                
+GND*                         : 8         :        :                   :         :           :                
+GND*                         : 9         :        :                   :         :           :                
+GND*                         : 10        :        :                   :         :           :                
+GND*                         : 11        :        :                   :         :           :                
+GND*                         : 12        :        :                   :         :           :                
+GND                          : 13        : gnd    :                   :         :           :                
+GND*                         : 14        :        :                   :         :           :                
+GND*                         : 15        :        :                   :         :           :                
+GND*                         : 16        :        :                   :         :           :                
+GND                          : 17        : gnd    :                   :         :           :                
+GND*                         : 18        :        :                   :         :           :                
+GND*                         : 19        :        :                   :         :           :                
+GND*                         : 20        :        :                   :         :           :                
+GND*                         : 21        :        :                   :         :           :                
+GND*                         : 22        :        :                   :         :           :                
+GND*                         : 23        :        :                   :         :           :                
+VCCIO                        : 24        : power  :                   : 3.3V    :           :                
+GND*                         : 25        :        :                   :         :           :                
+GND*                         : 26        :        :                   :         :           :                
+GND*                         : 27        :        :                   :         :           :                
+GND*                         : 28        :        :                   :         :           :                
+GND*                         : 29        :        :                   :         :           :                
+GND*                         : 30        :        :                   :         :           :                
+GND*                         : 31        :        :                   :         :           :                
+GND*                         : 32        :        :                   :         :           :                
+GND                          : 33        : gnd    :                   :         :           :                
+GND*                         : 34        :        :                   :         :           :                
+GND*                         : 35        :        :                   :         :           :                
+GND*                         : 36        :        :                   :         :           :                
+GND*                         : 37        :        :                   :         :           :                
+GND*                         : 38        :        :                   :         :           :                
+GND*                         : 39        :        :                   :         :           :                
+GND*                         : 40        :        :                   :         :           :                
+GND*                         : 41        :        :                   :         :           :                
+GND*                         : 42        :        :                   :         :           :                
+GND*                         : 43        :        :                   :         :           :                
+GND*                         : 44        :        :                   :         :           :                
+GND*                         : 45        :        :                   :         :           :                
+GND*                         : 46        :        :                   :         :           :                
+GND*                         : 47        :        :                   :         :           :                
+GND*                         : 48        :        :                   :         :           :                
+GND*                         : 49        :        :                   :         :           :                
+VCCIO                        : 50        : power  :                   : 3.3V    :           :                
+VCCINT                       : 51        : power  :                   : 3.3V    :           :                
+GND                          : 52        : gnd    :                   :         :           :                
+GND*                         : 53        :        :                   :         :           :                
+GND*                         : 54        :        :                   :         :           :                
+GND*                         : 55        :        :                   :         :           :                
+GND*                         : 56        :        :                   :         :           :                
+GND                          : 57        : gnd    :                   :         :           :                
+VCCINT                       : 58        : power  :                   : 3.3V    :           :                
+GND                          : 59        : gnd    :                   :         :           :                
+GND*                         : 60        :        :                   :         :           :                
+GND*                         : 61        :        :                   :         :           :                
+GND*                         : 62        :        :                   :         :           :                
+GND*                         : 63        :        :                   :         :           :                
+GND                          : 64        : gnd    :                   :         :           :                
+GND*                         : 65        :        :                   :         :           :                
+GND*                         : 66        :        :                   :         :           :                
+GND*                         : 67        :        :                   :         :           :                
+GND*                         : 68        :        :                   :         :           :                
+GND*                         : 69        :        :                   :         :           :                
+GND*                         : 70        :        :                   :         :           :                
+GND*                         : 71        :        :                   :         :           :                
+GND*                         : 72        :        :                   :         :           :                
+VCCIO                        : 73        : power  :                   : 3.3V    :           :                
+GND*                         : 74        :        :                   :         :           :                
+GND*                         : 75        :        :                   :         :           :                
+VCCIO                        : 76        : power  :                   : 3.3V    :           :                
+GND*                         : 77        :        :                   :         :           :                
+GND*                         : 78        :        :                   :         :           :                
+GND*                         : 79        :        :                   :         :           :                
+GND*                         : 80        :        :                   :         :           :                
+GND*                         : 81        :        :                   :         :           :                
+GND*                         : 82        :        :                   :         :           :                
+GND*                         : 83        :        :                   :         :           :                
+GND*                         : 84        :        :                   :         :           :                
+GND                          : 85        : gnd    :                   :         :           :                
+GND*                         : 86        :        :                   :         :           :                
+GND*                         : 87        :        :                   :         :           :                
+GND*                         : 88        :        :                   :         :           :                
+GND*                         : 89        :        :                   :         :           :                
+GND*                         : 90        :        :                   :         :           :                
+GND*                         : 91        :        :                   :         :           :                
+GND*                         : 92        :        :                   :         :           :                
+GND*                         : 93        :        :                   :         :           :                
+GND*                         : 94        :        :                   :         :           :                
+VCCIO                        : 95        : power  :                   : 3.3V    :           :                
+GND*                         : 96        :        :                   :         :           :                
+GND*                         : 97        :        :                   :         :           :                
+GND*                         : 98        :        :                   :         :           :                
+GND*                         : 99        :        :                   :         :           :                
+GND*                         : 100       :        :                   :         :           :                
+GND*                         : 101       :        :                   :         :           :                
+GND*                         : 102       :        :                   :         :           :                
+GND*                         : 103       :        :                   :         :           :                
+GND*                         : 104       :        :                   :         :           :                
+GND                          : 105       : gnd    :                   :         :           :                
+GND*                         : 106       :        :                   :         :           :                
+GND*                         : 107       :        :                   :         :           :                
+GND*                         : 108       :        :                   :         :           :                
+GND*                         : 109       :        :                   :         :           :                
+GND*                         : 110       :        :                   :         :           :                
+GND*                         : 111       :        :                   :         :           :                
+GND*                         : 112       :        :                   :         :           :                
+GND*                         : 113       :        :                   :         :           :                
+GND*                         : 114       :        :                   :         :           :                
+VCCIO                        : 115       : power  :                   : 3.3V    :           :                
+GND*                         : 116       :        :                   :         :           :                
+GND*                         : 117       :        :                   :         :           :                
+GND*                         : 118       :        :                   :         :           :                
+GND*                         : 119       :        :                   :         :           :                
+GND*                         : 120       :        :                   :         :           :                
+GND*                         : 121       :        :                   :         :           :                
+GND*                         : 122       :        :                   :         :           :                
+VCCINT                       : 123       : power  :                   : 3.3V    :           :                
+GND                          : 124       : gnd    :                   :         :           :                
+GND+                         : 125       :        :                   :         :           :                
+GND+                         : 126       :        :                   :         :           :                
+GND+                         : 127       :        :                   :         :           :                
+GND+                         : 128       :        :                   :         :           :                
+GND                          : 129       : gnd    :                   :         :           :                
+VCCINT                       : 130       : power  :                   : 3.3V    :           :                
+GND*                         : 131       :        :                   :         :           :                
+GND*                         : 132       :        :                   :         :           :                
+GND*                         : 133       :        :                   :         :           :                
+GND*                         : 134       :        :                   :         :           :                
+GND                          : 135       : gnd    :                   :         :           :                
+GND*                         : 136       :        :                   :         :           :                
+GND*                         : 137       :        :                   :         :           :                
+GND*                         : 138       :        :                   :         :           :                
+GND*                         : 139       :        :                   :         :           :                
+GND*                         : 140       :        :                   :         :           :                
+GND*                         : 141       :        :                   :         :           :                
+GND*                         : 142       :        :                   :         :           :                
+GND*                         : 143       :        :                   :         :           :                
+VCCIO                        : 144       : power  :                   : 3.3V    :           :                

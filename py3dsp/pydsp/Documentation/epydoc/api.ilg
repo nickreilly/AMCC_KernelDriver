@@ -1,0 +1,12 @@
+This is makeindex, version 2.14 [02-Oct-2002] (kpathsea + Thai support).
+Scanning input file api.idx....
+!! Input index error (file = api.idx, line = 339):
+   -- Extra `!' at position 116 of first argument.
+
+!! Input index error (file = api.idx, line = 342):
+   -- Extra `!' at position 114 of first argument.
+done (506 entries accepted, 2 rejected).
+Sorting entries.......done (4873 comparisons).
+Generating output file api.ind....done (550 lines written, 0 warnings).
+Output written in api.ind.
+Transcript written in api.ilg.

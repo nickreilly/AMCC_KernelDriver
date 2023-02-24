@@ -1,0 +1,72 @@
+from run import rd
+import time
+import filterBase
+import ls332
+
+
+filterBase.set("cds")
+waittime = 60
+
+def WaitAndBurst():
+    time.sleep(waittime) # wait for temperature to stabilize
+    burst()  # stop CRUN mode
+    time.sleep(5)
+    burst()  # sometimes, once is not enough
+    time.sleep(5)
+
+
+def BFtest():
+    # Set the object name for this data with the bias in the name.
+    rd.object = 'BF2_71test5'
+    rd.gc = 'Taking dark+light data. No reset between SUTR sets.'
+    rd.lc = 'This is the start of the dark data.'
+
+    rd.nsamp = 1
+    rd.itime = 11000
+    rd.nrow = 2048
+    for blah in range(20):
+        sscan() # just take some throw-away data to help new bias settle.
+    
+    # Take some samples in the dark
+    rd.nsamp = 10  # was 2000
+    rd.itime = 1000
+    rd.nrow=180
+    rd.nrowskip=1000
+    sutr()
+
+    # Turn off the reset clock so that we still do non-destructive reads.
+    dd.resetnhi = 0  
+  
+    # Take some samples in the light
+    filterBase.set("7.1")
+    rd.nsamp = 150   # was 100
+    rd.gc = 'Taking dark+light data. No reset between SUTR sets.'
+    rd.lc = 'This is the light exposed data.'
+    sutr()
+
+    # Move filter back to dark and take more samples
+    filterBase.set("cds")
+    rd.nsamp = 1000
+    rd.itime = 1000
+    rd.gc = 'Taking dark+light data. No reset between SUTR sets.'
+    rd.lc = 'This is the data back in the dark after light exposure.'
+    sutr()
+
+    dd.resetnhi = 3300
+
+
+WaitAndBurst()  # wait some time, then stop crun
+BFtest()  # 
+
+print 'Finished taking your data'
+rd.lc = ''
+rd.gc = ''
+rd.nrowskip = 0
+rd.ncolskip = 0
+rd.nrow=2048
+rd.nsamp = 1
+rd.itime = 11000
+sscan()
+
+
+crun()

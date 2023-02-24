@@ -1,0 +1,23 @@
+/* $Id$ */
+Motorola Assembler,  Version 6.3.0, Jul 13 1999
+Updated revision number.
+====
+Motorola Assembler,  Version 6.2.5, May 11 1998
+1. Bug while emitted a string with dcb and opt aec
+	 enabled was fixed.
+2. Added capability to enable opt cc within a do loop
+	 was added.
+====
+Motorola  Assembler,  Version 6.2.3, Apr 21 1998
+1. Fixes for QTKqa13764
+Customer reported that NT version of assembler SEGV's
+when INCLUDE statement is used in certain conditions.
+Problem traced to array bounds overwrite in listing.c:
+print_syms(). String comparsion of structured control
+statement label was incorrect, resulting in overwrite
+of sort_tab array. 
+====
+Motorola 56600 Assembler,  Version 6.2.0, Jan 08 1998
+
+Bug fixes.
+====

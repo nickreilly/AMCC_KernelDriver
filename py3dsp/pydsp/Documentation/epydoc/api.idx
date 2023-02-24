@@ -1,0 +1,508 @@
+\indexentry{DataDict \textit{(module)}|(hyperpage}{4}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}|(hyperpage}{6}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.\_\_cmp\_\_ \textit{(method)}|hyperpage}{6}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.\_\_contains\_\_ \textit{(method)}|hyperpage}{6}
+\indexentry{object.\_\_delattr\_\_ \textit{(function)}|hyperpage}{6}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.\_\_delitem\_\_ \textit{(method)}|hyperpage}{6}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.\_\_getattr\_\_ \textit{(method)}|hyperpage}{6}
+\indexentry{object.\_\_getattribute\_\_ \textit{(function)}|hyperpage}{6}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.\_\_getitem\_\_ \textit{(method)}|hyperpage}{6}
+\indexentry{object.\_\_hash\_\_ \textit{(function)}|hyperpage}{6}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.\_\_iter\_\_ \textit{(method)}|hyperpage}{6}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.\_\_len\_\_ \textit{(method)}|hyperpage}{6}
+\indexentry{object.\_\_new\_\_ \textit{(function)}|hyperpage}{6}
+\indexentry{object.\_\_reduce\_\_ \textit{(function)}|hyperpage}{7}
+\indexentry{object.\_\_reduce\_ex\_\_ \textit{(function)}|hyperpage}{7}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.\_\_setitem\_\_ \textit{(method)}|hyperpage}{7}
+\indexentry{object.\_\_str\_\_ \textit{(function)}|hyperpage}{7}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.additem \textit{(method)}|hyperpage}{7}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.clear \textit{(method)}|hyperpage}{7}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.copy \textit{(method)}|hyperpage}{7}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.get \textit{(method)}|hyperpage}{7}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.has\_key \textit{(method)}|hyperpage}{7}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.items \textit{(method)}|hyperpage}{7}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.iteritems \textit{(method)}|hyperpage}{7}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.iterkeys \textit{(method)}|hyperpage}{8}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.itervalues \textit{(method)}|hyperpage}{8}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.keys \textit{(method)}|hyperpage}{8}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.popitem \textit{(method)}|hyperpage}{8}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.set\_widget \textit{(method)}|hyperpage}{8}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.setdefault \textit{(method)}|hyperpage}{8}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.update \textit{(method)}|hyperpage}{8}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.values \textit{(method)}|hyperpage}{8}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}|)hyperpage}{8}
+\indexentry{DataDict \textit{(module)}|)hyperpage}{8}
+\indexentry{autouser \textit{(module)}|(hyperpage}{9}
+\indexentry{autouser \textit{(module)}!autouser.AutoUser \textit{(class)}|(hyperpage}{10}
+\indexentry{autouser \textit{(module)}!autouser.AutoUser \textit{(class)}!autouser.AutoUser.\_\_init\_\_ \textit{(method)}|hyperpage}{10}
+\indexentry{autouser \textit{(module)}!autouser.AutoUser \textit{(class)}!autouser.AutoUser.\_\_call\_\_ \textit{(method)}|hyperpage}{10}
+\indexentry{autouser \textit{(module)}!autouser.AutoUser \textit{(class)}|)hyperpage}{10}
+\indexentry{autouser \textit{(module)}|)hyperpage}{10}
+\indexentry{det \textit{(module)}|(hyperpage}{11}
+\indexentry{det \textit{(module)}!det.setclockpgm \textit{(function)}|hyperpage}{11}
+\indexentry{det \textit{(module)}!det.init \textit{(function)}|hyperpage}{11}
+\indexentry{det \textit{(module)}!det.writeclockdac \textit{(function)}|hyperpage}{11}
+\indexentry{det \textit{(module)}!det.writebiasdacfunc \textit{(function)}|hyperpage}{11}
+\indexentry{det \textit{(module)}!det.setbiases \textit{(function)}|hyperpage}{11}
+\indexentry{det \textit{(module)}!det.showbiases \textit{(function)}|hyperpage}{11}
+\indexentry{det \textit{(module)}!det.loadbiasmap \textit{(function)}|hyperpage}{12}
+\indexentry{det \textit{(module)}!det.get\_detname \textit{(function)}|hyperpage}{12}
+\indexentry{det \textit{(module)}!det.savedet \textit{(function)}|hyperpage}{12}
+\indexentry{det \textit{(module)}!det.loaddet \textit{(function)}|hyperpage}{12}
+\indexentry{det \textit{(module)}!det.powerup \textit{(function)}|hyperpage}{12}
+\indexentry{det \textit{(module)}!det.powerdown \textit{(function)}|hyperpage}{12}
+\indexentry{det \textit{(module)}!det.DetDict \textit{(class)}|(hyperpage}{13}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.\_\_cmp\_\_ \textit{(method)}|hyperpage}{13}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.\_\_contains\_\_ \textit{(method)}|hyperpage}{13}
+\indexentry{object.\_\_delattr\_\_ \textit{(function)}|hyperpage}{13}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.\_\_delitem\_\_ \textit{(method)}|hyperpage}{13}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.\_\_getattr\_\_ \textit{(method)}|hyperpage}{13}
+\indexentry{object.\_\_getattribute\_\_ \textit{(function)}|hyperpage}{13}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.\_\_getitem\_\_ \textit{(method)}|hyperpage}{13}
+\indexentry{object.\_\_hash\_\_ \textit{(function)}|hyperpage}{13}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.\_\_iter\_\_ \textit{(method)}|hyperpage}{14}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.\_\_len\_\_ \textit{(method)}|hyperpage}{14}
+\indexentry{object.\_\_new\_\_ \textit{(function)}|hyperpage}{14}
+\indexentry{object.\_\_reduce\_\_ \textit{(function)}|hyperpage}{14}
+\indexentry{object.\_\_reduce\_ex\_\_ \textit{(function)}|hyperpage}{14}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.\_\_setitem\_\_ \textit{(method)}|hyperpage}{14}
+\indexentry{object.\_\_str\_\_ \textit{(function)}|hyperpage}{14}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.additem \textit{(method)}|hyperpage}{14}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.clear \textit{(method)}|hyperpage}{15}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.copy \textit{(method)}|hyperpage}{15}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.get \textit{(method)}|hyperpage}{15}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.has\_key \textit{(method)}|hyperpage}{15}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.items \textit{(method)}|hyperpage}{15}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.iteritems \textit{(method)}|hyperpage}{15}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.iterkeys \textit{(method)}|hyperpage}{15}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.itervalues \textit{(method)}|hyperpage}{15}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.keys \textit{(method)}|hyperpage}{15}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.popitem \textit{(method)}|hyperpage}{15}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.set\_widget \textit{(method)}|hyperpage}{15}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.setdefault \textit{(method)}|hyperpage}{15}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.update \textit{(method)}|hyperpage}{15}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.values \textit{(method)}|hyperpage}{15}
+\indexentry{det \textit{(module)}!det.DetDict \textit{(class)}|)hyperpage}{15}
+\indexentry{det \textit{(module)}|)hyperpage}{15}
+\indexentry{detectors \textit{(package)}!detectors.default \textit{(module)}|(hyperpage}{16}
+\indexentry{detectors \textit{(package)}!detectors.default \textit{(module)}|)hyperpage}{16}
+\indexentry{detectors \textit{(package)}!detectors.sipin226 \textit{(module)}|(hyperpage}{17}
+\indexentry{detectors \textit{(package)}!detectors.sipin226 \textit{(module)}!detectors.sipin226.get\_vbias \textit{(function)}|hyperpage}{17}
+\indexentry{detectors \textit{(package)}!detectors.sipin226 \textit{(module)}!detectors.sipin226.set\_vbias \textit{(function)}|hyperpage}{17}
+\indexentry{detectors \textit{(package)}!detectors.sipin226 \textit{(module)}!detectors.sipin226.get\_vreset \textit{(function)}|hyperpage}{17}
+\indexentry{detectors \textit{(package)}!detectors.sipin226 \textit{(module)}!detectors.sipin226.Bunch \textit{(class)}|(hyperpage}{17}
+\indexentry{object.\_\_delattr\_\_ \textit{(function)}|hyperpage}{17}
+\indexentry{object.\_\_getattribute\_\_ \textit{(function)}|hyperpage}{17}
+\indexentry{object.\_\_hash\_\_ \textit{(function)}|hyperpage}{17}
+\indexentry{object.\_\_new\_\_ \textit{(function)}|hyperpage}{18}
+\indexentry{object.\_\_reduce\_\_ \textit{(function)}|hyperpage}{18}
+\indexentry{object.\_\_reduce\_ex\_\_ \textit{(function)}|hyperpage}{18}
+\indexentry{object.\_\_repr\_\_ \textit{(function)}|hyperpage}{18}
+\indexentry{object.\_\_setattr\_\_ \textit{(function)}|hyperpage}{18}
+\indexentry{object.\_\_str\_\_ \textit{(function)}|hyperpage}{18}
+\indexentry{detectors \textit{(package)}!detectors.sipin226 \textit{(module)}!detectors.sipin226.Bunch \textit{(class)}|)hyperpage}{18}
+\indexentry{detectors \textit{(package)}!detectors.sipin226 \textit{(module)}|)hyperpage}{18}
+\indexentry{dsp \textit{(module)}|(hyperpage}{19}
+\indexentry{dsp \textit{(module)}!dsp.dummymode \textit{(function)}|hyperpage}{19}
+\indexentry{dsp \textit{(module)}!dsp.dummymodeOff \textit{(function)}|hyperpage}{19}
+\indexentry{dsp \textit{(module)}!dsp.read \textit{(function)}|hyperpage}{19}
+\indexentry{dsp \textit{(module)}!dsp.readAdcs \textit{(function)}|hyperpage}{19}
+\indexentry{dsp \textit{(module)}!dsp.writeSeqBits \textit{(function)}|hyperpage}{19}
+\indexentry{dsp \textit{(module)}!dsp.setSeqBits \textit{(function)}|hyperpage}{19}
+\indexentry{dsp \textit{(module)}!dsp.clearSeqBits \textit{(function)}|hyperpage}{19}
+\indexentry{dsp \textit{(module)}!dsp.testClockRails \textit{(function)}|hyperpage}{19}
+\indexentry{dsp \textit{(module)}!dsp.testBiases \textit{(function)}|hyperpage}{19}
+\indexentry{dsp \textit{(module)}!dsp.startingAlert \textit{(function)}|hyperpage}{19}
+\indexentry{dsp \textit{(module)}!dsp.stoppingAlert \textit{(function)}|hyperpage}{20}
+\indexentry{dsp \textit{(module)}!dsp.singlepix \textit{(function)}|hyperpage}{20}
+\indexentry{dsp \textit{(module)}!dsp.tweak\_heater \textit{(function)}|hyperpage}{20}
+\indexentry{dsp \textit{(module)}!dsp.set\_heater\_by\_tweak \textit{(function)}|hyperpage}{20}
+\indexentry{dsp \textit{(module)}!dsp.adc2diode \textit{(function)}|hyperpage}{20}
+\indexentry{dsp \textit{(module)}!dsp.dspthreadable \textit{(function)}|hyperpage}{20}
+\indexentry{dsp \textit{(module)}!dsp.load\_srec \textit{(function)}|hyperpage}{20}
+\indexentry{dsp \textit{(module)}!dsp.senddsp \textit{(function)}|hyperpage}{20}
+\indexentry{dsp \textit{(module)}!dsp.writedac \textit{(function)}|hyperpage}{20}
+\indexentry{dsp \textit{(module)}!dsp.clockit \textit{(function)}|hyperpage}{20}
+\indexentry{dsp \textit{(module)}!dsp.rnorm \textit{(function)}|hyperpage}{20}
+\indexentry{dsp \textit{(module)}!dsp.ron \textit{(function)}|hyperpage}{20}
+\indexentry{dsp \textit{(module)}!dsp.rrow \textit{(function)}|hyperpage}{21}
+\indexentry{dsp \textit{(module)}!dsp.rglobal \textit{(function)}|hyperpage}{21}
+\indexentry{dsp \textit{(module)}!dsp.rampnext \textit{(function)}|hyperpage}{21}
+\indexentry{dsp \textit{(module)}!dsp.getFrameTime \textit{(function)}|hyperpage}{21}
+\indexentry{dsp \textit{(module)}!dsp.getPedTime \textit{(function)}|hyperpage}{21}
+\indexentry{dsp \textit{(module)}!dsp.timer \textit{(function)}|hyperpage}{21}
+\indexentry{dsp \textit{(module)}!dsp.read7888 \textit{(function)}|hyperpage}{21}
+\indexentry{dsp \textit{(module)}!dsp.readBiasCurrent \textit{(function)}|hyperpage}{21}
+\indexentry{dsp \textit{(module)}!dsp.readBiasVoltage \textit{(function)}|hyperpage}{21}
+\indexentry{dsp \textit{(module)}!dsp.readClockCurrent \textit{(function)}|hyperpage}{21}
+\indexentry{dsp \textit{(module)}!dsp.readClockVoltage \textit{(function)}|hyperpage}{21}
+\indexentry{dsp \textit{(module)}!dsp.vDiode \textit{(function)}|hyperpage}{21}
+\indexentry{dsp \textit{(module)}!dsp.sciStepN \textit{(function)}|hyperpage}{21}
+\indexentry{dsp \textit{(module)}!dsp.writebias \textit{(function)}|hyperpage}{22}
+\indexentry{dsp \textit{(module)}!dsp.seeclockpin \textit{(function)}|hyperpage}{22}
+\indexentry{dsp \textit{(module)}!dsp.seebiaspin \textit{(function)}|hyperpage}{22}
+\indexentry{dsp \textit{(module)}!dsp.ClockLine \textit{(class)}|(hyperpage}{22}
+\indexentry{object.\_\_delattr\_\_ \textit{(function)}|hyperpage}{23}
+\indexentry{object.\_\_getattribute\_\_ \textit{(function)}|hyperpage}{23}
+\indexentry{object.\_\_hash\_\_ \textit{(function)}|hyperpage}{23}
+\indexentry{object.\_\_new\_\_ \textit{(function)}|hyperpage}{23}
+\indexentry{object.\_\_reduce\_\_ \textit{(function)}|hyperpage}{23}
+\indexentry{object.\_\_reduce\_ex\_\_ \textit{(function)}|hyperpage}{23}
+\indexentry{object.\_\_repr\_\_ \textit{(function)}|hyperpage}{23}
+\indexentry{object.\_\_setattr\_\_ \textit{(function)}|hyperpage}{23}
+\indexentry{object.\_\_str\_\_ \textit{(function)}|hyperpage}{23}
+\indexentry{dsp \textit{(module)}!dsp.ClockLine \textit{(class)}|)hyperpage}{24}
+\indexentry{dsp \textit{(module)}!dsp.ClockLine \textit{(class)}|(hyperpage}{24}
+\indexentry{object.\_\_delattr\_\_ \textit{(function)}|hyperpage}{24}
+\indexentry{object.\_\_getattribute\_\_ \textit{(function)}|hyperpage}{24}
+\indexentry{object.\_\_hash\_\_ \textit{(function)}|hyperpage}{24}
+\indexentry{object.\_\_new\_\_ \textit{(function)}|hyperpage}{24}
+\indexentry{object.\_\_reduce\_\_ \textit{(function)}|hyperpage}{24}
+\indexentry{object.\_\_reduce\_ex\_\_ \textit{(function)}|hyperpage}{24}
+\indexentry{object.\_\_repr\_\_ \textit{(function)}|hyperpage}{24}
+\indexentry{object.\_\_setattr\_\_ \textit{(function)}|hyperpage}{24}
+\indexentry{object.\_\_str\_\_ \textit{(function)}|hyperpage}{24}
+\indexentry{dsp \textit{(module)}!dsp.ClockLine \textit{(class)}|)hyperpage}{25}
+\indexentry{dsp \textit{(module)}!dsp.DspThread \textit{(class)}|(hyperpage}{25}
+\indexentry{dsp \textit{(module)}!dsp.DspThread \textit{(class)}!dsp.DspThread.shutdown \textit{(method)}|hyperpage}{25}
+\indexentry{dsp \textit{(module)}!dsp.DspThread \textit{(class)}!dsp.DspThread.do\_nowait \textit{(method)}|hyperpage}{25}
+\indexentry{dsp \textit{(module)}!dsp.DspThread \textit{(class)}!dsp.DspThread.blocking\_do\_nowait \textit{(method)}|hyperpage}{25}
+\indexentry{dsp \textit{(module)}!dsp.DspThread \textit{(class)}!dsp.DspThread.do \textit{(method)}|hyperpage}{25}
+\indexentry{dsp \textit{(module)}!dsp.DspThread \textit{(class)}!dsp.DspThread.interrupt \textit{(method)}|hyperpage}{25}
+\indexentry{dsp \textit{(module)}!dsp.DspThread \textit{(class)}!dsp.DspThread.tc\_in\_acq \textit{(method)}|hyperpage}{26}
+\indexentry{dsp \textit{(module)}!dsp.DspThread \textit{(class)}!dsp.DspThread.threadable \textit{(method)}|hyperpage}{26}
+\indexentry{object.\_\_delattr\_\_ \textit{(function)}|hyperpage}{26}
+\indexentry{object.\_\_getattribute\_\_ \textit{(function)}|hyperpage}{26}
+\indexentry{object.\_\_hash\_\_ \textit{(function)}|hyperpage}{26}
+\indexentry{object.\_\_new\_\_ \textit{(function)}|hyperpage}{26}
+\indexentry{object.\_\_reduce\_\_ \textit{(function)}|hyperpage}{26}
+\indexentry{object.\_\_reduce\_ex\_\_ \textit{(function)}|hyperpage}{26}
+\indexentry{object.\_\_setattr\_\_ \textit{(function)}|hyperpage}{26}
+\indexentry{object.\_\_str\_\_ \textit{(function)}|hyperpage}{26}
+\indexentry{threading.Thread.getName \textit{(function)}|hyperpage}{26}
+\indexentry{threading.Thread.isAlive \textit{(function)}|hyperpage}{27}
+\indexentry{threading.Thread.isDaemon \textit{(function)}|hyperpage}{27}
+\indexentry{threading.Thread.join \textit{(function)}|hyperpage}{27}
+\indexentry{threading.Thread.setDaemon \textit{(function)}|hyperpage}{27}
+\indexentry{threading.Thread.setName \textit{(function)}|hyperpage}{27}
+\indexentry{threading.Thread.start \textit{(function)}|hyperpage}{27}
+\indexentry{dsp \textit{(module)}!dsp.DspThread \textit{(class)}|)hyperpage}{27}
+\indexentry{dsp \textit{(module)}|)hyperpage}{27}
+\indexentry{dv \textit{(module)}|(hyperpage}{28}
+\indexentry{dv \textit{(module)}!dv.send\_command \textit{(function)}|hyperpage}{28}
+\indexentry{dv \textit{(module)}!dv.send2dv \textit{(function)}|hyperpage}{28}
+\indexentry{dv \textit{(module)}!dv.view \textit{(function)}|hyperpage}{28}
+\indexentry{dv \textit{(module)}!dv.bmax \textit{(function)}|hyperpage}{28}
+\indexentry{dv \textit{(module)}!dv.math \textit{(function)}|hyperpage}{28}
+\indexentry{dv \textit{(module)}!dv.advance\_fbuf \textit{(function)}|hyperpage}{28}
+\indexentry{dv \textit{(module)}!dv.load\_bkg \textit{(function)}|hyperpage}{28}
+\indexentry{dv \textit{(module)}!dv.load\_src \textit{(function)}|hyperpage}{28}
+\indexentry{dv \textit{(module)}!dv.src\_minus\_bkg \textit{(function)}|hyperpage}{28}
+\indexentry{dv \textit{(module)}!dv.dv\_path \textit{(function)}|hyperpage}{28}
+\indexentry{dv \textit{(module)}!dv.dv\_dofile \textit{(function)}|hyperpage}{28}
+\indexentry{dv \textit{(module)}!dv.active \textit{(function)}|hyperpage}{29}
+\indexentry{dv \textit{(module)}!dv.buffer \textit{(function)}|hyperpage}{29}
+\indexentry{dv \textit{(module)}!dv.vfmode \textit{(function)}|hyperpage}{29}
+\indexentry{dv \textit{(module)}|)hyperpage}{29}
+\indexentry{filterBase \textit{(module)}|(hyperpage}{30}
+\indexentry{filterBase \textit{(module)}!filterBase.move \textit{(function)}|hyperpage}{30}
+\indexentry{filterBase \textit{(module)}!filterBase.cvFilter \textit{(class)}|(hyperpage}{30}
+\indexentry{filterBase \textit{(module)}!filterBase.cvFilter \textit{(class)}!filterBase.cvFilter.\_\_init\_\_ \textit{(method)}|hyperpage}{30}
+\indexentry{filterBase \textit{(module)}!filterBase.cvFilter \textit{(class)}!filterBase.cvFilter.set \textit{(method)}|hyperpage}{30}
+\indexentry{filterBase \textit{(module)}!filterBase.cvFilter \textit{(class)}!filterBase.cvFilter.moveto \textit{(method)}|hyperpage}{30}
+\indexentry{filterBase \textit{(module)}!filterBase.cvFilter \textit{(class)}|)hyperpage}{30}
+\indexentry{filterBase \textit{(module)}!filterBase.fixedFilter \textit{(class)}|(hyperpage}{30}
+\indexentry{filterBase \textit{(module)}!filterBase.fixedFilter \textit{(class)}!filterBase.fixedFilter.\_\_init\_\_ \textit{(method)}|hyperpage}{31}
+\indexentry{filterBase \textit{(module)}!filterBase.fixedFilter \textit{(class)}!filterBase.fixedFilter.set \textit{(method)}|hyperpage}{31}
+\indexentry{filterBase \textit{(module)}!filterBase.fixedFilter \textit{(class)}!filterBase.fixedFilter.moveto \textit{(method)}|hyperpage}{31}
+\indexentry{filterBase \textit{(module)}!filterBase.fixedFilter \textit{(class)}|)hyperpage}{31}
+\indexentry{filterBase \textit{(module)}|)hyperpage}{31}
+\indexentry{filterII \textit{(module)}|(hyperpage}{32}
+\indexentry{filterII \textit{(module)}!filterII.get\_wavelength \textit{(function)}|hyperpage}{32}
+\indexentry{filterII \textit{(module)}!filterII.get\_bandwidth \textit{(function)}|hyperpage}{32}
+\indexentry{filterII \textit{(module)}!filterII.get\_filtername \textit{(function)}|hyperpage}{32}
+\indexentry{filterII \textit{(module)}!filterII.set \textit{(function)}|hyperpage}{32}
+\indexentry{filterII \textit{(module)}|)hyperpage}{32}
+\indexentry{filterwh \textit{(module)}|(hyperpage}{33}
+\indexentry{filterwh \textit{(module)}!filterwh.get\_wavelength \textit{(function)}|hyperpage}{33}
+\indexentry{filterwh \textit{(module)}!filterwh.get\_bandwidth \textit{(function)}|hyperpage}{33}
+\indexentry{filterwh \textit{(module)}!filterwh.get\_filtername \textit{(function)}|hyperpage}{33}
+\indexentry{filterwh \textit{(module)}!filterwh.set \textit{(function)}|hyperpage}{33}
+\indexentry{filterwh \textit{(module)}|)hyperpage}{33}
+\indexentry{fits \textit{(module)}|(hyperpage}{34}
+\indexentry{fits \textit{(module)}!fits.interleaved\_descrambler \textit{(function)}|hyperpage}{34}
+\indexentry{fits \textit{(module)}!fits.block\_descrambler \textit{(function)}|hyperpage}{34}
+\indexentry{fits \textit{(module)}!fits.quadrant\_descrambler \textit{(function)}|hyperpage}{34}
+\indexentry{fits \textit{(module)}!fits.fitsheader \textit{(function)}|hyperpage}{34}
+\indexentry{fits \textit{(module)}!fits.write\_image \textit{(function)}|hyperpage}{34}
+\indexentry{fits \textit{(module)}!fits.fitsbuffer \textit{(class)}|(hyperpage}{34}
+\indexentry{fits \textit{(module)}!fits.fitsbuffer \textit{(class)}!fits.fitsbuffer.\_\_init\_\_ \textit{(method)}|hyperpage}{34}
+\indexentry{fits \textit{(module)}!fits.fitsbuffer \textit{(class)}!fits.fitsbuffer.set\_size \textit{(method)}|hyperpage}{34}
+\indexentry{fits \textit{(module)}!fits.fitsbuffer \textit{(class)}|)hyperpage}{34}
+\indexentry{fits \textit{(module)}|)hyperpage}{34}
+\indexentry{ociw \textit{(module)}|(hyperpage}{35}
+\indexentry{ociw \textit{(module)}!ociw.open \textit{(function)}|hyperpage}{35}
+\indexentry{ociw \textit{(module)}!ociw.write \textit{(function)}|hyperpage}{35}
+\indexentry{ociw \textit{(module)}!ociw.read \textit{(function)}|hyperpage}{35}
+\indexentry{ociw \textit{(module)}!ociw.reset \textit{(function)}|hyperpage}{35}
+\indexentry{ociw \textit{(module)}!ociw.command \textit{(function)}|hyperpage}{35}
+\indexentry{ociw \textit{(module)}!ociw.data24 \textit{(function)}|hyperpage}{35}
+\indexentry{ociw \textit{(module)}!ociw.clear\_fifo \textit{(function)}|hyperpage}{35}
+\indexentry{ociw \textit{(module)}!ociw.peek\_fifo \textit{(function)}|hyperpage}{35}
+\indexentry{ociw \textit{(module)}!ociw.interrupted \textit{(function)}|hyperpage}{35}
+\indexentry{ociw \textit{(module)}!ociw.AbstractFrame \textit{(class)}|(hyperpage}{36}
+\indexentry{ociw \textit{(module)}!ociw.AbstractFrame \textit{(class)}!ociw.AbstractFrame.\_\_init\_\_ \textit{(method)}|hyperpage}{36}
+\indexentry{ociw \textit{(module)}!ociw.AbstractFrame \textit{(class)}!ociw.AbstractFrame.grab \textit{(method)}|hyperpage}{36}
+\indexentry{ociw \textit{(module)}!ociw.AbstractFrame \textit{(class)}|)hyperpage}{36}
+\indexentry{ociw \textit{(module)}!ociw.RawFrame \textit{(class)}|(hyperpage}{36}
+\indexentry{ociw \textit{(module)}!ociw.RawFrame \textit{(class)}!ociw.RawFrame.\_\_init\_\_ \textit{(method)}|hyperpage}{36}
+\indexentry{ociw \textit{(module)}!ociw.RawFrame \textit{(class)}!ociw.RawFrame.preframeAlert \textit{(method)}|hyperpage}{36}
+\indexentry{ociw \textit{(module)}!ociw.RawFrame \textit{(class)}!ociw.RawFrame.frameAlert \textit{(method)}|hyperpage}{36}
+\indexentry{ociw \textit{(module)}!ociw.RawFrame \textit{(class)}!ociw.RawFrame.grab\_predata \textit{(method)}|hyperpage}{36}
+\indexentry{ociw \textit{(module)}!ociw.RawFrame \textit{(class)}!ociw.RawFrame.grab\_data \textit{(method)}|hyperpage}{37}
+\indexentry{ociw \textit{(module)}!ociw.RawFrame \textit{(class)}!ociw.RawFrame.grab\_postdata \textit{(method)}|hyperpage}{37}
+\indexentry{ociw \textit{(module)}!ociw.RawFrame \textit{(class)}!ociw.RawFrame.grab \textit{(method)}|hyperpage}{37}
+\indexentry{ociw \textit{(module)}!ociw.RawFrame \textit{(class)}|)hyperpage}{37}
+\indexentry{ociw \textit{(module)}|)hyperpage}{37}
+\indexentry{pydsp \textit{(module)}|(hyperpage}{38}
+\indexentry{pydsp \textit{(module)}!pydsp.help \textit{(function)}|hyperpage}{38}
+\indexentry{pydsp \textit{(module)}!pydsp.see \textit{(function)}|hyperpage}{38}
+\indexentry{pydsp \textit{(module)}!pydsp.words \textit{(function)}|hyperpage}{38}
+\indexentry{pydsp \textit{(module)}!pydsp.rdclockcurrent \textit{(function)}|hyperpage}{38}
+\indexentry{pydsp \textit{(module)}!pydsp.rdclockrail \textit{(function)}|hyperpage}{38}
+\indexentry{pydsp \textit{(module)}!pydsp.rdbiascurrent \textit{(function)}|hyperpage}{38}
+\indexentry{pydsp \textit{(module)}!pydsp.rdbiasvoltage \textit{(function)}|hyperpage}{38}
+\indexentry{pydsp \textit{(module)}!pydsp.rbv \textit{(function)}|hyperpage}{38}
+\indexentry{pydsp \textit{(module)}!pydsp.loaduser \textit{(function)}|hyperpage}{39}
+\indexentry{pydsp \textit{(module)}!pydsp.userload \textit{(function)}|hyperpage}{39}
+\indexentry{pydsp \textit{(module)}!pydsp.execuser \textit{(function)}|hyperpage}{39}
+\indexentry{pydsp \textit{(module)}!pydsp.runuser \textit{(function)}|hyperpage}{39}
+\indexentry{pydsp \textit{(module)}!pydsp.tcstart \textit{(function)}|hyperpage}{39}
+\indexentry{pydsp \textit{(module)}!pydsp.tcstop \textit{(function)}|hyperpage}{39}
+\indexentry{pydsp \textit{(module)}!pydsp.tcgoto \textit{(function)}|hyperpage}{39}
+\indexentry{pydsp \textit{(module)}!pydsp.tcgoal \textit{(function)}|hyperpage}{39}
+\indexentry{pydsp \textit{(module)}!pydsp.tccarrot \textit{(function)}|hyperpage}{39}
+\indexentry{pydsp \textit{(module)}!pydsp.tcwait \textit{(function)}|hyperpage}{39}
+\indexentry{pydsp \textit{(module)}!pydsp.temp2file \textit{(function)}|hyperpage}{39}
+\indexentry{pydsp \textit{(module)}!pydsp.startTempControl \textit{(function)}|hyperpage}{39}
+\indexentry{pydsp \textit{(module)}!pydsp.try\_int \textit{(function)}|hyperpage}{40}
+\indexentry{pydsp \textit{(module)}!pydsp.execcmd \textit{(function)}|hyperpage}{40}
+\indexentry{pydsp \textit{(module)}!pydsp.pyshowall\_connect \textit{(function)}|hyperpage}{40}
+\indexentry{pydsp \textit{(module)}!pydsp.cloop \textit{(function)}|hyperpage}{40}
+\indexentry{pydsp \textit{(module)}!pydsp.doCompleter \textit{(function)}|hyperpage}{40}
+\indexentry{pydsp \textit{(module)}!pydsp.startWebServer \textit{(function)}|hyperpage}{40}
+\indexentry{pydsp \textit{(module)}!pydsp.startpydsp \textit{(function)}|hyperpage}{40}
+\indexentry{pydsp \textit{(module)}!pydsp.pydspWebServer \textit{(class)}|(hyperpage}{41}
+\indexentry{pydsp \textit{(module)}!pydsp.pydspWebServer \textit{(class)}!pydsp.pydspWebServer.do\_GET \textit{(method)}|hyperpage}{41}
+\indexentry{pydsp \textit{(module)}!pydsp.pydspWebServer \textit{(class)}!pydsp.pydspWebServer.do\_POST \textit{(method)}|hyperpage}{41}
+\indexentry{pydsp \textit{(module)}!pydsp.pydspWebServer \textit{(class)}!pydsp.pydspWebServer.do\_GET \textit{(method)}|hyperpage}{41}
+\indexentry{SocketServer.BaseRequestHandler.\_\_init\_\_ \textit{(function)}|hyperpage}{41}
+\indexentry{BaseHTTPServer.BaseHTTPRequestHandler.address\_string \textit{(function)}|hyperpage}{41}
+\indexentry{BaseHTTPServer.BaseHTTPRequestHandler.date\_time\_string \textit{(function)}|hyperpage}{41}
+\indexentry{BaseHTTPServer.BaseHTTPRequestHandler.end\_headers \textit{(function)}|hyperpage}{42}
+\indexentry{BaseHTTPServer.BaseHTTPRequestHandler.handle\_one\_request \textit{(function)}|hyperpage}{42}
+\indexentry{BaseHTTPServer.BaseHTTPRequestHandler.log\_date\_time\_string \textit{(function)}|hyperpage}{42}
+\indexentry{BaseHTTPServer.BaseHTTPRequestHandler.log\_error \textit{(function)}|hyperpage}{42}
+\indexentry{BaseHTTPServer.BaseHTTPRequestHandler.parse\_request \textit{(function)}|hyperpage}{42}
+\indexentry{BaseHTTPServer.BaseHTTPRequestHandler.send\_error \textit{(function)}|hyperpage}{42}
+\indexentry{BaseHTTPServer.BaseHTTPRequestHandler.send\_header \textit{(function)}|hyperpage}{42}
+\indexentry{BaseHTTPServer.BaseHTTPRequestHandler.send\_response \textit{(function)}|hyperpage}{42}
+\indexentry{BaseHTTPServer.BaseHTTPRequestHandler.version\_string \textit{(function)}|hyperpage}{43}
+\indexentry{pydsp \textit{(module)}!pydsp.pydspWebServer \textit{(class)}|)hyperpage}{43}
+\indexentry{pydsp \textit{(module)}|)hyperpage}{43}
+\indexentry{pyshowall \textit{(package)}!pyshowall.pyshowall \textit{(module)}|(hyperpage}{44}
+\indexentry{pyshowall \textit{(package)}!pyshowall.pyshowall \textit{(module)}!pyshowall.pyshowall.on\_focus\_out\_event \textit{(function)}|hyperpage}{44}
+\indexentry{pyshowall \textit{(package)}!pyshowall.pyshowall \textit{(module)}!pyshowall.pyshowall.activatecmd \textit{(function)}|hyperpage}{44}
+\indexentry{pyshowall \textit{(package)}!pyshowall.pyshowall \textit{(module)}!pyshowall.pyshowall.on\_command\_activate \textit{(function)}|hyperpage}{44}
+\indexentry{pyshowall \textit{(package)}!pyshowall.pyshowall \textit{(module)}!pyshowall.pyshowall.on\_enter\_notify\_event \textit{(function)}|hyperpage}{44}
+\indexentry{pyshowall \textit{(package)}!pyshowall.pyshowall \textit{(module)}!pyshowall.pyshowall.on\_leave\_notify\_event \textit{(function)}|hyperpage}{44}
+\indexentry{pyshowall \textit{(package)}!pyshowall.pyshowall \textit{(module)}!pyshowall.pyshowall.gui\_raw\_input \textit{(function)}|hyperpage}{44}
+\indexentry{pyshowall \textit{(package)}!pyshowall.pyshowall \textit{(module)}!pyshowall.pyshowall.abortfunc \textit{(function)}|hyperpage}{44}
+\indexentry{pyshowall \textit{(package)}!pyshowall.pyshowall \textit{(module)}!pyshowall.pyshowall.scanfunc \textit{(function)}|hyperpage}{44}
+\indexentry{pyshowall \textit{(package)}!pyshowall.pyshowall \textit{(module)}!pyshowall.pyshowall.runfunc \textit{(function)}|hyperpage}{44}
+\indexentry{pyshowall \textit{(package)}!pyshowall.pyshowall \textit{(module)}!pyshowall.pyshowall.showbiases \textit{(function)}|hyperpage}{44}
+\indexentry{pyshowall \textit{(package)}!pyshowall.pyshowall \textit{(module)}!pyshowall.pyshowall.on\_Abort\_clicked \textit{(function)}|hyperpage}{44}
+\indexentry{pyshowall \textit{(package)}!pyshowall.pyshowall \textit{(module)}!pyshowall.pyshowall.on\_Scan\_clicked \textit{(function)}|hyperpage}{45}
+\indexentry{pyshowall \textit{(package)}!pyshowall.pyshowall \textit{(module)}!pyshowall.pyshowall.on\_Run\_clicked \textit{(function)}|hyperpage}{45}
+\indexentry{pyshowall \textit{(package)}!pyshowall.pyshowall \textit{(module)}!pyshowall.pyshowall.on\_Voltages\_clicked \textit{(function)}|hyperpage}{45}
+\indexentry{pyshowall \textit{(package)}!pyshowall.pyshowall \textit{(module)}!pyshowall.pyshowall.on\_activate \textit{(function)}|hyperpage}{45}
+\indexentry{pyshowall \textit{(package)}!pyshowall.pyshowall \textit{(module)}!pyshowall.pyshowall.scantime \textit{(function)}|hyperpage}{45}
+\indexentry{pyshowall \textit{(package)}!pyshowall.pyshowall \textit{(module)}!pyshowall.pyshowall.totaltime \textit{(function)}|hyperpage}{45}
+\indexentry{pyshowall \textit{(package)}!pyshowall.pyshowall \textit{(module)}!pyshowall.pyshowall.mytimer \textit{(function)}|hyperpage}{45}
+\indexentry{pyshowall \textit{(package)}!pyshowall.pyshowall \textit{(module)}!pyshowall.pyshowall.restart\_timer \textit{(function)}|hyperpage}{45}
+\indexentry{pyshowall \textit{(package)}!pyshowall.pyshowall \textit{(module)}!pyshowall.pyshowall.stop\_timer \textit{(function)}|hyperpage}{45}
+\indexentry{pyshowall \textit{(package)}!pyshowall.pyshowall \textit{(module)}!pyshowall.pyshowall.init\_showall \textit{(function)}|hyperpage}{45}
+\indexentry{pyshowall \textit{(package)}!pyshowall.pyshowall \textit{(module)}!pyshowall.pyshowall.do\_update \textit{(function)}|hyperpage}{45}
+\indexentry{pyshowall \textit{(package)}!pyshowall.pyshowall \textit{(module)}!pyshowall.pyshowall.set\_widget \textit{(function)}|hyperpage}{45}
+\indexentry{pyshowall \textit{(package)}!pyshowall.pyshowall \textit{(module)}!pyshowall.pyshowall.startguithread \textit{(function)}|hyperpage}{45}
+\indexentry{pyshowall \textit{(package)}!pyshowall.pyshowall \textit{(module)}!pyshowall.pyshowall.gui\_writer \textit{(class)}|(hyperpage}{46}
+\indexentry{pyshowall \textit{(package)}!pyshowall.pyshowall \textit{(module)}!pyshowall.pyshowall.gui\_writer \textit{(class)}!pyshowall.pyshowall.gui\_writer.write \textit{(method)}|hyperpage}{46}
+\indexentry{pyshowall \textit{(package)}!pyshowall.pyshowall \textit{(module)}!pyshowall.pyshowall.gui\_writer \textit{(class)}|)hyperpage}{46}
+\indexentry{pyshowall \textit{(package)}!pyshowall.pyshowall \textit{(module)}!pyshowall.pyshowall.GuiThread \textit{(class)}|(hyperpage}{46}
+\indexentry{pyshowall \textit{(package)}!pyshowall.pyshowall \textit{(module)}!pyshowall.pyshowall.GuiThread \textit{(class)}!pyshowall.pyshowall.GuiThread.shutdown \textit{(method)}|hyperpage}{46}
+\indexentry{object.\_\_delattr\_\_ \textit{(function)}|hyperpage}{46}
+\indexentry{object.\_\_getattribute\_\_ \textit{(function)}|hyperpage}{46}
+\indexentry{object.\_\_hash\_\_ \textit{(function)}|hyperpage}{46}
+\indexentry{object.\_\_new\_\_ \textit{(function)}|hyperpage}{47}
+\indexentry{object.\_\_reduce\_\_ \textit{(function)}|hyperpage}{47}
+\indexentry{object.\_\_reduce\_ex\_\_ \textit{(function)}|hyperpage}{47}
+\indexentry{object.\_\_setattr\_\_ \textit{(function)}|hyperpage}{47}
+\indexentry{object.\_\_str\_\_ \textit{(function)}|hyperpage}{47}
+\indexentry{threading.Thread.getName \textit{(function)}|hyperpage}{47}
+\indexentry{threading.Thread.isAlive \textit{(function)}|hyperpage}{47}
+\indexentry{threading.Thread.isDaemon \textit{(function)}|hyperpage}{47}
+\indexentry{threading.Thread.join \textit{(function)}|hyperpage}{47}
+\indexentry{threading.Thread.setDaemon \textit{(function)}|hyperpage}{47}
+\indexentry{threading.Thread.setName \textit{(function)}|hyperpage}{47}
+\indexentry{threading.Thread.start \textit{(function)}|hyperpage}{47}
+\indexentry{pyshowall \textit{(package)}!pyshowall.pyshowall \textit{(module)}!pyshowall.pyshowall.GuiThread \textit{(class)}|)hyperpage}{47}
+\indexentry{pyshowall \textit{(package)}!pyshowall.pyshowall \textit{(module)}|)hyperpage}{47}
+\indexentry{run \textit{(module)}|(hyperpage}{48}
+\indexentry{run \textit{(module)}!run.init \textit{(function)}|hyperpage}{48}
+\indexentry{run \textit{(module)}!run.asksavedet \textit{(function)}|hyperpage}{48}
+\indexentry{run \textit{(module)}!run.savesetup \textit{(function)}|hyperpage}{48}
+\indexentry{run \textit{(module)}!run.setup \textit{(function)}|hyperpage}{48}
+\indexentry{run \textit{(module)}!run.recover \textit{(function)}|hyperpage}{48}
+\indexentry{run \textit{(module)}!run.RunDict \textit{(class)}|(hyperpage}{49}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.\_\_cmp\_\_ \textit{(method)}|hyperpage}{49}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.\_\_contains\_\_ \textit{(method)}|hyperpage}{49}
+\indexentry{object.\_\_delattr\_\_ \textit{(function)}|hyperpage}{49}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.\_\_delitem\_\_ \textit{(method)}|hyperpage}{49}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.\_\_getattr\_\_ \textit{(method)}|hyperpage}{49}
+\indexentry{object.\_\_getattribute\_\_ \textit{(function)}|hyperpage}{49}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.\_\_getitem\_\_ \textit{(method)}|hyperpage}{49}
+\indexentry{object.\_\_hash\_\_ \textit{(function)}|hyperpage}{49}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.\_\_iter\_\_ \textit{(method)}|hyperpage}{49}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.\_\_len\_\_ \textit{(method)}|hyperpage}{49}
+\indexentry{object.\_\_new\_\_ \textit{(function)}|hyperpage}{49}
+\indexentry{object.\_\_reduce\_\_ \textit{(function)}|hyperpage}{49}
+\indexentry{object.\_\_reduce\_ex\_\_ \textit{(function)}|hyperpage}{50}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.\_\_setitem\_\_ \textit{(method)}|hyperpage}{50}
+\indexentry{object.\_\_str\_\_ \textit{(function)}|hyperpage}{50}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.additem \textit{(method)}|hyperpage}{50}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.clear \textit{(method)}|hyperpage}{50}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.copy \textit{(method)}|hyperpage}{50}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.get \textit{(method)}|hyperpage}{50}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.has\_key \textit{(method)}|hyperpage}{50}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.items \textit{(method)}|hyperpage}{50}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.iteritems \textit{(method)}|hyperpage}{50}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.iterkeys \textit{(method)}|hyperpage}{50}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.itervalues \textit{(method)}|hyperpage}{50}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.keys \textit{(method)}|hyperpage}{51}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.popitem \textit{(method)}|hyperpage}{51}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.set\_widget \textit{(method)}|hyperpage}{51}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.setdefault \textit{(method)}|hyperpage}{51}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.update \textit{(method)}|hyperpage}{51}
+\indexentry{DataDict \textit{(module)}!DataDict.DataDict \textit{(class)}!DataDict.DataDict.values \textit{(method)}|hyperpage}{51}
+\indexentry{run \textit{(module)}!run.RunDict \textit{(class)}|)hyperpage}{51}
+\indexentry{run \textit{(module)}|)hyperpage}{51}
+\indexentry{runrun \textit{(module)}|(hyperpage}{52}
+\indexentry{runrun \textit{(module)}!runrun.burst \textit{(function)}|hyperpage}{52}
+\indexentry{runrun \textit{(module)}!runrun.minItime \textit{(function)}|hyperpage}{52}
+\indexentry{runrun \textit{(module)}!runrun.scantime \textit{(function)}|hyperpage}{52}
+\indexentry{runrun \textit{(module)}!runrun.src \textit{(function)}|hyperpage}{52}
+\indexentry{runrun \textit{(module)}!runrun.bkg \textit{(function)}|hyperpage}{52}
+\indexentry{runrun \textit{(module)}!runrun.vdiode \textit{(function)}|hyperpage}{52}
+\indexentry{runrun \textit{(module)}!runrun.preCheckItime \textit{(function)}|hyperpage}{52}
+\indexentry{runrun \textit{(module)}!runrun.calibrateItime \textit{(function)}|hyperpage}{52}
+\indexentry{runrun \textit{(module)}!runrun.bscan \textit{(function)}|hyperpage}{53}
+\indexentry{runrun \textit{(module)}!runrun.pedscan \textit{(function)}|hyperpage}{53}
+\indexentry{runrun \textit{(module)}!runrun.sigscan \textit{(function)}|hyperpage}{53}
+\indexentry{runrun \textit{(module)}!runrun.srun \textit{(function)}|hyperpage}{53}
+\indexentry{runrun \textit{(module)}!runrun.brun \textit{(function)}|hyperpage}{53}
+\indexentry{runrun \textit{(module)}!runrun.pedrun \textit{(function)}|hyperpage}{53}
+\indexentry{runrun \textit{(module)}!runrun.rrun \textit{(function)}|hyperpage}{53}
+\indexentry{runrun \textit{(module)}!runrun.sigrun \textit{(function)}|hyperpage}{53}
+\indexentry{runrun \textit{(module)}!runrun.crun \textit{(function)}|hyperpage}{54}
+\indexentry{runrun \textit{(module)}!runrun.scandir \textit{(function)}|hyperpage}{54}
+\indexentry{runrun \textit{(module)}!runrun.bgscan \textit{(function)}|hyperpage}{54}
+\indexentry{runrun \textit{(module)}|)hyperpage}{54}
+\indexentry{sload \textit{(module)}|(hyperpage}{55}
+\indexentry{sload \textit{(module)}!sload.sloader \textit{(class)}|(hyperpage}{55}
+\indexentry{sload \textit{(module)}!sload.sloader \textit{(class)}!sload.sloader.\_\_init\_\_ \textit{(method)}|hyperpage}{55}
+\indexentry{sload \textit{(module)}!sload.sloader \textit{(class)}!sload.sloader.syncup \textit{(method)}|hyperpage}{55}
+\indexentry{sload \textit{(module)}!sload.sloader \textit{(class)}!sload.sloader.waitsync \textit{(method)}|hyperpage}{55}
+\indexentry{sload \textit{(module)}!sload.sloader \textit{(class)}!sload.sloader.srec2ints \textit{(method)}|hyperpage}{55}
+\indexentry{sload \textit{(module)}!sload.sloader \textit{(class)}!sload.sloader.sendvals \textit{(method)}|hyperpage}{55}
+\indexentry{sload \textit{(module)}!sload.sloader \textit{(class)}!sload.sloader.sendsrec \textit{(method)}|hyperpage}{55}
+\indexentry{sload \textit{(module)}!sload.sloader \textit{(class)}!sload.sloader.sendsrecs \textit{(method)}|hyperpage}{55}
+\indexentry{sload \textit{(module)}!sload.sloader \textit{(class)}!sload.sloader.file2srecs \textit{(method)}|hyperpage}{55}
+\indexentry{sload \textit{(module)}!sload.sloader \textit{(class)}!sload.sloader.sendfile \textit{(method)}|hyperpage}{55}
+\indexentry{sload \textit{(module)}!sload.sloader \textit{(class)}!sload.sloader.load\_srec \textit{(method)}|hyperpage}{55}
+\indexentry{sload \textit{(module)}!sload.sloader \textit{(class)}|)hyperpage}{56}
+\indexentry{sload \textit{(module)}|)hyperpage}{56}
+\indexentry{start\_pydsp \textit{(module)}|(hyperpage}{57}
+\indexentry{start\_pydsp \textit{(module)}!start\_pydsp.initHardware \textit{(function)}|hyperpage}{57}
+\indexentry{start\_pydsp \textit{(module)}!start\_pydsp.loadDetAndRun \textit{(function)}|hyperpage}{57}
+\indexentry{start\_pydsp \textit{(module)}!start\_pydsp.startPyshowall \textit{(function)}|hyperpage}{57}
+\indexentry{start\_pydsp \textit{(module)}|)hyperpage}{57}
+\indexentry{tempcontrol \textit{(module)}|(hyperpage}{58}
+\indexentry{tempcontrol \textit{(module)}!tempcontrol.tcontroller \textit{(class)}|(hyperpage}{58}
+\indexentry{tempcontrol \textit{(module)}!tempcontrol.tcontroller \textit{(class)}!tempcontrol.tcontroller.\_\_init\_\_ \textit{(method)}|hyperpage}{58}
+\indexentry{tempcontrol \textit{(module)}!tempcontrol.tcontroller \textit{(class)}!tempcontrol.tcontroller.watts \textit{(method)}|hyperpage}{58}
+\indexentry{tempcontrol \textit{(module)}!tempcontrol.tcontroller \textit{(class)}!tempcontrol.tcontroller.ac\_watts \textit{(method)}|hyperpage}{58}
+\indexentry{tempcontrol \textit{(module)}!tempcontrol.tcontroller \textit{(class)}!tempcontrol.tcontroller.K\_per\_min \textit{(method)}|hyperpage}{58}
+\indexentry{tempcontrol \textit{(module)}!tempcontrol.tcontroller \textit{(class)}!tempcontrol.tcontroller.r\_power \textit{(method)}|hyperpage}{58}
+\indexentry{tempcontrol \textit{(module)}!tempcontrol.tcontroller \textit{(class)}!tempcontrol.tcontroller.dc\_watts \textit{(method)}|hyperpage}{58}
+\indexentry{tempcontrol \textit{(module)}!tempcontrol.tcontroller \textit{(class)}!tempcontrol.tcontroller.watts\_per\_K \textit{(method)}|hyperpage}{58}
+\indexentry{tempcontrol \textit{(module)}!tempcontrol.tcontroller \textit{(class)}!tempcontrol.tcontroller.set\_dc\_calibration \textit{(method)}|hyperpage}{59}
+\indexentry{tempcontrol \textit{(module)}!tempcontrol.tcontroller \textit{(class)}!tempcontrol.tcontroller.load\_r \textit{(method)}|hyperpage}{59}
+\indexentry{tempcontrol \textit{(module)}!tempcontrol.tcontroller \textit{(class)}!tempcontrol.tcontroller.volts \textit{(method)}|hyperpage}{59}
+\indexentry{tempcontrol \textit{(module)}!tempcontrol.tcontroller \textit{(class)}!tempcontrol.tcontroller.readTemp \textit{(method)}|hyperpage}{59}
+\indexentry{tempcontrol \textit{(module)}!tempcontrol.tcontroller \textit{(class)}!tempcontrol.tcontroller.setHeater \textit{(method)}|hyperpage}{59}
+\indexentry{tempcontrol \textit{(module)}!tempcontrol.tcontroller \textit{(class)}!tempcontrol.tcontroller.adjustCarrot \textit{(method)}|hyperpage}{59}
+\indexentry{tempcontrol \textit{(module)}!tempcontrol.tcontroller \textit{(class)}!tempcontrol.tcontroller.do \textit{(method)}|hyperpage}{59}
+\indexentry{tempcontrol \textit{(module)}!tempcontrol.tcontroller \textit{(class)}!tempcontrol.tcontroller.goto \textit{(method)}|hyperpage}{59}
+\indexentry{tempcontrol \textit{(module)}!tempcontrol.tcontroller \textit{(class)}|)hyperpage}{59}
+\indexentry{tempcontrol \textit{(module)}|)hyperpage}{59}
+\indexentry{tests \textit{(module)}|(hyperpage}{60}
+\indexentry{tests \textit{(module)}!tests.test\_DataDict \textit{(function)}|hyperpage}{60}
+\indexentry{tests \textit{(module)}!tests.test\_det \textit{(function)}|hyperpage}{60}
+\indexentry{tests \textit{(module)}!tests.test\_run \textit{(function)}|hyperpage}{60}
+\indexentry{tests \textit{(module)}!tests.test\_xdir \textit{(function)}|hyperpage}{60}
+\indexentry{tests \textit{(module)}!tests.test\_dsp \textit{(function)}|hyperpage}{60}
+\indexentry{tests \textit{(module)}!tests.test\_runrun \textit{(function)}|hyperpage}{60}
+\indexentry{tests \textit{(module)}!tests.test\_dv \textit{(function)}|hyperpage}{60}
+\indexentry{tests \textit{(module)}!tests.test\_filter \textit{(function)}|hyperpage}{60}
+\indexentry{tests \textit{(module)}!tests.test\_scans \textit{(function)}|hyperpage}{60}
+\indexentry{tests \textit{(module)}!tests.test\_autouser \textit{(function)}|hyperpage}{60}
+\indexentry{tests \textit{(module)}!tests.test\_pydsp \textit{(function)}|hyperpage}{60}
+\indexentry{tests \textit{(module)}!tests.test\_start\_pydsp \textit{(function)}|hyperpage}{60}
+\indexentry{tests \textit{(module)}!tests.testall \textit{(function)}|hyperpage}{60}
+\indexentry{tests \textit{(module)}|)hyperpage}{61}
+\indexentry{tmptr \textit{(module)}|(hyperpage}{62}
+\indexentry{tmptr \textit{(module)}!tmptr.tdiode \textit{(function)}|hyperpage}{62}
+\indexentry{tmptr \textit{(module)}|)hyperpage}{62}
+\indexentry{tmptr\_curve10 \textit{(module)}|(hyperpage}{63}
+\indexentry{tmptr\_curve10 \textit{(module)}!tmptr\_curve10.tdiode \textit{(function)}|hyperpage}{63}
+\indexentry{tmptr\_curve10 \textit{(module)}|)hyperpage}{63}
+\indexentry{wheel \textit{(module)}|(hyperpage}{64}
+\indexentry{wheel \textit{(module)}!wheel.move \textit{(function)}|hyperpage}{64}
+\indexentry{wheel \textit{(module)}!wheel.backlash \textit{(function)}|hyperpage}{64}
+\indexentry{wheel \textit{(module)}!wheel.getdial \textit{(function)}|hyperpage}{64}
+\indexentry{wheel \textit{(module)}!wheel.presetdial \textit{(function)}|hyperpage}{64}
+\indexentry{wheel \textit{(module)}!wheel.getdialsteps \textit{(function)}|hyperpage}{64}
+\indexentry{wheel \textit{(module)}!wheel.setdial \textit{(function)}|hyperpage}{64}
+\indexentry{wheel \textit{(module)}!wheel.setdialnb \textit{(function)}|hyperpage}{64}
+\indexentry{wheel \textit{(module)}!wheel.angle \textit{(function)}|hyperpage}{64}
+\indexentry{wheel \textit{(module)}!wheel.Wheel \textit{(class)}|(hyperpage}{65}
+\indexentry{wheel \textit{(module)}!wheel.Wheel \textit{(class)}!wheel.Wheel.\_\_init\_\_ \textit{(method)}|hyperpage}{65}
+\indexentry{wheel \textit{(module)}!wheel.Wheel \textit{(class)}!wheel.Wheel.setdegrees \textit{(method)}|hyperpage}{65}
+\indexentry{wheel \textit{(module)}!wheel.Wheel \textit{(class)}!wheel.Wheel.getsteps \textit{(method)}|hyperpage}{65}
+\indexentry{wheel \textit{(module)}!wheel.Wheel \textit{(class)}!wheel.Wheel.steps\_to \textit{(method)}|hyperpage}{65}
+\indexentry{wheel \textit{(module)}!wheel.Wheel \textit{(class)}|)hyperpage}{65}
+\indexentry{wheel \textit{(module)}|)hyperpage}{65}
+\indexentry{xdir \textit{(module)}|(hyperpage}{66}
+\indexentry{xdir \textit{(module)}!xdir.paths \textit{(function)}|hyperpage}{66}
+\indexentry{xdir \textit{(module)}!xdir.noobject \textit{(function)}|hyperpage}{66}
+\indexentry{xdir \textit{(module)}!xdir.nonight \textit{(function)}|hyperpage}{66}
+\indexentry{xdir \textit{(module)}!xdir.get\_nightpath \textit{(function)}|hyperpage}{66}
+\indexentry{xdir \textit{(module)}!xdir.get\_objpath \textit{(function)}|hyperpage}{66}
+\indexentry{xdir \textit{(module)}!xdir.get\_objfilename \textit{(function)}|hyperpage}{66}
+\indexentry{xdir \textit{(module)}!xdir.get\_nextobjfilename \textit{(function)}|hyperpage}{66}
+\indexentry{xdir \textit{(module)}!xdir.setclockpath \textit{(function)}|hyperpage}{66}
+\indexentry{xdir \textit{(module)}!xdir.setdatapath \textit{(function)}|hyperpage}{66}
+\indexentry{xdir \textit{(module)}!xdir.setdetpath \textit{(function)}|hyperpage}{66}
+\indexentry{xdir \textit{(module)}!xdir.set\_night \textit{(function)}|hyperpage}{66}
+\indexentry{xdir \textit{(module)}!xdir.set\_object \textit{(function)}|hyperpage}{66}
+\indexentry{xdir \textit{(module)}|)hyperpage}{67}

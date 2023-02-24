@@ -1,0 +1,59 @@
+#
+# Version:                                                              
+#      $Id:$
+#                                                                           
+# Revisions:                                         
+#      $Log:$
+# 
+# mapping file for the SB226 PIN at U/R
+# maps bias and clock names to dac numbers.
+# more than one dac number can be assigned to a name
+# in that case, the same name will change both dacs.
+
+BIAS vnuc1  0 # pin 1
+BIAS vpuc1  1
+BIAS vnuc2  2
+BIAS vpuc2  3
+BIAS vnuc3  4
+BIAS vpuc3 5
+BIAS vnuc4 6 # pin 7
+BIAS vpuc4 7
+BIAS vnuc5 8
+BIAS vload  9
+BIAS voffset 10
+BIAS _vreset 11 # Raytheon name is Vdetcom
+BIAS dsub 12 # Raytheon name is 
+BIAS vpuc5 13 
+BIAS vintest 14 
+
+#CLOCK clock1Lo 0 # pin 1
+#CLOCK clock1Hi 1 
+#CLOCK pScnColL 4 # pin 2
+#CLOCK pScnColH 5
+#CLOCK pRstG_lo 8 # pin 3
+#CLOCK pRstG_hi 9
+CLOCK heaterlo 12 # pin 4
+CLOCK heater 13
+CLOCK pmc_lo 2 # pin 9
+CLOCK pmc_hi 3
+CLOCK pdata_lo 6 # pin 10
+CLOCK pdata_hi 7
+#CLOCK pC2_lo 28 # pin 11
+#CLOCK pC2_hi 29
+CLOCK vpa1_lo 18 # pin 17
+CLOCK vpa1_hi 19
+CLOCK vpa2_lo 10 # pin 18
+CLOCK vpa2_hi 11
+CLOCK vna1_lo 20 # pin 19
+CLOCK vna1_hi 21
+CLOCK vna2_lo 22 # pin 20
+CLOCK vna2_hi 23
+CLOCK vpd_lo 14 # pin 21
+CLOCK vpd_hi 15
+CLOCK vnd_lo 24 # pin 22
+CLOCK vnd_hi 25
+CLOCK vpout_lo 26 # pin 23
+CLOCK vpout_hi 27 
+CLOCK vnout_lo 16 # pin 24
+CLOCK vnout_hi 17 
+

@@ -1,0 +1,81 @@
+
+to compile a c file filename.c into object file filename.s
+type:
+
+g563c filename
+
+Also, see /home/craig/dsp56300/clocks and the README file there.
+
+Motorola documentation for the 56300
+====================================
+
+* Family manual for the 56300 processors
+* Technical manual for the 56303
+* Compiler Linker Assembler Simulator for SW development
+
+Board Set Documentation
+=======================
+
+The memory map for the board set is found in dspboard.h
+Since most of the access to hardware is done at the assembly 
+level and many clock programs are written in assembler, the
+defines and equates are in assembler.
+
+
+Sequence Bit Masks
+==================
+
+The sequence bits are defined as symbols Seq0 - Seq19.
+User code will typically re-equate these symbols to more
+meaningful names for usage in the clocking code.
+
+Sequence Port addresses
+=======================
+
+The sequence register can be accessed in several different
+ways. Often, clocking code wants to do specific things with 
+some sequence bits but does not really care about other sequence
+bits. With this in mind, the normal "write all sequence bits"
+register found at 0xFFFF88 is augmented by several other methods.
+Writing to the OrPort at 0xFFFF89 will set bits in the sequence 
+register if they are set in the value being written, otherwise the
+sequence bits will be unchanged. Writing to the NandPort at 0xFFFF8A
+will clear bits in the sequence register if they are set in the
+value being written. (no change otherwise.) Sequence bits will toggle 
+if a 1 is written to them at the ToggPort at 0xFFFF8B.
+
+The StatPort, DetPort, RowPort, and ColPort are emulations of the
+silver box byte-port scheme and allow simultaneous setting and clearing
+of 4-7 bits in a single write.
+
+Analog to Digital Converters
+============================
+
+The A/D converters are readable at locations 0xFFFF90 - 0xFFFF93.
+The least significant sequence bit is wired to the ADC start of convert
+line. The Analogic Converters (large silver modules) and the Linear Tech
+converters (surface mount) require different handling of the convert pulse
+:
+High-Speed Serial Transmit register
+===================================
+
+A single transmit register is available for communication back to the
+host. DSP code must wait until this register is clear before writing
+another pixel to the output.
+
+This register has two addresses that it may be written at. One address
+will invert bit 15. This is useful for writing a offset binary value
+(zero = 0x8000) and having it get received as normal binary (zero = 0x0000)
+
+Computing Timing Values
+=======================
+
+A macro called 'cvi' is available that can compute clock cycles from the known clock
+rate and the desired time delay. Examples of this macro are found at the bottom of
+dspboard.h. For small time delays, subtract 8 clock cycles of overhead for
+use in a NOP delay situation.
+
+Setting Processor Clock Rate
+============================
+
+The initPLLxx() functions show how to set the processor speed.

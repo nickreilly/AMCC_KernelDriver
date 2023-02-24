@@ -1,0 +1,90 @@
+# GCC
+G_CFLAGS = -O2 -Wall -Wstrict-prototypes -D_REENTRANT
+#G_CFLAGS = -g -Wall -Wstrict-prototypes -D_REENTRANT
+G_LFLAGS = 
+CC=gcc
+
+#
+HFILES     = dv.h xpm.h
+# No Pango
+xGTK_CFLAGS = `pkg-config --cflags gtk+-2.0` -DUSE_PANGO=0
+# Fill gtk 2.0 & Pango
+GTK_CFLAGS = `pkg-config --cflags gtk+-2.0` \
+   -DUSE_PANGO=1 \
+#   -DG_DISABLE_DEPRECATED \
+#   -DGDK_DISABLE_DEPRECATED \
+#   -DGDK_PIXBUF_DISABLE_DEPRECATED \
+#   -DGTK_DISABLE_DEPRECATED
+
+GTK_LFLAGS = `pkg-config --libs gtk+-2.0`
+#SOCKETLIB = -lsocket -lnsl
+
+CFLAGS    = $(G_CFLAGS) $(GTK_CFLAGS) -DUSE_GSLFIT=1 -I./libir2
+LFLAGS    = $(G_LFLAGS) $(GTK_LFLAGS)  $(SOCKETLIB) -lgsl -lgslcblas  -lm
+
+all: dv  dvio	
+
+# Linking... 
+#
+dv: dv.o cm.o init.o cb.o draw.o print.o command.o cmdcon.o sclist.o bfp.o moris_guide_adj.o fitgsl.o 
+	$(CC) -o dv dv.o cm.o init.o cb.o draw.o print.o \
+   command.o  cmdcon.o sclist.o bfp.o moris_guide_adj.o fitgsl.o libir2/libir2.a $(LFLAGS) 
+
+dvio: dvio.c
+	$(CC) -o dvio dvio.c -I./libir2 libir2/libir2.a
+
+# Compile sources...
+#
+dv.o: dv.c $(HFILES)
+	$(CC) -c $(CFLAGS) dv.c
+
+cm.o: cm.c $(HFILES)
+	$(CC) -c $(CFLAGS) cm.c
+
+init.o: init.c $(HFILES)
+	$(CC) -c $(CFLAGS) init.c
+
+cb.o: cb.c $(HFILES)
+	$(CC) -c $(CFLAGS) cb.c
+
+draw.o: draw.c $(HFILES)
+	$(CC) -c $(CFLAGS) draw.c
+
+print.o: print.c $(HFILES)
+	$(CC) -c $(CFLAGS) print.c
+
+command.o: command.c $(HFILES)
+	$(CC) -c $(CFLAGS) command.c
+
+cmdcon.o: cmdcon.c $(HFILES)
+	$(CC) -c $(CFLAGS) cmdcon.c
+
+sclist.o: sclist.c $(HFILES)
+	$(CC) -c $(CFLAGS) sclist.c
+
+bfp.o: bfp.c $(HFILES)
+	$(CC) -c $(CFLAGS) bfp.c
+
+moris_guide_adj.o: moris_guide_adj.c $(HFILES)
+	$(CC) -c $(CFLAGS) moris_guide_adj.c
+
+fitgsl.o: $(SRC)fitgsl.c $(HFILES)
+	$(CC) -c $(CFLAGS) $(SRC)fitgsl.c
+
+#-----------------------------------------
+# cleanup
+#
+
+clean: 
+	rm -f *.o 
+
+realclean: 
+	rm -f *.o dv dvio
+
+install: 
+	install -d /usr/local/dv
+	install -m 644 ps_proc /usr/local/dv
+	install -m 644 *.cm /usr/local/dv
+	install -m 755 dv /usr/local/bin
+	install -m 755 dvio /usr/local/bin
+

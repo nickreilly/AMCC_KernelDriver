@@ -1,0 +1,108 @@
+""" runrun.py, parallel file of runrun.fth.
+
+runrun interfaces the run data of run.py
+with the hardware of dsp.py
+not to mention the fits file, DV, and showall code.
+it is kinda the glue code that brings things together
+"""
+
+import os
+import sys
+import xdir
+import dsp
+from dsp import dspthreadable
+from run import rd, savesetup
+import det
+from det import dd
+import fits
+import dv
+import time
+import ociw
+
+
+def myldrsutr(sampnum, extraoffset, wfile=sys.stdout, **kwds) :
+    """
+    Large Dynamic Range Run using Sample Up The Ramp
+    This is a copy of the above sutr(), with added code near end.
+    Syntax:
+        ldrsutr(12, 200)
+    will change the voffset by 200mV on the sample that ends in .012  
+    Remember that this SUTR also counts up from zero.
+
+    This command waits on the device driver and when a raw buffer has data in it,
+    it passes the buffer to a fits object and writes it out.
+
+    NOTE: This function is both high level and low level.
+    Since sample up the ramp MUST acquire and write, there
+    really is no way to separate them.
+    """
+
+    rd.sampmode = "sutr"
+    nrow, ncol, nframes = rd.nrow, rd.ncol, rd.nsamp
+
+
+    BaseObjFile = xdir.get_nextobjfilename()
+    filebase=BaseObjFile +"_%03d.fits"
+    runfile=BaseObjFile +".fits"
+    dsp.rampnext() # clocking program special behavior.
+
+    ociw.clear_fifo() # flush out any pixels.
+    ociw.command(20,0) # tell the clock program its ok to start clocking.
+    oldoffset = dd.voffset
+    for f in range(nframes) :
+        # Here we change the Voffset voltage to allow for larger signals
+        # levels than are normally permitted given the A/D converter input
+        # range and the preamp gain.  We make the change after the user
+        # supplied frame number.
+        if f == sampnum :
+            newoffset = int(oldoffset - extraoffset)
+            #dd.voffset = newoffset
+            # While clocking the DSP (see ociw.command(20,0) above),
+            # the normal way of changing a bias voltage does not work.
+            # instead dd.voffset (or any dd.*) just changes the value in
+            # the header and not on the actual pin.  So, we need to get
+            # the attention of the DSP.
+            dsp.writebias(10, newoffset)  # bias dacnum is 10 for Voffset
+            #ociw.write
+            print 'New Voffset = %d'%newoffset
+        # Get the current time for the header.
+        rd.ftime =  time.ctime()
+        if useTempControl == 'hardwareTempControl':
+            # rd.pre_temp = "%7.3f" % ls332.readTemp()
+            rd.pre_temp = ls332.readTemp()
+        # make sure we can write it.. probably pyfits has a better way..
+        sampfilename = filebase%(f+1)
+        if os.access(sampfilename,6) : 
+            os.remove(sampfilename) # delete it if it exists.
+        frame = ociw.RawFrame(nrows=nrow, ncols=ncol, prepix=det.prepix, postpix=det.postpix)
+        if f == 0 :
+            ped = frame
+        print >>wfile, "acquiring buffer %d"%f
+        frame.grab()
+        if dsp.dspthread.interrupted:
+            print "got abort in sample up the ramp."
+            return
+        if useTempControl == 'hardwareTempControl':
+            #rd.post_temp = "%7.3f" % ls332.readTemp()
+            rd.post_temp = ls332.readTemp()
+        else:
+            rd.pre_temp = tmptr.tdiode(dsp.adc2diode(frame.postdata[1]))
+            rd.post_temp = tmptr.tdiode(dsp.adc2diode(frame.postdata[2]))
+        dsp.dspthread.tc_in_acq(rd.pre_temp)
+        # dd.temp = "%7.3f" % rd.pre_temp 
+        #print frame.postdata[3]
+        #print frame.postdata[4]
+        #print frame.postdata[5]
+        #print frame.postdata[6]
+        rd.ltime =  time.ctime()
+        fits.write_image(sampfilename, frame.data)
+
+    fits.write_image(runfile, frame.data-ped.data)
+    rd.objnum = xdir.objnum + 1
+
+    print>>wfile, "saved to %s and others!"%runfile
+    rd.lc = "" # clear out local comment
+    dd.voffset = oldoffset # Change Voffset back to original value.
+    savesetup()
+
+

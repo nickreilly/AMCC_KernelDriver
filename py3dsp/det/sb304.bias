@@ -1,0 +1,45 @@
+#
+# Version:                                                              
+#      $Id:$
+#                                                                           
+# Revisions:                                         
+#      $Log$
+#
+# this file sets up the dacs to the number of millivolts specified here.
+# it does it in the order that the voltages are found in the file.
+# upon reset, all of the voltages are zero.
+vddcl -0000
+vp    -0000
+vnrow -4000
+vncol -3200
+vssuc -500 
+vslew -4100
+vddout -350
+vload  +2500
+voffset +100 
+_vreset  -3200
+dsub -2900
+
+pScnColL 0
+pScnColH 0
+pRstG_lo -3000
+pRstG_hi -3000
+heater 0
+pC1_lo  -3200
+pC1_hi  -0
+pC2_lo  -3200
+pC2_hi  -0
+pR1_lo  -5000
+pR1_hi  -0
+pR2_lo  -5000
+pR2_hi  -0
+pRstR_lo -5200
+pRstR_hi -3000
+vRowOnLo -4000 
+vRowOnHi -1000
+vRowOffL -1000
+vRowOffH -1000
+Vggcl_lo -0
+Vggcl_hi -0
+ 
+

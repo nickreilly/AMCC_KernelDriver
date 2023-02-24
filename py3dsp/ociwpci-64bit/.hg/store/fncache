@@ -1,0 +1,12 @@
+data/preamps.txt.i
+data/INSTALL.TXT.i
+data/hispeed.txt.i
+data/ociw.c.i
+data/ociwdev.txt.i
+data/amcc.c.i
+data/ociw.h.i
+data/Makefile.i
+data/pt.c.i
+data/amcc_new.c.i
+data/amcc.mod.c.i
+data/amcc.h.i

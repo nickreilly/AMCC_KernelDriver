@@ -1,0 +1,8 @@
+Voltages for TEC to reach given temperature for setup with THz Gen2 Apr-2015
+
+Voltage	Temperature
+===================
+1.12 V	284K
+1.74	280
+2.52	275
+4.30	265

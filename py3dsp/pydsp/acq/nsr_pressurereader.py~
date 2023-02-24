@@ -1,0 +1,78 @@
+#Pressure Gauge trial
+
+import serial 
+import sys
+import glob
+import time
+import csv
+
+def serial_ports():
+	ports = glob.glob('/dev/ttyU[A-Za-z]*')
+	result = []
+	for port in ports:
+		try:
+			s = serial.Serial(port)
+			s.close()
+			result.append(port)
+		except:
+			pass
+	return result
+
+def open_pgauge(result):
+    global pgauge 
+    if serial :
+      try:
+        pgauge = serial.Serial(ports[0], baudrate=19200,
+            bytesize=serial.EIGHTBITS,
+            parity=serial.PARITY_NONE,
+            stopbits=serial.STOPBITS_ONE,
+            timeout=3) #open read/write
+      except :
+        print "access violation"
+    if (pgauge):
+        print "Pressure Gauge opened"
+        print pgauge.portstr
+    else:
+        print "Problem opening pressure gauge. \n Be sure to set the proper permissions on the serial port. \n chmod a+rw /dev/ttyUSB0"
+
+def read_pressure():
+    #outputs in mTorr
+    if pgauge:
+      pgauge.write("#01RD\r\n")
+      current_pressure = float(pgauge.readline()[4:-1])*1000
+      return current_pressure
+    else:
+      print "Pressure Gauge not opened?"
+      return 0.0
+
+
+ports = serial_ports()
+
+open_pgauge(ports)
+test = read_pressure()
+print test
+
+
+'''
+text_file = open("VacuumOutput.csv", 'w')
+text_saved = []
+while (True):
+	msg = '#01RD\r\n'
+	pgauge.write(msg)
+	time.sleep(0.05)
+	out = ''
+	while pgauge.inWaiting() > 0:
+		out += pgauge.readline()#.decode('UTF-8')
+		if out != '':
+			#print ">>" + out
+			val = str(out[3:]) + '\n'
+			
+			text_saved.append(val)
+		print out
+			
+	time.sleep(1)
+
+'''
+	
+
+

@@ -1,0 +1,55 @@
+#
+# Version:                                                              
+#      $Id:$
+#                                                                           
+# Revisions:                                         
+#      $Log:$
+# 
+# mapping file for the Fairchild 1421 at U/R
+# maps bias and clock names to dac numbers.
+# more than one dac number can be assigned to a name
+# in that case, the same name will change both dacs.
+
+BIAS dvdd 0 # pin 1
+BIAS avdd 1
+BIAS dvdd2 2
+BIAS dvdd3 3
+BIAS dvdd4 4
+BIAS avdd2 5
+BIAS avdd3 6 # pin 7
+BIAS avdd4 7
+#BIAS vddout 8
+BIAS vload  9
+BIAS voffset 10
+BIAS _vreset 11
+BIAS dsub 12
+#BIAS pin14 13 
+#BIAS pin15 14 
+
+CLOCK heaterlo 8 # pin 3
+CLOCK heaterhi 9
+#CLOCK heat+lo 12 # pin 4
+#CLOCK heat+hi 13
+#CLOCK pF1_lo 2 # pin 9
+#CLOCK pF1_hi 3
+#CLOCK pF2_lo 6 # pin 10
+#CLOCK pF2_hi 7
+#CLOCK pFS_lo 28 # pin 11
+#CLOCK pFS_hi 29
+CLOCK tck_lo 18 # pin 17
+CLOCK tck_hi 19
+CLOCK imode0lo 10 # pin 18
+CLOCK imode0hi 11
+CLOCK imode1lo 20 # pin 19
+CLOCK imode1hi 21
+CLOCK tRstN_lo 22 # pin 20
+CLOCK tRstN_hi 23
+CLOCK tx_lo 14 # pin 21
+CLOCK tx_hi 15
+CLOCK pd_lo 24 # pin 22
+CLOCK pd_hi 25 
+CLOCK tdi_lo 26 # pin 23
+CLOCK tdi_hi 27 
+CLOCK tms_lo 16 # pin 24
+CLOCK tms_hi 17
+

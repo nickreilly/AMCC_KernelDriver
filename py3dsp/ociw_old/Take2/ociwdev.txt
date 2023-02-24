@@ -1,0 +1,102 @@
+
+OCIW PCI LINUX DEVICE DRIVER, Drew Moore's University of Rochester version.
+
+The ociw PCI device driver for linux does interrupt driven fowler sampling from a stream of video coming in a high speed serial port. The pixels are bufferd into a Cypress semiconductor FIFO on the card. The FIFO is 8K words, and the interrupt is generated when the FIFO is half full. At 4 pixels every 10 microseconds, this is 10 milliseconds before the remainder of the FIFO fills. It is unlikely that any device will hold off interrupts for this long, so the driver runs very reliably. 
+
+The driver is a loadable kernel module (LKM.) Rubini's book Linux Device Drivers (O'Reilly) is an excellent reference on device drivers.
+
+Filesystem node:
+A node in the filesystem is required for client code to talk to the driver, since the device is opened and operated with open, read, write, ioctl, and memmap operation. 
+
+To make a filesystem node for the device, use the mknod command:
+mknod /dev/ociw0 c 125 0
+and set the permissions accordingly.
+This only needs to be done once on a given system.
+
+Reserving physical memory
+The device driver uses a large buffer of physical memory that is set aside at boot time. This is done in lilo.conf with a line that tells Linux to only use a certain amount of memory. If the machine has 256M of physical memory, and it is desired to use the top half of it for the PCI device driver, then add the following line into /etc/lilo.conf (in the image= section of the file.)
+	append="mem=128M"
+Then run /sbin/lilo and reboot.
+This also only needs to be done once for a given system.
+
+Loading into memory:
+Each time the sytem is rebooted, the module needs to be loaded into the kernel. This is done with the insmod command..
+/sbin/insmod ociw.o [arguments]
+
+Arguments:
+The driver can be loaded into varying memory configurations, and needs to be told where its physical memory is and how big its allocation is. To this end, the driver exposes several paramters that can be changed at load time. Alternatively, the module can be recompiled with appropriate values for these variables.
+
+Argument descriptions:
+ociw_physbuf is the first byte of physical memory that the driver can use.
+ociw_physbufsize is the size in bytes of the block of memory that the 
+for example 
+
+/sbin/insmod ociw.o ociw_physbuf=0x6000000 ociw_physbufsize=0x2000000
+would be appropriate for a machine with 128M of physical memory , if it was desired to give 96M to Linux and 32M to the device driver. (lilo.conf would contain the line append="mem=96M" for this example)
+
+Other values that can be changed when the module is loaded are the number of images that are reserved (ociw_nimages) and the reading strategy (ociw_readstrategy)
+
+The device driver memory maps its physical memory to a block of memory that user code can access. This memory is divided up into several regions. The first regions are the final image buffers. These buffers are where the final fowler images are stored, and the number of these buffers is configured with the ociw_nimages variable. The final fowler images are 16 bit images. The next area is the fowler pedestal buffer, it is a 32 bit wide image. The area after that is the fowler signal buffer, and this is also a 32 bit wide image. Following this region is the raw image buffers. These buffers may be accessed for diagnostic purposes or for "sampling up the ramp"
+
+
+Interfacing to the device driver:
+
+open
+before the device can be used it must be opened. This call typically looks like
+int ociw_fd = 0L; // open returns a file descriptor which we use in all accesses
+ociw_fd = open("/dev/ociw0",O_RDWR); // open the device read/write
+
+The value returned by open should be checked before it is used. -1 is invalid.
+
+mmap
+the mmap operation returns a user space pointer to the same physical memory that the device driver uses. However, the user process accessed different entries in the page tables so new page table entries are required for this mapping operation.
+an example of a call to mmap:
+mmap(0, 0x2000000, PROT_READ, MAP_SHARED, ociw_fd, 0)
+The first argument (starting address) is unused, and is set to zero. The second argument is the size of the physical buffer in bytes, here a 32 Megabyte buffer.The third argument requests read-only access. The fourth argument requests shared access and the fifth is the file descriptor returned by open. The last argument is an optional offset, and is also unused.
+
+read
+Read is not used for image transfer, since the memory mapping is used for returning images. Read goes straight to the cypress fifo and pulls data from i. It is useful for utility readback when images are not being taken. If it is called during image acquisition, corruption of image data will occur.
+
+write
+write sends words down the FIFO to the DSP board. Words can be sent to the DSP for the purpose of resetting the dsp and sending down new software, changing variables in the DSP memory, or starting a new function running on the DSP.
+
+ioctl
+ioctl is useful for communicating special messages with the device driver. Many different IOCTLs are defined for resetting the board, reading and writing control registers, and testing different board functions.
+
+IOCLTS of interest to most users of the board:
+
+OCIW_SET_NROWS
+OCIW_SET_NCOLS
+OCIW_SET_NSAMPS
+OCIW_SET_NCOADDS
+These four functions set the number of rows, columns, samples, and coadds in the fowler images that are taken.
+OCIW_SET_SAMPMODE
+this function sets the sampling mode of the image. Currently this is ignored, since the pedestal and signal images are available in the memory map as well.
+OCIW_SET_IMAGE
+this function sets the number of the buffer that the final fowler image is copied into when acquisition is complete.
+
+OCIW_INTS_ON
+this function starts a fowler image acquisition by:
+initializing the frame variables based on the number of rows and columns, the number of samples and the number of coadds.
+clearing out the pedestal and signal levels 
+OCIW_GET_DONE
+this function returns the status of image acquisition in progress. It either returns a positive value (the number of pixels it is waiting for,) a negative value (for an error) or a zero (meaning success)
+OCIW_ABORT
+this function aborts an image acquisition that is in progress. no copy of image data takes place.
+
+close
+
+this function closes down the device driver. the driver still remains in memory (until rmmod is run on it) but it must be opened again before it can be used.
+
+Hardware notes:
+
+Special modifications were done to Greg Burley's original design to support the Half full interrupt. 
+
+AMCC serial eprom changes:
+The AMCC serial eprom was changed to speed up access to the Cypress fifo. A special mode of the amcc chip allows a "prefetchable" region that is 32 bits wide on the PCI side and 16 bits wide on the "add-on" (Cypress FIFO) side. The prefetchable region is used for block transfers when the FIFO is half full. When the PCIregion is read, the AMCC chip performs two fetch cycles from the cypress FIFO and presents both of these 16 bit words to the PCI side as a 32 bit word. It then prefetches the next words from the cypress FIFO, even if the PCI side hasn't asked for them yet. These prefetches are stored in another FIFO internal to the AMCC chip.
+As long as the PCI continues to ask for reads of addresses that are in sequence within the prefetchable region, the AMCC chip will return the proper pixels. When the end of the region is reached (it is 4096 words long) the AMCC chip stops prefetching.
+
+Altera programming:
+
+Half full flag jumper wire:
+

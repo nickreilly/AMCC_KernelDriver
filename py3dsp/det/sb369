@@ -1,0 +1,12 @@
+detname sb369
+clockpgm sb369.s
+datapgm ociw.o
+outputformat reverse
+badpixfile NULL
+maxrow 408
+maxcol 32768
+nout 1
+boxname OCIW4chan
+adrange 5.0
+ampgain 10.980000
+

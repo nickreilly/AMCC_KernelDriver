@@ -1,0 +1,575 @@
+PYDSP command line documentation
+
+Version:
+     $Id: doc_pydsp.txt,v 1.1 2003/07/02 20:00:02 drew Exp $
+
+Revisions:
+     $Log: doc_pydsp.txt,v $
+     Revision 1.1  2003/07/02 20:00:02  drew
+     copied from original forth document..
+     many inaccuracies, but the top stuff isn't too bad.
+
+
+
+pydsp functionality:
+
+	words are either run dictionary words, data dictionary words, or python functions.
+
+clockpgm  
+	member of det dict.
+	read returns clock prog name w/o path.
+	write loads the named clock program. 
+
+datapgm  
+	member of det dict.
+	does nothing; no data programs in burley system.
+
+detname member of run dict, also det dict..
+	rundict indirects to data dict
+	setting detname loads in detector file.
+
+night
+	run data dictionary entry. indirects to xdir.
+	executes xdir.night on sets
+	returns current xdir.nightpath on gets.
+	this function sets the night dir relative to the data path.
+
+object 
+	run data dictionary entry.
+	executes xdir.objectis on sets 
+	returns xdir.objpath on gets.
+    make new objdir & start sequencing data files SFX * 
+
+objfile
+	run data dictionary. read only.
+	writes go nowhere.
+	setting the object changes this..
+	it automatically seeks last entry in object directory.
+	reads back as last object file that was written.
+	is bumped immediately before writing
+
+observer              ( pstr -- )                        <run>         run.fth
+	run dictionary. get and set observer name.
+
+savedet 
+	function in det module.
+    saves detector file to xdir.detpath/detname
+	needs to write out biases as well??
+	maybe.
+
+savesetup             
+	function in run module.
+    Save run parameters to file; default is lastrun.run
+	note: lines are keyed.
+
+see
+	function in pydsp (command line) imported from inspect
+    Show definitions for words of given name * 
+
+datapath           
+	run dictionary entry.
+	sets call xdir.setdatapath.
+	can only change to directory that exists.
+	gets return xdir.datapath's current value.
+
+setup 
+	function in run module.
+	recover is similar.
+    load run parameters from file SFX *  typically lastrun.run
+
+telescope             ( pstr -- )                        <run>         run.fth
+	run dictionary entryl.
+    gets and sets telescope name * 
+
+gc                   ( addr -- )                        <run>         run.fth
+    Store rest-of-line as a 72 char comment at addr 
+	todo : make it handle spaces in the string!
+
+showrun
+    Display non-det parameters 
+	todo.
+
+ncol                  ( -- )                             <partial> partial.fth
+	run word. gets and sets patch number of colums. sets update driver/dsp.
+
+nrow                  ( -- )                             <partial> partial.fth
+	run word. gets and sets patch number of rows. sets update driver/dsp
+
+paths                 ( -- )                             <xdir>       xdir.fth
+	xdir function.
+    Show all file paths that have been set. 
+	todo; add other paths?
+
+abortrun              ( -- )                             <runrun>   runrun.fth
+	bail out of an acqisition?
+	todo
+
+adctime                ( n -- )                           <dsp>         run.fth
+    Set A/D convert time 
+	run word. (not det?)
+	todo : hook into dsp if needed..
+
+nextobject ( -- )                             <xdir>       xdir.fth
+	function in xdir.
+    When creating an object, advance SFX * 
+    the objfile to an objnum that does
+    not already exist on the disk.
+    This prevents you from overwriting
+    existing data when return to a
+    previously used object name.
+	currently assumes it is at end of directory.
+
+advance_fbuf             ( -- )                             
+    Advance DV filebuffer to next in line. 
+
+allnames               ( -- )                             <dsp>       tools.fth
+    Print alphabetical listing of all words. 
+	todo.
+
+allwords               ( -- )                             <dsp>       tools.fth
+    List all words in the dictionary, by vocabulary ** 
+	todo.
+
+aname                  ( "char" -- )                      <dsp>       tools.fth
+    List all words beginning with char. 
+	todo.
+
+bgsub                  ( -- )                             <dsp>          vf.fth
+    Toggle bkg subraction from src frames on/off. ** 
+	todo.
+
+bkg                    ( -- )                             <dsp>         run.fth
+	runrun function.
+    Make bkg buffer the current image buffer SFX ** 
+
+bmax                   ( n -- )                           <dsp>          vf.fth
+	dv function.
+    Set the maximum number of file buffers to use in VF 
+    and reset vf.srcfb to 0.
+	todo : off by one?
+
+brun                   ( -- )                             <dsp>      runrun.fth
+	runrun function
+    Select bkg buffer, then execute run SFX ** 
+
+bscan                  ( -- )                             <dsp>      runrun.fth
+	runrun function
+    Select bkg buffer, then execute scan SFX ** 
+
+burst                  ( -- )                             <dsp>      runrun.fth
+	runrun function
+	does nothing so far.
+    Clock array;throw away frames as fast as possible SFX ** 
+
+check.col.limit        ( n -- n|abort )                   <det>         det.fth
+    ncol must be divisible by 8! 
+	todo: add some idiot checking like this.
+
+check.row.limit        ( n -- n|abort )                   <det>         det.fth
+    nrow must be divisible by 2! 
+	todo: add some idiot checking like this.
+
+comment                ( -- )                             <fits>       fits.fth
+    set keyword = COMMENT 
+	todo : what is this?
+
+crun                   ( -- )                             <dsp>      runrun.fth
+    Clock array continuously, same time/all frames SFX ** 
+    crun exists to achieve stability in detector. **
+    NOTE: Throw away frames & coadd frames **
+    take the same amount of time **
+	todo : implement.
+
+crunread
+	todo
+    
+ctstime                ( n -- )                           <dsp>         run.fth
+	run dictionary word
+	todo ; connect with dsp. 
+
+dd.dirty               ( -- )                             <det>         det.fth
+	state inside det dictionary.
+    detector variables have changed since last loaddet/savedet 
+
+display                ( -- )                             <dsp>          vf.fth
+    Toggle auto-display of image data in VF on/off. ** 
+	todo: add toggling?
+
+exact.time->str        ( hundredths sec min hour -- pstr  <fits>       fits.fth
+	todo, need to get times of acqisition proper.
+
+gc_clean               ( -- )                             <run>         run.fth
+    Erase global comment 
+	todo ??
+
+gettime                ( -- )                             <misc>       misc.fth
+    gets date & time pstrings, depends on extensions 
+    thedate = 'dd/mm/yy' (FITS format!!)
+    thetime = 'hh:mm:ss' (local machine time)
+	todo: fits format the time and date!
+
+help                   ( "word" -- )                      <dsp>       tools.fth
+	part of python.
+    Get help about word from whatsup.doc file ** 
+
+itime                  ( n -- )                           <dsp>         run.fth
+	run ditionary word.
+    get and set integration time (ms) ** 
+    NOTE: can't change during crun
+
+lc                     ( "rest-of-line" -- )              <dsp>         run.fth
+    Enter a local comment ** 
+
+setclockpgm 
+	function in det.py
+    load clock program onto dsp board SFX * 
+
+loaddet                ( "filename" -- )                  <dsp>         det.fth
+	function in det.py
+	uses detpath as directory.
+	loads in detfile.map then detfile, the detfile.bias
+
+load_srec         ( pstr -- )       s                 <dspif>       dsp.fth
+    load .s file onto burley board SFX * 
+
+
+load_user..
+	can simply execute a python script with execfile.
+
+ncd                    ( n -- )                           <dsp>         run.fth
+	run data dict. 
+    Set number of co-add frames ** 
+	todo : dsp and device driver.
+
+nimage                 ( n -- )                           <dsp>      runrun.fth
+	todo: sample up the ramp !
+
+noobject               ( -- )                             <dsp>        xdir.fth
+    clears object path and filename SFX ** 
+
+normal                 ( -- )                             <con>     console.fth
+    set normal video 
+
+nout                   ( n -- )                           <dsp>         det.fth
+    # inputs in next image. Can't change during crun ** 
+
+nsamp                  ( n -- )                           <dsp>         run.fth
+    Set number of samples/level (level = s, r, or p) ** 
+    NOTE: can't change during crun
+
+nta                    ( n -- )                           <dsp>         run.fth
+    Set number of throw-away frames ** 
+    NOTE: can't change during crun
+
+print.temp             ( n|flag2 flag -- )                <tmp>       tmptr.fth
+    Type temp if flag=true * 
+    else error msg
+
+recover                ( -- )                             <dsp>         run.fth
+    load setup from last.run SFX ** 
+
+run                    ( -- )                             <dsp>      runrun.fth
+    get a complete image, save to disk as object.nnn SFX ** 
+	This name conflicts with the run module's name.
+
+saverun                ( -- )                             <dsp>         run.fth
+    save setup under last.run SFX ** 
+
+savesetup              ( "name" -- )                      <dsp>         run.fth
+    save setup to file "name" SFX ** 
+
+scan                   ( -- )                             <dsp>      runrun.fth
+    get a complete image, save diskfile named 4buffer SFX ** 
+
+sec-obs                ( -- n )                           <fits>       fits.fth
+    Convert TIME-OBS to seconds. 
+
+seeall                 ( "name" -- )                      <dsp>       tools.fth
+    Show definitions for words of given name ** 
+	todo: expand see to encompass seeall's power.
+
+send-to-vf             ( -- )
+    
+setdatapath            ( "name" -- )                      <dsp>        xdir.fth
+	xdir function. just use datapath entry in run dictionary.
+
+showall                ( -- )                             <dsp>         run.fth
+    show all parameters ** 
+	todo : do 
+
+showdet                ( -- )                             <dsp>         det.fth
+    Display current detector parameters ** 
+
+soundon                ( -- )                             <dsp>        misc.fth
+    sound bell (at end of each scan, etc.) ** 
+	?? cool idea?
+
+src                    ( -- )                             <dsp>         run.fth
+    Make src buffer the current image buffer SFX ** 
+	run run function.
+
+src.params             ( -- )                             <run>         run.fth
+    select src file & history SFX 
+	???
+
+srun                   ( -- )                             <dsp>      runrun.fth
+	run run function.
+    Select src buffer, then execute run SFX ** 
+
+sscan                  ( -- )                             <dsp>      runrun.fth
+	run run function.
+    Select src buffer, then execute scan SFX ** 
+
+stopdsp                ( -- n )                           <runrun>   runrun.fth
+    stops current board and return error codes SFX 
+	todo .. ?
+
+time                   ( -- )                             <dsp>       tools.fth
+    Print current time. SFX ** 
+	todo. well, its in the time module.
+
+tmps                   ( -- )                             <dsp>       tmptr.fth
+    print out temperatures and time SFX ** 
+
+updategui              ( -- )                             <dsp>    xshowall.fth
+    Initialize all GUI elements. SFX ** 
+
+vbias                  ( n -- )                           <dsp>         det.fth
+    Bias voltage. N in millivolts. Calls setvbias SFX ** 
+	todo : hook it into other biases?
+
+version                ( -- )                             <dsp>       tools.fth
+    Display version number of dspsys being used. ** 
+	todo; add a version so we can do this too.
+
+dv-load-bkg
+dv-load-brun
+dv-load-src            ( -- )                             <dv>           dv.fth
+dv-load-srun           ( -- )                             <dv>           dv.fth
+	we are doing ok here I think.
+
+dv-path                ( "string" -- )                    <dsp>          dv.fth
+    Set the datapath for VF to "string". SFX ** 
+
+dv-read                ( bufname filename -- )            <dsp>          dv.fth
+    Cause VF to read a specific file ** 
+    into a specific buffer.
+
+dv-src-bkg             ( -- )                             <dv>           vf.fth
+    Subtract bkg buffer from src buffer and place 
+    in src buffer.
+
+dvcmd                  ( "string" -- )                    <dsp>          dv.fth
+    Read a user inputed string and send the ** 
+    command to VF to be executed. The command
+    given must be acceptable by the command
+    prompt in VF. A list of commands can be
+    found in Appendix A of the VF documentation.
+
+waitforkey             ( pstr -- key )                    <misc>       misc.fth
+    wait for key in pstr (LOWER CASE!) 
+
+whatsnew               ( -- )                             <dsp>       tools.fth
+    Display specific version info, ** 
+    i.e. major changes in operation.
+	cool idea.
+
+xhost                  ( "name" -- )                      <dsp>         rpc.fth
+	really need this?
+
+xshowall               ( -- )                             <dsp>    xshowall.fth
+    Tell FORTH to send update info to Xshowall GUI. ** 
+    Initially, these are all set to noop.
+	todo ; workin on this one too.
+
+-------------------------
+
+"filter                ( pstr -- )                        <run>         run.fth
+    Store name of filter * 
+    NOTE: does not move to the filter
+    use filter name to do that
+
+"fwn                   ( pstr -- )                        <run>         run.fth
+    Enter filterwheel name * 
+    "BUG" this should load the filter wheel *
+
+"help                  ( pstr -- )                        <tools>     tools.fth
+    Get info about word from whatsup.doc file * 
+
+"vf-active             ( pstr -- )                        <vf>           vf.fth
+    Set the active canvas. 
+
+"vf-buffer             ( pstr -- )                        <vf>           vf.fth
+    Set the buffer for the active canvas. 
+
+"vf-dofile             ( pstr -- )                        <vf>           vf.fth
+    Set the VF macros path to pstr. 
+
+"vf-math               ( mathstr -- )                     <vf>           vf.fth
+    Perform simple math in VF. 
+    mathstr should look like:
+    b#=b#' {*|/|+|-} {b#''|num}
+
+"vf-path               ( pstr -- )                        <vf>           vf.fth
+    Set the datapath for VF to pstr. 
+
+"vfcmd                 ( pstr -- )                        <dsp>          vf.fth
+    Use to create commands in FORTH files. 
+    Stores pstr in vfstring and runs
+    send-to-vf. Example:
+    p" active e" "vfcmd
+
+(nm)                   ( lambda[nm] -- )                  <fil>    ../../fwheel
+    move to lambda SFX * 
+
+(readarray)            ( -- )                             <partial> partial.fth
+    read array, mode stored in runflag SFX * 
+
+(readarray)
+    
+(savea-)               ( -- )                             <fits>       fits.fth
+    After executing an a-, save sigbuf to disk 
+    in a file called "aminus". This is similar
+    to how sscan and bscan save their buffers
+    (i.e. savetmp).
+
+(savedata)             ( -- )                             <fits>       fits.fth
+    Save object datafile, pixels in fitspixbuf SFX * 
+    SHOULD: avoid duplicating code in savedata & savetmp *
+    by putting common code in a new word *
+    & having them put params on stack & call it *
+
+(savereturn)           ( -- )                             <nod>         nod.fth
+    Save parameters before executing a fast, * 
+    moderate or slow command.
+
+(savetmp)              ( -- )                             <fits>       fits.fth
+    like savedata but saves to a fixed temporary file SFX * 
+    SHOULD: avoid duplicating code in savedata & savetmp *
+    by putting common code in a new word *
+    & having them put params on stack & call it *
+
++res                   ( -- )                             <fil>    ../../fwheel
+    move to lambda = (lambda+[lambda/res]) w/backlash SFX * 
+
+->fwp                  ( lambda[nm] -- fwp )              <fil>    ../../fwheel
+    Convert wavelength -> position 
+
+.1mvolts>a/d           ( mV*10 -- a/d-counts              <dt>       dt2823.fth
+    Converts mv*10 to a/d data ** 
+    by dividing the mv*10 by 3.0518. Uses 16 bit A/D,
+    32 bit normals.
+
+.fitsheader            ( -- )                             <fits>       fits.fth
+    write fits header to screen SFX * 
+
+.label                 ( pstr -- )                        <run>         run.fth
+    Display pstr left justified in 16 chars; + ":" 
+
+.samptype              ( n -- )                           <run>         run.fth
+    display word name for sampmode n 
+
+.tmps                  ( -- )                             <dsp>       tmptr.fth
+    prints out voltage and temp for dro,fo,ws ** 
+
+ave                    ( col row -- )                     <red>         red.fth
+    average pixval for user rectangle. Will be clipped 
+
+ave.rect               (F: -- ave )                       <red>         red.fth
+    average pixval for clipped rectangle on Float Stack 
+
+backlash               ( -- )                             <dsp>       wheel.fth
+    perform backlash movement on the filterwheel SFX ** 
+
+badpix                 ( "name" -- )                      <dsp>         det.fth
+    store badpix filename ** 
+
+cencol                 (F: -- centroid_col )              <red>         red.fth
+    col for centroid of stats area on Float Stack 
+
+cenrow                 (F: -- centroid_row )              <red>         red.fth
+    row for centroid of stats area on Float Stack 
+
+do.rect                ( col row -- )                     <red>         red.fth
+    Calculate stats for rectangle given col&row * 
+
+filter                 ( wavelength bandwidth fwp-offset  <fil>    ../../fwheel
+    SFX * 
+    -- creates a filter-word. (pfa) has bandwidth, (pfa+4) has
+    wavelength, <pfa+8> has offset in fwp from l'. execution of
+    filter-word stores filter, wavelength, bandwidth, and filter
+    wheel position in header, updates status line, and moves
+    filter wheel.
+
+fw                     ( n -- )                           <dsp>       wheel.fth
+    move to new fwp=n, check bounds & backlash SFX ** 
+
+fw!                    ( n -- )                           <dsp>       wheel.fth
+    store new FilterWheel Position (fwp) if in bounds. ** 
+
+get.a/d                ( n -- v )                         <dt>       dt2823.fth
+    Channel n, 0<=n<=3, Gain==1, get A/D SFX ** 
+    returns a 32-bit Two's Complement # **
+    from -32768 to 32767. **
+
+get.a/d.mv             ( n -- v )                         <dt>       dt2823.fth
+    Same as GET.A/D but V is 10ths of millivolts SFX * 
+
+get.all.a/d            ( -- )                             <run>         run.fth
+    Get & store current A/D inputs SFX * 
+
+get.error.code         ( -- n )                           <runrun>   runrun.fth
+    # of error message returned by dsp program SFX 
+
+move.fw                ( n -- )                           <fil>       wheel.fth
+    shortest path move to fwp=n, with backlash SFX ** 
+
+nm                     ( lambda[nm] -- )                  <dsp>    ../../fwheel
+    move to lambda SFX ** 
+
+nm1                    ( lambda[nm] -- )                  <dsp>    ../../fwheel
+    Setup CVF1. 
+
+nm2                    ( lambda[nm] -- )                  <dsp>    ../../fwheel
+    Setup CVF2. 
+
+nml                    ( lambda[nm] -- )                  <dsp>    ../../fwheel
+    Move to wavelength on long CVF. 
+
+nms                    ( lambda[nm] -- )                  <dsp>    ../../fwheel
+    Move to wavelength on short CVF. 
+
+no.partials?           ( -- )                             <partial> partial.fth
+    aborts if buffers have partial images 
+
+nod                    ( -- )                             <dsp>         nod.fth
+    nod the telescope SFX ** 
+    [ <fil> ]
+
+nod-delay              ( n -- )                           <dsp>         nod.fth
+    the delay after nod, in seconds ** 
+
+noise                  ( -- )                             <dsp>       extra.fth
+    Measure detector noise SFX ** 
+
+nstep                  ( -- )                             <fil>       wheel.fth
+    step filter wheel motor n steps. SFX ** 
+
+numcols                ( -- numcols )                     <red>         red.fth
+    # cols in stats area 
+
+numpix.rect            ( -- )                             <red>         red.fth
+    # pixels in stats area 
+
+numrows                ( -- numrows )                     <red>         red.fth
+    # rows in stats area 
+
+out.dt.port0           ( n -- )                           <dt>       dt2823.fth
+    Sets DIO for Low-Byte Out, Outputs Low-Byte SFX * 
+
+out.dt.port1           ( n -- )                           <dt>       dt2823.fth
+    Sets DIO for Hi-Byte Out, Outputs Hi-Byte SFX * 
+
+out.dt.word            ( n -- )                           <dt>       dt2823.fth
+    Sets DIO for 16-bit Out, Outputs 16-bit word SFX * 
+

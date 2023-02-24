@@ -1,0 +1,73 @@
+#
+# Version:                                                              
+#      $Id: hawaii.map,v 1.3 2003/12/01 22:49:06 drew Exp $
+#                                                                           
+# Revisions:                                         
+#      $Log: hawaii.map,v $
+#      Revision 1.3  2003/12/01 22:49:06  drew
+#      updated names
+#
+#      Revision 1.2  2003/07/16 00:14:04  dsp
+#      straightened out all the names to all the dacs.
+#
+# 
+# this file sets up the dacs to the detector bias/clock names specified here.
+# mapping file for the hawaii-2RG
+
+BIAS vdd      0 # pin 1
+BIAS vdda     1
+BIAS celdrain 2
+BIAS drain    3
+BIAS bias5    4
+BIAS heater   5
+BIAS bias7    6
+BIAS vbpower  7 # pin 8
+BIAS vbgate   8
+BIAS vload    9
+# voffset is a little funky.. (done to reduce noise input to preamp)
+# the dac output is +/- 8.192 volts (like the others)
+# but on the header board it is attenuated to +/- 4.096 volts
+BIAS voffset  10
+BIAS _vreset  11
+BIAS dsub     12
+BIAS bias14   13
+BIAS bias15   14
+
+# Detector Clocks
+CLOCK fsyncblo 0 # pin 1
+CLOCK fsyncbhi 1 
+CLOCK csb_lo   4 # pin 2
+CLOCK csb_hi   5  
+CLOCK heaterlo 8 # pin 3
+CLOCK heaterhi 9
+CLOCK clock4lo 12 # pin 4
+CLOCK clock4hi 13
+
+# Column Clocks 
+CLOCK lsyncblo 2 # pin 9
+CLOCK lsyncbhi 3
+CLOCK hclk_lo  6 # pin 10
+CLOCK hclk_hi  7
+CLOCK mainrslo 28 # pin 11
+CLOCK mainrshi 29
+CLOCK clock12l 30 # pin 12
+CLOCK clock12h 31
+
+# Row Clocks
+CLOCK vclk_lo  18 # pin 17
+CLOCK vclk_hi  19
+CLOCK resetnlo 10 # pin 18
+CLOCK resetnhi 11
+CLOCK readenlo 20 # pin 19
+CLOCK readenhi 21
+CLOCK clock20l 22 # pin 20
+CLOCK clock20h 23
+CLOCK clock21l 14 # pin 21
+CLOCK clock21h 15
+CLOCK clock22l 24 # pin 22
+CLOCK clock22h 25 
+CLOCK clock23l 26 # pin 23
+CLOCK clock23h 27 
+CLOCK clock24l 16 # pin 24
+CLOCK clock24h 17 
+

@@ -1,0 +1,90 @@
+/* $Id: ads56300.txt,v 1.11 1999/06/22 14:20:16 wdroste Exp $ */
+ADS56300, Version 6.3.1 June 0, 1999
+1. Added support for all command converters.
+2. Fixed PC problem.
+3. Fixed DEVICE button in GDS.
+4. Added multitarget support.
+5. Added CCDEV enviroment variable.
+====
+ADS56300, Version 6.3 Apr 1, 1999
+1. Added support for the Parallel Port Command Converter (only).
+====
+ADS56300, Version 6.2.8, Jan 15, 1999
+1. Fixed     minor C debugging problems
+2. Added     added pc evaluation for non-display assemble
+3. Modified  for single PC executable support
+4. Corrected for pli model
+5. Fixed     problem with single line assembly
+6. Added     the online help capability to the PC version
+7. Added     blm cycle to ccop
+8. Fixed     the incorrect core register sequence
+9. Added     the 56309 device
+10. Updated  the 56307 host port implementation.
+11. Added    the 56311 support
+12. Added    blm cycle to efcp
+13. Added    blm cycle to fcop
+14. Fixed    stuck sp overflow bits
+====
+ADS56300, Version 6.2.7, Oct 15, 1998
+1. Added     56307 and 56309 devices.
+2. Corrected A number of simultaneous open files in the profiler.
+====
+ADS56300, Version 6.2.6, Jul 23, 1998
+1. Fixed     la reset value at the time of reset
+====
+ADS56300, Version 6.2.5, Jul 09, 1998
+1. Fixed     incorrect memory adressing problem.
+====
+ADS56300, Version 6.2.4, Jul 07, 1998
+1. Added     56309 and 56364 devices
+====
+ADS56300, Version 6.2.3, Jun 12, 1998
+1. Fixed     program access error caused by out-of-scope c-function variables.
+2. Added     host debugclock functionality.  Now it is possible to run the
+	     hardware at one clock rate in normal execution and run it at
+	     a different clock rate in debug mode.
+3. Fixed     slow behavior of the GUI when debugging with source window open.
+	     The new implementation was at least 7 times faster during the
+	     tests.
+4. Modified  the source code for the PC.  Now there are no support for Win 3.1
+	     and the same executable can be used for both WinNT and Win95.
+5. Added     support for reading the FIFO and second breakpoint registers.
+====
+ADS56300, Version 6.2.2, Apr 21, 1998
+1. Corrected the incorrect behavior in the hardware breakpoint dialog
+   when attempting to set a second breakpoint condition.
+====
+ADS56300, Version 6.2.1, Feb 12, 1998
+1. Corrected the incorrect behavior in the preferences dialog.
+2. Corrected the load function which used to take a long time for loading
+	     the compiler generated cld files. Now it is fast.
+====
+ADS56300, Version 6.2, Jan 21, 1998
+1. Corrected the ver 6.2 reset problem whenn used with the Command Converter
+             ver 5.X
+====
+ADS56300, Version 6.2, Jan 06, 1998
+1. Cancelled 56362 device password protection.  The 56362 device is now in the
+             list of devices available through the simulator device command.
+====
+ADS56300, Version 6.1.16, Dec 31, 1997
+1. Corrected command converter reset problem.  This problem occured randomly
+	     while in the host reset stage.
+2. Corrected incorrect l-memory window contents
+3. Enhanced  the debug-symbol construction stage.  This operation is carried-
+	     out after loading the program image into the ADS hardware.  We
+	     found cases where this stage may took a very long time.  Now, it
+	     is a fraction of what it used to be.  Observed a speed improvement
+	     of 93.3X
+====
+ADS56300, Version 6.1.15, Dec 12, 1997
+1. Corrected command converter reset problem.  This problem occured when there
+	     were no devices connected to the CC and user issued a "cforce r"
+	     command.
+2. Corrected the "system" command on the GUI version.
+3. Added     support for better handling the multiple devices.
+4. Added     command for setting the comand converter speed.
+5. Replaced  the main program toolbar buttons bitmaps in the GUI.
+====
+
+

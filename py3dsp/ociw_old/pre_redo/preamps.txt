@@ -1,0 +1,52 @@
+
+=========================================
+Preamplification for astronomical cameras
+=========================================
+
+* the typical signal source is a source-follower
+  from the imaging device. Load resistances in the
+  hundreds of kilohms or so, creating a source impedance 
+  of a few kilohms.
+
+* Traditionally, instrumentation amplifiers have been used.
+  The instrumentation amplifier is useful in situations when there
+  is significant common-mode noise, and the impedances of each
+  line on the differential signal are equal.
+
+* Common sensors used in instrumentation amplifier applications:
+  Wheatstone bridges, pickup coils, etc. These sensors are often 
+  free-floating (not grounded at either end) or in a symmetrical
+  circuit that is attached to a completely different system ground.
+
+The astronomical array output is not, by nature a differential output,
+although this is certainly an option to explore. 
+Also, there is not usually any significant common-mode noise, so it
+is arguable that an instrumentation amp is not the most appropriate choice.
+
+Noise issues
+============
+
+A single array output is typically sampled at rates in the 
+hundreds of kilohertz or better. It is desired to read the output
+to microvolt noise levels.
+
+Gain issues
+===========
+
+Typical gains required are between 10 and 50 depending upon the
+A/D converter's input range and
+  
+Bandwidth issues
+================
+
+Obtaining high accuracy requires fast op-amps even if
+signal bandwidth is not too large.
+
+Offset issues
+=============
+
+Often, the array output operates at a sizable offset from the
+ground reference. As a result, either the offset needs to enter
+the input stage, or several stages of amplification are needed.
+
+

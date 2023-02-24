@@ -1,0 +1,32 @@
+<html>
+<pre>
+<b>Libir2</b>
+
+
+The ir2 library are general purpose C function used in some irtf application, like DV. 
+The ir2 library is an updated version of libir1 that was/is installed in /usr/local/
+on the IRTF CentOS 4/6 machines. In 2014, the libir2 was create as a 64-bit ready 
+version. Any application needing ir2 should maintains a copy of the source with
+the application. 
+
+The /home/s2/src/dv/libir2 is the home of the official libir2 source code. 
+2 way to use this library:
+
+1. Copy to your source tree. 
+
+		cd myproject
+		cp -Rp /home/s2/src/dv/libir2 .
+		cd libir2
+		make realclean
+		make
+
+   /home/tcs3/src/tcs3/clients does this.
+	Other projects, may copy and fork libir1 as a general purpose lib/ for the
+	project, spex ic/xui does this, see /home/s2/src/spex/lib
+
+2. Create a makefile that just compiles the source in /home/s2/src/dv/libir2
+
+   For an example, see /home/denault/test/libir2/
+
+</pre>
+</html>

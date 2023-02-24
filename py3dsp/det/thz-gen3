@@ -1,0 +1,11 @@
+detname thz-gen3
+clockpgm thz-gen3e.s
+datapgm ociw.o
+outputformat reverse
+badpixfile NULL
+maxrow 1024
+maxcol 1024
+nout 1
+boxname OCIW4chan
+adrange 5.000
+ampgain 10.980

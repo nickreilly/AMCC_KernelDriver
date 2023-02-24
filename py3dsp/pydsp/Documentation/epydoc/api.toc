@@ -1,0 +1,116 @@
+\contentsline {section}{Contents}{1}{section*.2}
+\contentsline {section}{\numberline {1}Module DataDict}{4}{section.1}
+\contentsline {subsection}{\numberline {1.1}Variables}{5}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Class DataDict}{6}{subsection.1.2}
+\contentsline {subsubsection}{\numberline {1.2.1}Methods}{6}{subsubsection.1.2.1}
+\contentsline {subsubsection}{\numberline {1.2.2}Class Variables}{8}{subsubsection.1.2.2}
+\contentsline {section}{\numberline {2}Module autouser}{9}{section.2}
+\contentsline {subsection}{\numberline {2.1}Variables}{9}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Class AutoUser}{10}{subsection.2.2}
+\contentsline {subsubsection}{\numberline {2.2.1}Methods}{10}{subsubsection.2.2.1}
+\contentsline {section}{\numberline {3}Module det}{11}{section.3}
+\contentsline {subsection}{\numberline {3.1}Functions}{11}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Variables}{12}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Class DetDict}{13}{subsection.3.3}
+\contentsline {subsubsection}{\numberline {3.3.1}Methods}{13}{subsubsection.3.3.1}
+\contentsline {subsubsection}{\numberline {3.3.2}Class Variables}{15}{subsubsection.3.3.2}
+\contentsline {section}{\numberline {4}Module detectors.default}{16}{section.4}
+\contentsline {section}{\numberline {5}Module detectors.sipin226}{17}{section.5}
+\contentsline {subsection}{\numberline {5.1}Functions}{17}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Variables}{17}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Class Bunch}{17}{subsection.5.3}
+\contentsline {subsubsection}{\numberline {5.3.1}Methods}{17}{subsubsection.5.3.1}
+\contentsline {subsubsection}{\numberline {5.3.2}Class Variables}{18}{subsubsection.5.3.2}
+\contentsline {section}{\numberline {6}Module dsp}{19}{section.6}
+\contentsline {subsection}{\numberline {6.1}Functions}{19}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Variables}{22}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}Class ClockLine}{22}{subsection.6.3}
+\contentsline {subsubsection}{\numberline {6.3.1}Methods}{23}{subsubsection.6.3.1}
+\contentsline {subsubsection}{\numberline {6.3.2}Class Variables}{23}{subsubsection.6.3.2}
+\contentsline {subsection}{\numberline {6.4}Class ClockLine}{24}{subsection.6.4}
+\contentsline {subsubsection}{\numberline {6.4.1}Methods}{24}{subsubsection.6.4.1}
+\contentsline {subsubsection}{\numberline {6.4.2}Class Variables}{25}{subsubsection.6.4.2}
+\contentsline {subsection}{\numberline {6.5}Class DspThread}{25}{subsection.6.5}
+\contentsline {subsubsection}{\numberline {6.5.1}Methods}{25}{subsubsection.6.5.1}
+\contentsline {subsubsection}{\numberline {6.5.2}Class Variables}{27}{subsubsection.6.5.2}
+\contentsline {section}{\numberline {7}Module dv}{28}{section.7}
+\contentsline {subsection}{\numberline {7.1}Functions}{28}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Variables}{29}{subsection.7.2}
+\contentsline {section}{\numberline {8}Module filterBase}{30}{section.8}
+\contentsline {subsection}{\numberline {8.1}Functions}{30}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}Variables}{30}{subsection.8.2}
+\contentsline {subsection}{\numberline {8.3}Class cvFilter}{30}{subsection.8.3}
+\contentsline {subsubsection}{\numberline {8.3.1}Methods}{30}{subsubsection.8.3.1}
+\contentsline {subsection}{\numberline {8.4}Class fixedFilter}{30}{subsection.8.4}
+\contentsline {subsubsection}{\numberline {8.4.1}Methods}{31}{subsubsection.8.4.1}
+\contentsline {section}{\numberline {9}Module filterII}{32}{section.9}
+\contentsline {subsection}{\numberline {9.1}Functions}{32}{subsection.9.1}
+\contentsline {subsection}{\numberline {9.2}Variables}{32}{subsection.9.2}
+\contentsline {section}{\numberline {10}Module filterwh}{33}{section.10}
+\contentsline {subsection}{\numberline {10.1}Functions}{33}{subsection.10.1}
+\contentsline {subsection}{\numberline {10.2}Variables}{33}{subsection.10.2}
+\contentsline {section}{\numberline {11}Module fits}{34}{section.11}
+\contentsline {subsection}{\numberline {11.1}Functions}{34}{subsection.11.1}
+\contentsline {subsection}{\numberline {11.2}Variables}{34}{subsection.11.2}
+\contentsline {subsection}{\numberline {11.3}Class fitsbuffer}{34}{subsection.11.3}
+\contentsline {subsubsection}{\numberline {11.3.1}Methods}{34}{subsubsection.11.3.1}
+\contentsline {section}{\numberline {12}Module ociw}{35}{section.12}
+\contentsline {subsection}{\numberline {12.1}Functions}{35}{subsection.12.1}
+\contentsline {subsection}{\numberline {12.2}Variables}{36}{subsection.12.2}
+\contentsline {subsection}{\numberline {12.3}Class AbstractFrame}{36}{subsection.12.3}
+\contentsline {subsubsection}{\numberline {12.3.1}Methods}{36}{subsubsection.12.3.1}
+\contentsline {subsection}{\numberline {12.4}Class RawFrame}{36}{subsection.12.4}
+\contentsline {subsubsection}{\numberline {12.4.1}Methods}{36}{subsubsection.12.4.1}
+\contentsline {subsubsection}{\numberline {12.4.2}Class Variables}{37}{subsubsection.12.4.2}
+\contentsline {section}{\numberline {13}Module pydsp}{38}{section.13}
+\contentsline {subsection}{\numberline {13.1}Functions}{38}{subsection.13.1}
+\contentsline {subsection}{\numberline {13.2}Variables}{40}{subsection.13.2}
+\contentsline {subsection}{\numberline {13.3}Class pydspWebServer}{41}{subsection.13.3}
+\contentsline {subsubsection}{\numberline {13.3.1}Methods}{41}{subsubsection.13.3.1}
+\contentsline {subsubsection}{\numberline {13.3.2}Class Variables}{43}{subsubsection.13.3.2}
+\contentsline {section}{\numberline {14}Module pyshowall.pyshowall}{44}{section.14}
+\contentsline {subsection}{\numberline {14.1}Functions}{44}{subsection.14.1}
+\contentsline {subsection}{\numberline {14.2}Variables}{45}{subsection.14.2}
+\contentsline {subsection}{\numberline {14.3}Class gui\_writer}{46}{subsection.14.3}
+\contentsline {subsubsection}{\numberline {14.3.1}Methods}{46}{subsubsection.14.3.1}
+\contentsline {subsection}{\numberline {14.4}Class GuiThread}{46}{subsection.14.4}
+\contentsline {subsubsection}{\numberline {14.4.1}Methods}{46}{subsubsection.14.4.1}
+\contentsline {subsubsection}{\numberline {14.4.2}Class Variables}{47}{subsubsection.14.4.2}
+\contentsline {section}{\numberline {15}Module run}{48}{section.15}
+\contentsline {subsection}{\numberline {15.1}Functions}{48}{subsection.15.1}
+\contentsline {subsection}{\numberline {15.2}Variables}{48}{subsection.15.2}
+\contentsline {subsection}{\numberline {15.3}Class RunDict}{49}{subsection.15.3}
+\contentsline {subsubsection}{\numberline {15.3.1}Methods}{49}{subsubsection.15.3.1}
+\contentsline {subsubsection}{\numberline {15.3.2}Class Variables}{51}{subsubsection.15.3.2}
+\contentsline {section}{\numberline {16}Module runrun}{52}{section.16}
+\contentsline {subsection}{\numberline {16.1}Functions}{52}{subsection.16.1}
+\contentsline {subsection}{\numberline {16.2}Variables}{54}{subsection.16.2}
+\contentsline {section}{\numberline {17}Module sload}{55}{section.17}
+\contentsline {subsection}{\numberline {17.1}Class sloader}{55}{subsection.17.1}
+\contentsline {subsubsection}{\numberline {17.1.1}Methods}{55}{subsubsection.17.1.1}
+\contentsline {subsubsection}{\numberline {17.1.2}Class Variables}{56}{subsubsection.17.1.2}
+\contentsline {section}{\numberline {18}Module start\_pydsp}{57}{section.18}
+\contentsline {subsection}{\numberline {18.1}Functions}{57}{subsection.18.1}
+\contentsline {subsection}{\numberline {18.2}Variables}{57}{subsection.18.2}
+\contentsline {section}{\numberline {19}Module tempcontrol}{58}{section.19}
+\contentsline {subsection}{\numberline {19.1}Variables}{58}{subsection.19.1}
+\contentsline {subsection}{\numberline {19.2}Class tcontroller}{58}{subsection.19.2}
+\contentsline {subsubsection}{\numberline {19.2.1}Methods}{58}{subsubsection.19.2.1}
+\contentsline {section}{\numberline {20}Module tests}{60}{section.20}
+\contentsline {subsection}{\numberline {20.1}Functions}{60}{subsection.20.1}
+\contentsline {subsection}{\numberline {20.2}Variables}{60}{subsection.20.2}
+\contentsline {section}{\numberline {21}Module tmptr}{62}{section.21}
+\contentsline {subsection}{\numberline {21.1}Functions}{62}{subsection.21.1}
+\contentsline {subsection}{\numberline {21.2}Variables}{62}{subsection.21.2}
+\contentsline {section}{\numberline {22}Module tmptr\_curve10}{63}{section.22}
+\contentsline {subsection}{\numberline {22.1}Functions}{63}{subsection.22.1}
+\contentsline {subsection}{\numberline {22.2}Variables}{63}{subsection.22.2}
+\contentsline {section}{\numberline {23}Module wheel}{64}{section.23}
+\contentsline {subsection}{\numberline {23.1}Functions}{64}{subsection.23.1}
+\contentsline {subsection}{\numberline {23.2}Variables}{64}{subsection.23.2}
+\contentsline {subsection}{\numberline {23.3}Class Wheel}{65}{subsection.23.3}
+\contentsline {subsubsection}{\numberline {23.3.1}Methods}{65}{subsubsection.23.3.1}
+\contentsline {section}{\numberline {24}Module xdir}{66}{section.24}
+\contentsline {subsection}{\numberline {24.1}Functions}{66}{subsection.24.1}
+\contentsline {subsection}{\numberline {24.2}Variables}{67}{subsection.24.2}
+\contentsline {section}{Index}{68}{section*.4}
