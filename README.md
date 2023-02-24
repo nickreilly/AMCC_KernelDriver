@@ -21,6 +21,8 @@ This is a driver compiled from a once popular chip,the AMCC S5933, similar to th
 ### py3dsp
 This is a python program that we use to acquire the images for our project.  The operations that interact with the character file generated from the kernel module is located in amcc.py, which (theoretically) loads a clocking program in the sload.py.  Honestly, this entire code is an absolute mess, and I would rewrite it all if I knew what I was doing.  
 
+For those interested, the original name for this driver was ociw (that company has long since disappeared).  The (nonfunctional) driver is located in the ociwpci-64bit folder, and is named amcc.c with the amcc.h header!  
+
 # What I am hoping for
 
 Someone to help me identify things in the amcc_natasha.c file that are not 64 bit safe, and maybe kernel functions that have changed (like the IRQ_DISABLED function, for example, which I think can just be replaced with either a 0 or IRQF_NO_THREAD?)
